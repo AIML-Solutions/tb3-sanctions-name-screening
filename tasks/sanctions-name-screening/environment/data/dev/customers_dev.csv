@@ -1,0 +1,2253 @@
+customer_id,full_name,dob,nationality,id_type,id_number,type
+D000484,Trish Kowalsky,,CA,,,individual
+D001992,Elisabeth Nguyễn,1952-11-03,CA,,,individual
+D001095,Onyx Minerals SA,,RU,,,entity
+D000024,Pepe Kowalsky,,MX,,,individual
+D000672,Abdul Rahman Shahin,,IQ,,,individual
+D000241,Hoseyn Ahmady,1999-04-02,AF,,,individual
+D000954,Big Mo,,IR,,,individual
+D001549,M/T Red Falcon One,,IR,,,vessel
+D000382,Abu Salem,1973-07-09,YE,,,individual
+D002081,Bob Petersen,1999-07-27,BR,,,individual
+D001905,Xiao Ming Liu,1996-03-02,CN,,,individual
+D001795,Jim Smithjones,1961-08-10,FR,,,individual
+D000911,Hussien Shahin,1986-12-26,YE,,,individual
+D001732,Fung Lam,1953-07-01,HK,,,individual
+D000629,Mehdy Tehrany,,IR,,,individual
+D000314,Zaitseva Tatiana,1960,IR,,,individual
+D001709,Xander García,1991-05-09,DE,,,individual
+D002192,Chun Lam,2000-08-28,SG,,,individual
+D000423,Ming Zhu,1959-09-14,SG,,,individual
+D000436,Saeed Hashimi,,LB,,,individual
+D001678,Pat J. Mueller,1998-06-02,DE,,,individual
+D000583,Mike A.,1994,BY,passport,US13523786,individual
+D000347,Drew Schmidt,,CA,,,individual
+D001784,Wei Hoo,,SG,,,individual
+D001922,Peggy Kowalsky,1969-01-09,US,,,individual
+D001690,Rida Husseini,1983-08-03,AF,,,individual
+D000028,Abdel Rahman Kasim,1981,YE,,,individual
+D001867,Chun Li,,SG,,,individual
+D001130,Emerald Bay Trading G.m.b.H.,,AU,,,entity
+D001491,Vessel Golden Wave Alpha,,IR,imo,IMO9359962,vessel
+D002006,Bob Kowalsky,1950-03-25,CA,,,individual
+D002000,Hua Wong,1957-07-03,TW,,,individual
+D001497,MV Star of Aden II,,CM,,,vessel
+D000117,Ling Yang,1999-04-26,TW,,,individual
+D001179,Zenith Minerals G.m.b.H.,,CA,,,entity
+D000442,Jamie M. Schmidt,1994-05-01,MX,,,individual
+D001715,Qiang Guo,1998-02-10,SG,,,individual
+D001373,Emerald Bay Chemicals Free Zone Establishment,,BY,,,entity
+D002087,Maggie Hernandez,1969-04-05,BR,,,individual
+D001300,The Delta Trading PJSC,,CA,,,entity
+D000368,Beth Kowalsky,,CA,,,individual
+D000741,The Accountant,,BR,,,individual
+D001303,HARBOR POINT PHARMA L.L.C.,,YE,,,entity
+D000015,Hasan Masri,1955,SA,,,individual
+D001919,Jianguo Cai,1954-03-25,CN,,,individual
+D001311,Crystal Construction GmbH,,SG,,,entity
+D000339,Mustapha ben Abdul Rahman al-Rashid,1964,SY,,,individual
+D001477,Volga Steel GmbH,,MX,,,entity
+D000913,Andrey Petrow,1958-06-01,KZ,,,individual
+D001055,"Zagros Agro, SA",,YE,,,entity
+D000841,Ibraheem Hadad,1970-03-03,EG,,,individual
+D001645,MT Sun Dancer One,,LR,,,vessel
+D000198,Said Elsayed,1961-04-15,SA,,,individual
+D002026,Iurii Sergeyevich Petroff,1984-10-15,UA,,,individual
+D000532,Chun Hoo,1992-02-05,CN,,,individual
+D001101,CRYSTAL LOGISTICS FZE,,JO,,,entity
+D000476,Jen Silva,1966-07-10,US,,,individual
+D001152,Falcon Industries Co,,IR,,,entity
+D002211,Yung Wong,1973-06-24,CN,,,individual
+D001427,Harbor Point Petroleum Joint Stock Company,,DE,,,entity
+D000707,Yen Yeung,1996-10-16,TW,,,individual
+D001956,Xiao Jun Chow,1965-10-26,HK,,,individual
+D001367,Emerald Bay Engineering GmbH,,RU,,,entity
+D000158,Chien-Kuo Hu,,HK,,,individual
+D001569,Wind Runner Express,,LR,,,vessel
+D001412,The Euphrates Technologies LLC,,TW,,,entity
+D000135,Alee Mansur,1960-01-03,IQ,,,individual
+D002175,Bobby Schroder,1978-12-13,MX,,,individual
+D002050,Hsiang Suen,1975-02-10,HK,,,individual
+D000617,Tommy Du Bois,1962-10-08,US,,,individual
+D000929,Doctor,,AE,,,individual
+D001227,Sinai Investments Ltd.,,IQ,,,entity
+D000620,Xiaojun Hu,1971-02-23,CN,,,individual
+D000415,Esfahani Kaveh,1966-02-22,AF,,,individual
+D000673,Rob O'Brien,1961-12-06,BR,,,individual
+D001443,The Baltic Technologies FZ-LLC,,YE,,,entity
+D000749,Wladimir Volkoff,1994-10-02,UA,,,individual
+D000546,Volodymyr Jakowlew,1978,KZ,,,individual
+D001588,M/V Blue Whale III,,RU,,,vessel
+D000220,Andrey Kozloff,1971-04-05,LB,,,individual
+D000473,Abd al-Rahman Haddade,1986-02-20,EG,,,individual
+D001187,Kamchatka Maritime,,KZ,,,entity
+D000271,Bill Larson,1984-11-14,HK,,,individual
+D001602,M/V Amber Sky,,KM,,,vessel
+D000574,Po Chen,1984-03-27,CN,,,individual
+D001395,Caspian Group,,UA,registration,REG-945724,entity
+D001468,GOLDEN CRESCENT ENGINEERING SA,,HK,,,entity
+D001969,Drew M. Smith-Jones,1979-09-22,BR,,,individual
+D001809,Johnny M. Nguyen,1965-07-28,AU,,,individual
+D002116,Chun Kuo,1993-05-10,TW,,,individual
+D001064,ATLAS MARITIME Company,,EG,,,entity
+D000213,Alexandr Kozlov,1959-03,RU,,,individual
+D001123,Damavand Minerals SA,,TW,,,entity
+D000994,Sayid al-Amin,1977-01-13,EG,,,individual
+D001359,Sahara Shipping PJSC,,HK,,,entity
+D000734,Andriy Nikolaevich Kusnezow,1959,UA,,,individual
+D000340,Jen Andersen,1967-05-20,LB,,,individual
+D001837,Catherine Larson,1962-05-15,DE,,,individual
+D000131,Oualid Zaydi,1967-07-12,AE,,,individual
+D000313,Fung Yang,1991-01-11,SG,,,individual
+D000255,Aicha Hadad,,SY,,,individual
+D001725,Hsiao-Chun Woo,2000-05-07,HK,,,individual
+D001603,Coral Queen II,,MH,,,vessel
+D000529,Dan J. Schroeder,1964,US,,,individual
+D000179,Pat Larson,,MX,,,individual
+D001155,The Tigris Petroleum SA,,AF,,,entity
+D002201,Kuznetsova Irina,1993-08-20,UA,,,individual
+D001321,LOTUS AVIATION AO,,IR,,,entity
+D000144,Chirine Morady,1988-12,IR,,,individual
+D002080,Po Lo,,CN,,,individual
+D001282,"Zenith Technologies, AO",,GB,,,entity
+D000020,Maggie Sørensen,1993-08-13,SY,,,individual
+D000877,Hua Ma,1952-06-18,TW,,,individual
+D000092,Jen Larson,,AU,,,individual
+D000972,Ling Kwok,1960-08-25,CN,,,individual
+D001134,Titan Industries S.A.,,TW,,,entity
+D000810,Susan Ferreira,,US,,,individual
+D000124,Brahim Mansour,1993,SY,,,individual
+D000874,Johnny Nowak,1979,FR,,,individual
+D001973,Mike Hernández,1964-12-01,DE,,,individual
+D000166,Nasreen Tehrany,1969-02-21,IR,,,individual
+D000492,Svitlana Kozlova,1973-09-08,TW,,,individual
+D000601,Charlie Schroder,1974-07-10,FR,,,individual
+D000817,Chih-Chiang Suen,1958-02-24,HK,,,individual
+D001507,M/V Tiger Lily Star,,IR,,,vessel
+D002185,Beth Sorensen,,US,,,individual
+D002146,Danny M. Nowak,1993-08-12,MX,,,individual
+D001760,Kuo-Chiang Li,1977-11-17,CN,,,individual
+D000281,Kave Tehrany,,FR,,,individual
+D001506,Green Meadow III Express,,MH,,,vessel
+D001211,Aral Textiles Sociedad Anonima,,IQ,,,entity
+D000852,Olha Kozloffa,1974-08-18,KZ,,,individual
+D002170,Tao Yeung,1960-05-09,TW,,,individual
+D000511,Ming Chao,,TW,,,individual
+D000086,Tao Kwok,1996,SG,,,individual
+D000880,Ameer Kareemi,1997-01-04,AF,,,individual
+D000831,Mahmoud al-Farsi,,IQ,,,individual
+D002035,Chun Yang,1970-11-14,CN,,,individual
+D000700,Sergej Smirnoff,1962-07-13,RU,,,individual
+D002034,Ming Sun,1992-06-02,SG,,,individual
+D002051,Natalya Kuznetsoffa,,KZ,,,individual
+D000040,Rida Mohammadi,,IR,,,individual
+D002227,Dan M. Mueller,1979-11-18,BR,,,individual
+D001276,Eastern Star Aviation JSC,,MX,,,entity
+D000671,Evgeniy Jakowlew,2000-01-24,RU,,,individual
+D000215,Ebrahim Barkat,,SY,,,individual
+D001660,Jenny Schröder,,GB,,,individual
+D001983,Iryna Kusnezowa,,BY,,,individual
+D000862,Big Mo,,JO,,,individual
+D001078,The Meridian Shipping S.A.,,DE,,,entity
+D002234,Kate Fisher,1992-06-07,CA,,,individual
+D000075,Rob O'Brien,1994,DE,,,individual
+D000670,Al-Ustadh,,GB,,,individual
+D000501,Yen Sun,1964,CN,,,individual
+D000260,Lei Chu,1991,TW,,,individual
+D000544,Alex Nowak,,BR,,,individual
+D002229,Xander M. Kowalski,2000-03-16,GB,,,individual
+D000912,Pat Schroder,1996-03-15,MX,,,individual
+D001531,Golden Wave III Trader,,RU,,,vessel
+D001229,Silk Road Technologies SA,,MX,,,entity
+D000042,Wladimir Sokoloff,,BY,,,individual
+D000426,"Zaitsev, Michail",,BY,,,individual
+D000375,Jian-Guo Liou,1996-04-09,TW,,,individual
+D001652,Albatross Spirit,,LR,,,vessel
+D000504,Chun Suen,1978-02-21,HK,,,individual
+D000248,Farhaad Ahmadi,1965-04-19,AF,,,individual
+D001259,Orion Group,,AF,registration,REG-471026,entity
+D000624,Xiao-Ming Zhao,,AF,,,individual
+D000250,Ahmet Mansour,1981-10-25,EG,,,individual
+D000512,Yong Zhou,1962-11-18,CN,,,individual
+D000279,Xander Ferreira,,US,,,individual
+D001111,Blue Horizon Shipping Limited,,IQ,,,entity
+D001949,Johnny Fischer,1983-09-12,GB,,,individual
+D000496,Sasha,1973-01-16,RU,,,individual
+D000001,Abdellah Al Hashemi,,IQ,,,individual
+D001099,The Al-Noor Agro Co.,,LB,,,entity
+D002233,Alex Schröder,1974-11-07,GB,,,individual
+D000272,Tommy Anderson,,CA,,,individual
+D001264,"Aral Technologies, Co.",,HK,,,entity
+D001622,MV Silver Crest III,,IR,,,vessel
+D000928,Doctor,,EG,,,individual
+D000751,Tao Xu,1971-11-15,TW,,,individual
+D001805,Po Wong,1963-09-12,TW,,,individual
+D000462,Lei Suen,1982-06,CA,,,individual
+D000236,Alex Du Bois,1995-07-19,US,,,individual
+D001271,Northern Lights Aviation,,RU,,,entity
+D000316,Said Kasim,1999,EG,,,individual
+D000136,Yusef Barkat,1953-05-07,AF,,,individual
+D000837,Po Chow,1992-08-05,CN,,,individual
+D001728,Wei Tchen,1963-01-20,HK,,,individual
+D000648,Iryna Ivanoffa,1973-12-14,KZ,,,individual
+D001404,TIGRIS ENGINEERING OAO,,UA,,,entity
+D001246,Aral Electronics,,HK,,,entity
+D001121,CASPIAN AGRO S.A.,,DE,,,entity
+D000618,Lei Kuo,1963-05-03,HK,,,individual
+D000412,Jon M. Hernandez,1962-10-24,AU,,,individual
+D001505,M/T Golden Anchor II,,KM,,,vessel
+D001007,Wei Zhu,1979-01-19,CN,,,individual
+D002110,Ping Suen,1961-12-08,TW,,,individual
+D000112,Moustafa Kassem,1962-03-10,BY,,,individual
+D001830,Xiao-Ming Cai,1993-12-03,SG,,,individual
+D001483,Tigris Logistics Ltd.,,LB,,,entity
+D001831,Lei Ma,1987-02-03,TW,,,individual
+D000346,Dan OBrien,1959-01-09,BR,,,individual
+D001761,Jenny O'Brien,1970-10-04,AU,,,individual
+D001865,Lei Hu,1952-08-20,HK,,,individual
+D001668,Yong Yang,1954-01-10,SG,,,individual
+D000491,Peggy A. Andersen,,DE,,,individual
+D001999,Rezaei Kave,1967-04-12,AF,,,individual
+D001441,Altai Holdings OAO,,GB,,,entity
+D000697,Sasha,,GB,,,individual
+D000427,"Petrova, Elena",,KZ,,,individual
+D000394,Andy OBrien,1964-06-05,GB,,,individual
+D001165,BLUE HORIZON STEEL PJSC,,BY,,,entity
+D000311,Smirnov Evgeniy,1983-11-19,BR,,,individual
+D000178,Mahmud Mansur,,EG,,,individual
+D001108,Sinai Electronics GmbH,,AE,,,entity
+D002197,Jen J. Schroeder,1972-11-02,AU,,,individual
+D001729,Rob Novak,,FR,,,individual
+D000728,Tony Bianchi,1996-08-22,MX,,,individual
+D001889,Ming Cai,1987-09-11,CN,,,individual
+D000710,Irina Petrovna Kuznetsov,,KZ,,,individual
+D002036,Ping Choi,,CN,,,individual
+D000756,Olga Ivanovna Tkachenko,1974-03-25,BY,,,individual
+D001457,Blue Horizon Technologies OAO,,RU,,,entity
+D001584,MV Pacific Glory II,,MH,,,vessel
+D001542,Vessel Caspian Moon Alpha,,RU,imo,IMO9882511,vessel
+D002041,Hua Lin,1984-02-23,CN,,,individual
+D002075,Ming Luo,1998-11-26,CN,,,individual
+D001503,Vessel Sapphire Alpha,,CM,imo,IMO9972170,vessel
+D002076,Xander Garcia,,DE,,,individual
+D000693,Mustafa bin Tariq al-Sayed,,SY,,,individual
+D001511,Bosporus III Spirit,,LR,,,vessel
+D001467,SINAI TRADING GmbH,,FR,,,entity
+D000372,Mahmud Hadad,1960-08-18,AF,,,individual
+D000273,Ameer Sadegi,1978,AF,,,individual
+D000584,Ping Wong,1970-10-21,TW,,,individual
+D002040,Chun Wang,1952-04-22,SG,,,individual
+D001560,Vessel Hormuz Pride Alpha,,KM,imo,IMO9484497,vessel
+D001936,Jen M. Nguyen,1988-11-19,BR,,,individual
+D000692,Yan Liu,1999,SG,,,individual
+D002078,Xander M. Garcia,1973-07-18,AU,,,individual
+D000142,Abu Layth,1957-08-09,UA,,,individual
+D000809,Shireen Rezaee,1959-10-19,IR,,,individual
+D000137,Oualid ibn Khalid Masri,1974-02-23,SG,,,individual
+D001413,Sahara Pharma Limited,,KZ,,,entity
+D001181,"Atlas Technologies, Limited Liability Company",,MX,,,entity
+D001232,Summit Logistics Public Joint Stock Company,,SA,,,entity
+D002144,Lei Chao,1951-11-03,HK,,,individual
+D000872,Tatiana Nikolaevna Volkova,,UA,,,individual
+D000957,Yan Liu,,CN,,,individual
+D001881,Beth Dubois,1961-03-06,MX,,,individual
+D000106,Tarik Chahine,1995-07-24,YE,,,individual
+D001553,MV Golden Wave,,IR,,,vessel
+D000797,Robert Nowak,,CA,,,individual
+D001592,M/V Golden Anchor Star,,LR,,,vessel
+D000081,Ahmed Haddade,,SA,,,individual
+D001173,Al-Bahr Group,,KZ,registration,REG-968051,entity
+D001649,Red Falcon II Trader,,CM,,,vessel
+D002064,Tommy J. Kowalski,,CA,,,individual
+D002112,Jon Fischer,1994-12-23,US,,,individual
+D001972,Iryna Ivanovna Kuznetsova,1977-08-05,RU,,,individual
+D000401,Ameer Karimy,1972,AF,,,individual
+D001280,Red Sea Group,,DE,registration,REG-905962,entity
+D000621,Alexandr Sergeyevich Zaicev,1969,KZ,,,individual
+D001882,Ming Wang,1967-02-27,SG,,,individual
+D001390,Kamchatka Shipping Joint Stock Company,,KZ,,,entity
+D002065,Billy Bianchi,,DE,,,individual
+D000051,Hua Huang,,TW,,,individual
+D000815,Eugene Nikolaevich Tkatchenko,1963-03-19,RU,,,individual
+D002047,Po Hu,1984-09-14,CN,,,individual
+D001272,Al-Noor Chemicals L.L.C.,,JO,,,entity
+D000889,Abu Omar,,FR,,,individual
+D001178,"Falcon Maritime, Co.",,TW,,,entity
+D001076,Phoenix Investments AO,,YE,,,entity
+D001772,Wei Hoo,1989-08-05,SG,,,individual
+D000690,Jim Sørensen,1991-07-22,FR,,,individual
+D001201,Nile Valley Trading Limited,,EG,,,entity
+D000916,Nikolay Fedoroff,1988,RU,,,individual
+D001015,Chih-Chiang Yeung,1990-02-08,TW,,,individual
+D000635,Jenny Du Bois,1998-07-17,AU,,,individual
+D001102,Silk Road Steel G.m.b.H.,,HK,,,entity
+D000890,Richard Nguyen,,AU,,,individual
+D000914,Richard Silva,1960,DE,,,individual
+D002224,Wei Suen,,HK,,,individual
+D001122,Ivory Coast Logistics G.m.b.H.,,EG,,,entity
+D000866,Ping Cai,,CN,,,individual
+D001212,Summit Logistics Public Joint Stock Company,,SG,,,entity
+D000315,Helena Sokoloffa,1987-02-23,RU,,,individual
+D001138,Titan Textiles S.A.,,UA,,,entity
+D000669,Babac Husseini,1999-06-17,AF,,,individual
+D000806,Patricia Andersen,,CA,,,individual
+D001330,"Jade Dragon Steel, Co.",,BR,,,entity
+D001249,Blue Horizon Construction Joint Stock Company,,KZ,,,entity
+D000760,Leila Arrashid,1963-09-09,JO,,,individual
+D001096,Summit Import Export LLC,,BY,,,entity
+D000364,Fedorova Natalya,1950-07-05,BY,,,individual
+D001364,Jade Dragon Textiles Free Zone Establishment,,BR,,,entity
+D000514,Wei Zhang,,CN,,,individual
+D001315,Ural Shipping PJSC,,SG,,,entity
+D001931,Ping Chen,,CN,,,individual
+D001604,Atlantic Hope Star Express,,LR,,,vessel
+D001059,Damavand Technologies Co.,,SG,,,entity
+D001676,Yong Zhu,,CN,,,individual
+D001910,Jun Guo,1956-03-08,HK,,,individual
+D001566,Vessel Ocean Pearl Alpha,,RU,imo,IMO9686894,vessel
+D001886,Tao Hoo,1975-03-17,HK,,,individual
+D000482,Abu Layth,1991-12-12,TW,,,individual
+D001796,Xiang Xu,1970-12-15,SG,,,individual
+D000723,Kave Djafari,1990-04-14,AF,,,individual
+D001959,Yan Hu,1979-09-17,SG,,,individual
+D000559,Yan Hsu,1983-01-10,HK,,,individual
+D000242,Helena Ivanovna Ivanoffa,1968-03-27,UA,,,individual
+D000276,Halid Barakat,1950,SA,,,individual
+D000686,Waleed al-Amin,1955,SY,,,individual
+D001402,Eastern Star Textiles Limited,,TW,,,entity
+D000851,Omar Nasser,,SY,,,individual
+D001021,Natasha Kozlova,1981-01-12,BY,,,individual
+D001357,Ural Aviation Free Zone Establishment,,DE,,,entity
+D001252,JADE DRAGON TECHNOLOGIES AO,,AE,,,entity
+D001436,"Caspian Logistics, Company",,FR,,,entity
+D001984,Peggy J. Schroeder,1972-07-25,BR,,,individual
+D001127,Zagros Group,,US,registration,REG-146593,entity
+D002089,Chun Lam,,HK,,,individual
+D000829,Hussain Mansoor,1963-09-05,AE,,,individual
+D001754,Mahmood El Farsi,,SY,,,individual
+D001052,Jade Dragon Trading GmbH,,SG,,,entity
+D000309,Serguei Fedorov,2000,BY,,,individual
+D000452,Tarik K.,,SA,passport,SA57366756,individual
+D001925,Pepe M. Schroeder,,DE,,,individual
+D001896,Guo Qiang Ma,1956-12-05,HK,,,individual
+D001293,Falcon Investments Company,,KZ,,,entity
+D001828,Qiang Zhou,1994-07-07,SG,,,individual
+D001888,Hsiao-Chun Zhou,,TW,,,individual
+D001439,Eastern Star Logistics Public Joint Stock Company,,KZ,,,entity
+D001237,RED SEA CHEMICALS PJSC,,TW,,,entity
+D002032,Chuck Nowak,1971-03-11,DE,,,individual
+D001979,Wei Liu,2000-04-11,HK,,,individual
+D002215,Jenny M. Nguyen,1965-04-11,CA,,,individual
+D000146,Umar El Farsi,1972-03-16,LB,,,individual
+D001091,Sahara Logistics G.m.b.H.,,LB,,,entity
+D000202,Kozlov Paul Ivanovich,,RU,,,individual
+D000172,Irena K.,,AE,passport,BY41960920,individual
+D001595,Vessel Silver Lining Alpha,,LR,imo,IMO9020422,vessel
+D000676,Ming Wu,,SG,,,individual
+D001768,Yen Wong,,TW,,,individual
+D002186,Ming Li,1975-05-22,HK,,,individual
+D002149,Xander Schroeder,,MX,,,individual
+D001953,Rida Hosseini,,AF,,,individual
+D000230,Babac Morady,1959-08-06,AF,,,individual
+D001633,Vessel Golden Anchor Alpha,,PA,imo,IMO9084771,vessel
+D002102,Rich OBrien,,GB,,,individual
+D000675,Jamie Larson,1952,DE,,,individual
+D001696,Chuck O Brien,1953-08-25,FR,,,individual
+D001848,Oumar Nasser,1962-08-25,YE,,,individual
+D001792,Johnny Nguyen,1956-10-09,GB,,,individual
+D000812,Mike Le Fevre,1960,FR,,,individual
+D000152,Yousuf bin Hassan Elmasry,1971,IQ,,,individual
+D001669,Jian-Guo Mah,1961-07-16,SG,,,individual
+D001120,Ural Pharma Company,,JO,,,entity
+D000884,Mehdy Rezaie,1971-11-21,AF,,,individual
+D001541,Caspian Moon Star Trader,,KM,,,vessel
+D001617,Vessel Iron Duke Alpha,,PA,imo,IMO9675854,vessel
+D001145,Blue Horizon Maritime SA,,RU,,,entity
+D002094,Aly Qasim,1963-09-03,SA,,,individual
+D000811,Robert Ferreira,,US,,,individual
+D000336,Hasan Salah,1989-09-12,SA,,,individual
+D002198,Jon J. Schmidt,1972-08-02,FR,,,individual
+D000666,Doctor,,KZ,,,individual
+D001786,Wei Mah,1962-02-17,HK,,,individual
+D001414,Phoenix Technologies Company,,SA,,,entity
+D001124,Kamchatka Agro Ltd,,HK,,,entity
+D000582,Chiang Kao,,AF,,,individual
+D001630,Grand Voyager One Express,,LR,,,vessel
+D000003,Andrey Petrovich Jakowlew,1958,RU,,,individual
+D002004,Alex A. Kowalski,1978-04-09,MX,,,individual
+D001977,Fung Lam,1952-06-22,CN,,,individual
+D000959,Wei Gao,,TW,,,individual
+D002188,Yen Hoo,1987-06-15,CN,,,individual
+D001291,BALTIC AGRO Public Joint Stock Company,,IR,,,entity
+D000048,"Shevchenko, Svitlana",1980-05-14,BY,,,individual
+D000477,Liz Anderson,,MX,,,individual
+D001819,Ling Wu,1998-10-07,HK,,,individual
+D000989,Ping Chang,1964-12-25,CN,,,individual
+D001197,Sinai Construction Company,,TW,,,entity
+D000154,Serguei Zaicev,1979,UA,,,individual
+D000052,Chuck Dubois,1957-06-07,US,,,individual
+D001399,Northern Lights Pharma Ltd.,,YE,,,entity
+D001397,Sinai Steel L.L.C.,,DE,,,entity
+D002209,Xiao Ming Huang,1962-12-10,SG,,,individual
+D001148,Amber Petroleum PJSC,,MX,,,entity
+D001013,Johnny Andersson,1992-02-08,US,,,individual
+D001167,"Zagros Electronics, LLC",,GB,,,entity
+D001804,Mike A. Andersen,1982-05-14,CA,,,individual
+D000698,Po Chang,1959,CN,,,individual
+D002199,Tony A. Sorensen,1963-08-12,FR,,,individual
+D001994,Fung Ng,1981-07-13,CN,,,individual
+D002219,Peggy A. Schmidt,1951-11-21,FR,,,individual
+D001012,Jim Müller,1960-01-15,DE,,,individual
+D001661,Jian Guo Kao,1959-06-24,CN,,,individual
+D000007,Yusef Salah,1977-07-06,LB,,,individual
+D001656,Mike Du Bois,1961-08-22,GB,,,individual
+D001051,Aral Group,,RU,registration,REG-815544,entity
+D001547,MT Blue Whale One,,IR,,,vessel
+D000153,Kave Jafari,1974-04-27,AU,,,individual
+D001564,M/T Albatross One,,CM,,,vessel
+D001363,Summit Technologies PJSC,,SG,,,entity
+D001337,Atlas Electronics Sociedad Anonima,,FR,,,entity
+D000979,Katherine Kowalski,,FR,,,individual
+D002070,Yung Chao,1990-08-10,CN,,,individual
+D000547,Johnny Bianci,1984-03-28,BR,,,individual
+D000703,Oualid Zaydi,1995-10-26,AE,,,individual
+D001032,Lei Kwok,1973-10-12,HK,,,individual
+D000046,Mohammed Amin,1985-10-25,AE,,,individual
+D001637,Andromeda,,IR,,,vessel
+D001702,Alex Kowalski,1970-09-10,BR,,,individual
+D000591,Tom Schmidt,,BR,,,individual
+D001607,Ocean Titan Star Spirit,,MH,,,vessel
+D000550,Abdurrahman Alamin,2000-09-25,YE,,,individual
+D002016,Chuck García,1964-07-26,CA,,,individual
+D001224,Northern Lights Maritime PJSC,,AF,,,entity
+D002097,Hua Hu,,HK,,,individual
+D000898,Tatiana Volkov,1950,UA,,,individual
+D001306,Sahara Textiles PJSC,,AF,,,entity
+D001323,Blue Horizon Group,,SY,registration,REG-459945,entity
+D001480,Amber Holdings,,SG,,,entity
+D002019,Xiao Jun Yang,,CN,,,individual
+D002136,Elisabeth Sorensen,1967-03-05,DE,,,individual
+D000541,Aicha Shaheen,1984-05-14,JO,,,individual
+D000193,Rich Muller,,DE,,,individual
+D002164,Bob M. Dubois,1974-10-15,FR,,,individual
+D001691,Chiang Lam,1976-11-27,CN,,,individual
+D002212,Bill Schröder,1979-04-12,GB,,,individual
+D000868,Ibraheem Saleh,1970-06-15,YE,,,individual
+D001215,Ivory Coast Holdings,,LB,,,entity
+D000150,Gamal Hashimi,1962-01-28,CN,,,individual
+D001601,MV Storm Petrel,,KM,,,vessel
+D001183,Al-Noor Holdings Company,,DE,,,entity
+D001887,Wei Ma,1988-01-23,CN,,,individual
+D000947,Kaveh Rezaei,,AF,,,individual
+D001502,MV Sun Dancer II,,IR,,,vessel
+D000098,Dan Du Bois,1981-10,US,,,individual
+D000493,Yung Hwang,,HK,,,individual
+D000975,Abdellah Salah,1981-06-21,JO,,,individual
+D002216,Aleksander Kusnezow,,UA,,,individual
+D001275,Meridian Petroleum G.m.b.H.,,AU,,,entity
+D001773,Xiao-Ming Li,1982-12-07,TW,,,individual
+D000857,Hsiao-Chun Lo,1968-12-04,HK,,,individual
+D000005,Khaled Hadad,,IQ,,,individual
+D000554,Tom Sorensen,1981,US,,,individual
+D000161,Hosseini Meryem,1959-06-22,IR,,,individual
+D001005,Swetlana Smirnoffa,1995-09-06,KZ,,,individual
+D000454,Tao A.,,HK,passport,HK46082081,individual
+D001572,Kestrel III Express,,KM,,,vessel
+D000349,Al-Hakim,1961-05-09,IR,,,individual
+D002150,Peggy García,,FR,,,individual
+D001068,The Caspian Pharma Limited,,DE,,,entity
+D000159,Hassane Chahine,1992-06-18,AE,,,individual
+D001493,MV Grand Voyager Star,,IR,,,vessel
+D001835,Chun Kuo,1981-03-18,SG,,,individual
+D000069,Elisabeth Hernandez,,US,,,individual
+D001292,Northern Lights Group,,UA,registration,REG-519530,entity
+D001035,Edward Mueller,,US,,,individual
+D001515,M/T Ocean Pearl III,,KM,,,vessel
+D001598,Vessel Aurora Alpha,,IR,imo,IMO9163072,vessel
+D001852,Hsiao-Chun Sun,1987-06-26,SG,,,individual
+D000025,Irena Nikolaevna Ivanoffa,1954-10,KZ,,,individual
+D000816,Hassane El Farsi,1977-06-02,IQ,,,individual
+D001049,Baltic Engineering Company,,AF,,,entity
+D001072,Nile Valley Chemicals Limited,,FR,,,entity
+D000105,Aysha Al Farsi,1995-08-03,LB,,,individual
+D000701,Xiaoming Gao,,CN,,,individual
+D000596,Hosseini Ehsan,,AF,,,individual
+D001430,MERIDIAN PHARMA GmbH,,FR,,,entity
+D002225,Jen Nguyễn,1992-03-28,BR,,,individual
+D001154,Pacific Rim Pharma G.m.b.H.,,EG,,,entity
+D001079,Amber Investments Sociedad Anonima,,RU,,,entity
+D000240,Mikey Kowalsky,1983,IQ,,,individual
+D001591,MT Iron Duke III,,CM,,,vessel
+D000895,Saeid Hashemi,1980-02-06,LB,,,individual
+D000118,Ed Ferreira,1990-04-20,IQ,,,individual
+D000761,Aleksandr Aleksandrovich Kuznetsov,1974,BY,,,individual
+D001023,Abu Salem,,BR,,,individual
+D000612,Chun Luo,1997-10-22,UA,,,individual
+D001581,M/T Desert Rose II,,RU,,,vessel
+D000950,Victor Ivanoff,1961,RU,,,individual
+D000451,Waleed Saleh,1953,FR,,,individual
+D000708,Abdallah Mansoor,1985-05-12,LB,,,individual
+D001942,Peggy Nguyen,1982-02-18,CA,,,individual
+D001097,Jade Dragon Textiles PJSC,,AE,,,entity
+D001081,Delta Electronics,,TW,,,entity
+D002154,Hua Wong,1955-12-11,HK,,,individual
+D002014,Chien-Kuo Mah,1957-02-27,HK,,,individual
+D002124,Yen Liu,,HK,,,individual
+D000827,Tatyana Fedoroffa,1998-11-16,KZ,,,individual
+D001934,Mike Du Bois,1967-01-10,GB,,,individual
+D000790,Robert Nowak,,CA,,,individual
+D000905,Mei-Ling Zhang,1959-02-04,CN,,,individual
+D001820,Tony M. Petersen,,AU,,,individual
+D000326,Fung Hoo,2000-01-01,IR,,,individual
+D002232,Hsiao-Ming Hoo,1968-05-21,CN,,,individual
+D001269,The Altai Minerals Free Zone Establishment,,AU,,,entity
+D001490,Tiger Lily One Express,,KM,,,vessel
+D001361,Silk Road Trading PJSC,,BR,,,entity
+D000542,Sokolov Pavel,1995-05-17,BY,,,individual
+D000162,Evgeni Petrovich Petroff,,KZ,,,individual
+D000405,Babac K.,1953-09-28,YE,passport,IR75989103,individual
+D000317,Laila Al Sayyid,1960-03-28,IQ,,,individual
+D000495,Tom Novak,1972-03-09,CN,,,individual
+D000030,Oualid ben Abdul Rahman al-Sayed,,JO,,,individual
+D000980,Paul Kusnezow,1996-09-07,RU,,,individual
+D001733,Jenny J. Petersen,,AU,,,individual
+D000716,Omer ibn Tariq al-Farsi,1995-11-26,LB,,,individual
+D002195,Ming Zhou,,CN,,,individual
+D000218,Mariam Ahmady,1969-09-18,AF,,,individual
+D000593,Jon Anderson,1954-05-21,LB,,,individual
+D000935,Tony Hernández,1952-04-12,AU,,,individual
+D002095,Ping Zhu,1977-10-19,TW,,,individual
+D000923,Jen Ferreyra,1974-11-18,US,,,individual
+D000324,Chiang Chan,,SG,,,individual
+D001069,Baltic Logistics S.A.,,LB,,,entity
+D001336,Kamchatka Investments Limited Liability Company,,FR,,,entity
+D000225,Yousuf M.,,FR,passport,AE29949188,individual
+D000097,Ihor Nikolaevich Ivanoff,1964-05-28,KZ,,,individual
+D002099,Bill J. Bianchi,1995-06-25,CA,,,individual
+D001619,Vessel Crimson Dawn Alpha,,CM,imo,IMO9867540,vessel
+D000256,Guo Qiang Chu,1994,CN,,,individual
+D002013,Kuo-Chiang Li,,CN,,,individual
+D000896,Big Mo,,BY,,,individual
+D000823,Suzy Peterson,1963-10-15,US,,,individual
+D001297,Sinai Chemicals Joint Stock Company,,FR,,,entity
+D001755,Jian-Guo Ma,1980-08-19,HK,,,individual
+D000165,Evgeny Iwanow,,UA,,,individual
+D002239,Kuo-Chiang Ma,1973-03-27,CN,,,individual
+D001558,MV Silver Crest II,,CM,,,vessel
+D001253,Red Sea Group,,TW,registration,REG-844326,entity
+D000503,Khaled Al Rashed,1952,JO,,,individual
+D001466,Amber Industries G.m.b.H.,,AF,,,entity
+D001667,Maggie García,1995-11-07,CA,,,individual
+D002141,Tao Zhou,,TW,,,individual
+D000486,Jen Ferreira,1990,US,,,individual
+D001991,Chun Lin,1952-03-16,HK,,,individual
+D001080,Zenith Investments Public Joint Stock Company,,LB,,,entity
+D000711,Alee Barakat,1967,LB,,,individual
+D000518,Ehsaan Rezaee,1994-12,AE,,,individual
+D001342,LOTUS TEXTILES Co,,SA,,,entity
+D002222,Lei Ma,1958-08-13,HK,,,individual
+D001793,Suzy Kowalski,1952-09-18,AU,,,individual
+D000649,Mahdi Sadeqi,1969-06-17,AF,,,individual
+D001655,Ping Suen,,SG,,,individual
+D000080,Achmed Zaidi,,SA,,,individual
+D001751,Yung Yang,,TW,,,individual
+D001171,Onyx Aviation Co,,CA,,,entity
+D000575,Dan Anderson,,US,,,individual
+D001748,Zhiqiang Wu,1998-03-04,HK,,,individual
+D000280,Mohamed Abdul Rahman Nasser,1976-11-19,EG,,,individual
+D000282,Oumar El Amin,,MX,,,individual
+D000119,Tony Anderson,,FR,,,individual
+D001174,"Phoenix Chemicals, Co.",,BY,,,entity
+D001704,Po Huang,1963-02-11,TW,,,individual
+D002250,Wei Mah,1965-03-25,CN,,,individual
+D001350,"Sahara Minerals, Free Zone Establishment",,SG,,,entity
+D001998,Catherine Schroeder,1997-04-02,DE,,,individual
+D002090,Trish J. Andersen,1961-02-01,MX,,,individual
+D001576,M/V Marlin II,,KM,,,vessel
+D001902,Natalya Kuznetsoffa,1975-05-25,RU,,,individual
+D000032,Chun Ma,,JO,,,individual
+D001489,Northern Lights Group,,DE,registration,REG-151955,entity
+D002067,Irena Kuznetsoffa,1996-10-17,UA,,,individual
+D002139,Lei Choi,1961-05-14,HK,,,individual
+D000858,Wei Chen,1953-08-10,HK,,,individual
+D000628,The Engineer,1973-01-18,BR,,,individual
+D000245,Chun Choi,1990-08-01,HK,,,individual
+D000177,Ayesha Zaydi,1958-01-19,IQ,,,individual
+D000170,Babac Sadeghi,1995-04-22,AF,,,individual
+D001164,Kamchatka Group,,AU,registration,REG-596453,entity
+D000539,Danny Nguyễn,1966,FR,,,individual
+D000151,Abdallah ben Ibrahim Shaheen,1993,JO,,,individual
+D000709,Serguei Aleksandrovich Chevtchenko,1974-02-10,BY,,,individual
+D000920,Jamal Qasim,,EG,,,individual
+D001299,Aral Import Export Public Joint Stock Company,,CA,,,entity
+D001301,Ivory Coast Group,,IR,registration,REG-233523,entity
+D000569,Sasha,1996-04-04,EG,,,individual
+D001020,Dan Hernández,1980-03-05,US,,,individual
+D001422,Volga Industries Co,,SY,,,entity
+D000805,Billy Larsen,1967-12-07,BR,,,individual
+D001296,Sahara Group,,FR,registration,REG-713090,entity
+D001408,Ural Group,,SG,registration,REG-761422,entity
+D000821,Ping Cai,1972-08-07,HK,,,individual
+D000876,Dima,,AE,,,individual
+D001781,Rich M. Hernandez,1951-04-27,CA,,,individual
+D000384,Abdallah Rashid,1996,IQ,,,individual
+D001674,Bill Lefevre,1973-10-09,MX,,,individual
+D001853,Chun Yang,1958-11-12,SG,,,individual
+D000684,Dan Du Bois,1950-05-15,US,,,individual
+D000956,Waleed Barakat,1995-08-19,AE,,,individual
+D001705,Xiang Luo,1999-05-19,SG,,,individual
+D000183,Zhi Qiang Zhang,1959-11-18,TW,,,individual
+D000534,Danny J. Smith-Jones,1961,CN,,,individual
+D001521,Black Tide Star Express,,IR,,,vessel
+D000168,Hassan Omar Mansour,,CA,,,individual
+D001626,MV Ocean Titan II,,MH,,,vessel
+D001900,Chun Kuo,1987-03-23,SG,,,individual
+D000456,Michail Kozloff,,KZ,,,individual
+D000373,Olha Nikolaevna Kusnezowa,,BY,,,individual
+D000976,Ameer Ahmadee,1997-11-24,AF,,,individual
+D000499,Youri Petrovich Kozlov,1966,US,,,individual
+D000039,Jamie Lefèvre,1985-03-02,BR,,,individual
+D001823,Bobby A. Fischer,1993-07-22,US,,,individual
+D001906,Mikey M. Hernandez,1961-08-22,AU,,,individual
+D002120,Dan Da Silva,1982-06-20,FR,,,individual
+D000938,Kaveh Rezaei,,IR,,,individual
+D000781,Sasha,,CN,,,individual
+D000352,Lei Lau,1997-03-20,TW,,,individual
+D000479,Guo Qiang Kao,1958-09-06,HK,,,individual
+D000688,Sasha,,AF,,,individual
+D001433,ARAL MARITIME Joint Stock Company,,KZ,,,entity
+D000565,Beth Lefèvre,,SA,,,individual
+D000296,Rida M.,,IR,passport,IR73966435,individual
+D000822,Wei Liu,1983-12-25,SG,,,individual
+D000754,Yusuf al-Hashimi,1998,SA,,,individual
+D001774,Ed M. Dubois,,AU,,,individual
+D000060,Sergej Yakovlev,1973-09-10,BY,,,individual
+D000581,Svitlana Smirnoffa,1980-09-18,FR,,,individual
+D000465,Yousuf El Farsi,1986-08-24,SY,,,individual
+D000182,Hossain Mohamadi,1961-11,AF,,,individual
+D002085,Charlie O Brien,1981-08-16,AU,,,individual
+D000573,Ihor Fedorov,,KZ,,,individual
+D001811,Bill Sørensen,1972-10-09,FR,,,individual
+D000951,Meiling Zhu,1951-04-05,HK,,,individual
+D000331,Chun Chu,1994,TW,,,individual
+D001447,Caspian Technologies Company,,IQ,,,entity
+D000505,Natalya Petrova,,RU,,,individual
+D000050,Natalya Volkova,,RU,,,individual
+D001193,Emerald Bay Trading LLC,,IR,,,entity
+D000531,Mei-Ling A.,,CN,passport,CN11534961,individual
+D000337,Meryem Sadegi,1984-03-28,IR,,,individual
+D001623,Black Tide Express,,LR,,,vessel
+D001913,José A. Hernandez,1976-08-21,GB,,,individual
+D001446,Lotus Holdings GmbH,,UA,,,entity
+D002096,Chih-Chiang Huang,1988-04-15,HK,,,individual
+D000127,Ehsaan Kareemi,,JO,,,individual
+D000108,Sue M. Hernandez,,GB,,,individual
+D001403,Caspian Industries GmbH,,CA,,,entity
+D002242,Ed M. Mueller,1980-06-28,CA,,,individual
+D002220,Pat A. Mueller,1988-02-21,BR,,,individual
+D001004,Jian Guo Lo,1998-06-07,SG,,,individual
+D000984,Yung Guo,1998-01-26,SG,,,individual
+D002152,Chun Huang,1987-09-08,CN,,,individual
+D000466,Trish Schroder,1986-02-21,AE,,,individual
+D000038,Mariam Mohammadi,1960-11-03,AF,,,individual
+D001424,Damavand Minerals S.A.,,US,,,entity
+D001143,Phoenix Group,,YE,registration,REG-628247,entity
+D000490,Pepe Muller,,MX,,,individual
+D001010,Mikey García,1963-10-05,US,,,individual
+D001897,Tony M. Fischer,,CA,,,individual
+D001526,Vessel Night Hawk Alpha,,LR,imo,IMO9789449,vessel
+D000396,Chih-Chiang Chen,1979-04-14,HK,,,individual
+D001320,Sinai Aviation Ltd,,US,,,entity
+D002056,Pepe Bianci,1961-02-11,US,,,individual
+D000338,Lei Kao,1962-08-18,TW,,,individual
+D001496,Vessel Caspian Moon Alpha,,IR,imo,IMO9166560,vessel
+D000298,Lei Yang,1996-12-25,GB,,,individual
+D002005,Rick Nguyễn,1959-05-11,CA,,,individual
+D001711,Jenny Nguyen,1954-09-16,CA,,,individual
+D000748,Ping Chen,1988,SG,,,individual
+D000420,Billy Schmid,1974,US,,,individual
+D002113,Jian-Guo Guo,1953-01-12,CN,,,individual
+D000545,Fatimah ibn Hassan Masri,,SA,,,individual
+D001213,PACIFIC RIM INDUSTRIES L.L.C.,,IQ,,,entity
+D001063,Ivory Coast Technologies AO,,CA,,,entity
+D000417,Nicolai Kuznetsoff,1989,BY,,,individual
+D000974,Chuck Petersen,1958-04-07,DE,,,individual
+D000498,Jian Guo Chu,1961-07-05,SG,,,individual
+D000089,Mustapha El Amin,1951-09-21,AE,,,individual
+D001710,Rick Schmidt,1998-06-14,AU,,,individual
+D000659,Jamaal Shahin,1990-09-01,SA,,,individual
+D002108,Ming Sun,1993-12-25,SG,,,individual
+D001287,Emerald Bay Investments Free Zone Establishment,,JO,,,entity
+D000536,Tom O'Brien,1985-05-16,AU,,,individual
+D002018,Kathy Larsen,1959-08-14,MX,,,individual
+D000963,Yusuf al-Hashimi,1993,JO,,,individual
+D001555,MV Atlantic Hope II,,IR,,,vessel
+D001616,Coral Queen,,RU,,,vessel
+D001401,Volga Construction FZ-LLC,,IR,,,entity
+D001536,MT Amber Sky Star,,IR,,,vessel
+D000568,Johnny Larson,1980,AU,,,individual
+D001266,Red Sea Petroleum SA,,JO,,,entity
+D000016,Fatimah Nasir,1979-02-01,YE,,,individual
+D001687,Hua Cai,,SG,,,individual
+D002111,Mikey Schroeder,1988-05-08,MX,,,individual
+D001142,Onyx Import Export Joint Stock Company,,YE,,,entity
+D001763,Alex Sorenson,1996-09-22,BR,,,individual
+D000740,Aysha al-Sayed,1970,EG,,,individual
+D000434,Mahmood Arrashid,1978-05-05,LB,,,individual
+D001166,Euphrates Textiles FZ-LLC,,CA,,,entity
+D002109,Hsiang Kao,1952-05-23,TW,,,individual
+D001766,Maggie J. Smith-Jones,1980-08-07,MX,,,individual
+D000449,Tom Hernandez,1974-01-08,DE,,,individual
+D000489,Mahmud ben Ibrahim Chahine,,SY,,,individual
+D000802,Bill O'Brien,2000-02-10,AU,,,individual
+D000752,Ling Hwang,1966-09-15,HK,,,individual
+D001295,Nile Valley Investments Limited,,LB,,,entity
+D002028,Hsiao-Ming Hwang,1999-10-17,HK,,,individual
+D000114,Yousuf Elsayed,1983-09-09,SY,,,individual
+D001380,ATLAS ENGINEERING OAO,,JO,,,entity
+D001346,Zagros Holdings PJSC,,LB,,,entity
+D001653,Yusef Hashimi,1967-02-14,EG,,,individual
+D001487,Volga Group,,US,registration,REG-316630,entity
+D000021,"Kozlova, Irena",1955-09-22,UA,,,individual
+D002123,Yan Ma,1953-04-11,HK,,,individual
+D001635,Vessel Tiger Lily Alpha,,MH,imo,IMO9680452,vessel
+D000104,Sue Novak,1950-07-06,SG,,,individual
+D002176,Yung Suen,1987-12-28,CN,,,individual
+D001205,AL-NOOR MINERALS S.A.,,US,,,entity
+D000725,Sergej Zaitsev,1981-08-20,UA,,,individual
+D001428,"Sinai Shipping, Co",,AE,,,entity
+D001688,Wei Huang,,HK,,,individual
+D001901,Wei Gao,,HK,,,individual
+D002073,Ming Wong,1958-05-17,CN,,,individual
+D001473,Euphrates Logistics Public Joint Stock Company,,IR,,,entity
+D002122,Yong Li,,HK,,,individual
+D001990,Yen Hwang,1993-06-18,HK,,,individual
+D002129,"Tkachenko, Olha",1971-08-23,BY,,,individual
+D000067,Leila bin Mustafa Mansoor,,SY,,,individual
+D001219,Northern Lights Electronics Ltd,,US,,,entity
+D002054,Tommy Larson,1964-01-14,DE,,,individual
+D001822,Hua Cai,1950-09-28,CN,,,individual
+D000389,Olha Chevtchenko,,KZ,,,individual
+D000656,Achmed ben Mustafa Nasir,1979,EG,,,individual
+D000906,Doctor,,KZ,,,individual
+D001719,Rick Nguyễn,1970-04-12,MX,,,individual
+D001026,Abu Layth,,BY,,,individual
+D000327,Alee Masri,,YE,,,individual
+D002153,Wei Wu,1984-08-19,SG,,,individual
+D000019,Djavad Morady,1998-09,AF,,,individual
+D001851,Kuo-Chiang Yang,1963-04-27,TW,,,individual
+D002189,Kuo-Chiang Ma,,TW,,,individual
+D001563,M/V Silver Lining Star,,PA,,,vessel
+D000155,Gamal Hadad,1979-03-11,YE,,,individual
+D001528,Caspian Moon,,RU,,,vessel
+D000084,Suzy García,,MX,,,individual
+D002020,Bob Fisher,1996-03-13,MX,,,individual
+D000344,Eddie Hernández,1983,DE,,,individual
+D000494,Guo Qiang Liou,1995-08-17,TW,,,individual
+D000606,Tao Tchen,1967-02-12,SG,,,individual
+D001106,Zenith Pharma Free Zone Establishment,,YE,,,entity
+D000387,Abdellah Haddad,1974-06-27,SA,,,individual
+D000717,Husayn Qasem,1971-07-08,EG,,,individual
+D000859,Aicha Nasir,1974,EG,,,individual
+D000724,Aleksandr Petrovich Kuznetsov,,UA,,,individual
+D000846,Abu Salem,,US,,,individual
+D000616,Peggy Novak,,DE,,,individual
+D000076,Moustafa Haddade,1978,YE,,,individual
+D000784,Jen Lefèvre,1992,BR,,,individual
+D001368,Ural Logistics Company,,LB,,,entity
+D001326,Eastern Star Industries Ltd,,DE,,,entity
+D001338,Damavand Engineering,,US,,,entity
+D001331,Aral Trading PJSC,,BR,,,entity
+D001294,Zagros Construction L.L.C.,,SG,,,entity
+D000704,Jun Wang,1992,TW,,,individual
+D001764,Ming Lo,1970-05-21,HK,,,individual
+D001206,Harbor Point Textiles Limited Liability Company,,CN,,,entity
+D000965,Chiang Hsu,1993-06-03,TW,,,individual
+D000665,Omar bin Ali Nasser,,AE,,,individual
+D001065,Tigris Chemicals Sociedad Anonima,,AU,,,entity
+D000303,Wei Lee,,HK,,,individual
+D001734,Hua Zhang,1986-10-15,SG,,,individual
+D000029,Tatjana Petrovna Smirnoffa,1999-03-03,RU,,,individual
+D000219,Paul Iakovlev,1971-09-14,RU,,,individual
+D000022,Moustafa ibn Ibrahim Chahine,1977-05-15,SA,,,individual
+D002134,Jenny Mueller,1977-02-16,BR,,,individual
+D001002,Margaret Smith-Jones,1959-11-24,MX,,,individual
+D001594,MT Night Hawk,,PA,,,vessel
+D001832,Meiling Xu,1984-04-22,TW,,,individual
+D001722,Billy A. Hernandez,1957-12-09,AU,,,individual
+D001824,Pat Sorensen,,CA,,,individual
+D001128,Northern Lights Investments S.A.,,AF,,,entity
+D000181,Hasan Hadad,1974-05-23,JO,,,individual
+D001718,Xiao Jun Ma,1955-05-02,HK,,,individual
+D000306,Sue Petersen,1995,US,,,individual
+D001817,Rich Nguyễn,1965-08-16,MX,,,individual
+D000049,Rob Bianci,1990-03-11,DE,,,individual
+D001802,Peggy M. Nguyen,1989-12-16,US,,,individual
+D000588,Wei Chou,1961-11-17,TW,,,individual
+D001494,Sapphire One,,LR,,,vessel
+D002163,Hua Gao,1995-08-13,TW,,,individual
+D000133,Michail Nikolaevich Fedoroff,,RU,,,individual
+D000625,Andy Larson,1958-05,CA,,,individual
+D000528,Rich Anderson,1996-06-23,US,,,individual
+D000835,Hsiang Lee,1966,SG,,,individual
+D000061,Olha Zaiceva,1972-01,DE,,,individual
+D000196,Saeid al-Masri,2000-07-22,JO,,,individual
+D001077,Lotus Import Export OAO,,BR,,,entity
+D000300,Umar Zaidi,1958-09-06,YE,,,individual
+D001356,Eastern Star Agro Public Joint Stock Company,,DE,,,entity
+D000207,Chuck Sorenson,1986,MX,,,individual
+D000508,Tao Liu,1956,SG,,,individual
+D000759,Bill García,1980-05-15,CA,,,individual
+D001877,Jenny Schröder,1980-12-26,DE,,,individual
+D000731,Yuri Sergeyevich Petrov,,KZ,,,individual
+D000070,Yury Yakovlev,1980-01-21,KZ,,,individual
+D001194,Phoenix Maritime AO,,CN,,,entity
+D001599,MV Bosporus,,IR,,,vessel
+D001666,Guoqiang Lin,1973-05-20,CN,,,individual
+D000753,Elizabeth Fischer,1980,AU,,,individual
+D000374,Zhenya,1954-04-13,AE,,,individual
+D000433,Bill J. Dubois,,FR,,,individual
+D001624,M/V Sea Lion II,,MH,,,vessel
+D001779,Jian Guo Wang,1961-10-18,HK,,,individual
+D001234,Kamchatka Engineering,,IR,,,entity
+D002155,Maggie Nguyen,1983-03-04,CA,,,individual
+D001712,Jun Yang,,CN,,,individual
+D000474,Mihail Yakovlev,1960,RU,,,individual
+D000958,Abu Omar,,RU,,,individual
+D000425,Ahmet Al Masry,1960-03-22,EG,,,individual
+D001499,Crimson Dawn Trader,,LR,,,vessel
+D000605,Xander Fisher,1963-06-15,CA,,,individual
+D000297,Chih-Chiang Wong,1997-07-06,HK,,,individual
+D001176,Orion Investments S.A.,,SG,,,entity
+D001093,AL-NOOR AVIATION LLC,,TW,,,entity
+D000362,Farhaad Karimy,1953,AF,,,individual
+D001777,Peggy Garcia,1972-10-11,FR,,,individual
+D001726,Elisabeth Dubois,1996-06-10,MX,,,individual
+D000188,Hussein Ali Saleh,1957-09-13,AE,,,individual
+D000768,Meryem Ahmadee,1987-03-03,AF,,,individual
+D002161,Maggie A. Hernandez,1993-03-26,MX,,,individual
+D001451,"Aral Engineering, Co.",,AE,,,entity
+D000304,Mehdy Muhammadi,1991-12-11,AF,,,individual
+D000597,Pepe García,1998,BR,,,individual
+D000090,Said bin Khalid Arrashid,1979-05-01,YE,,,individual
+D000333,Volodymyr Petroff,1952-11-10,KZ,,,individual
+D001758,Abdulrahman Chahine,1989-10-04,IQ,,,individual
+D000044,Chirine Muhammadi,1968-08-05,AF,,,individual
+D000173,Andriy Kusnezow,1962-10-06,UA,,,individual
+D001492,Vessel Iron Duke Alpha,,PA,imo,IMO9756688,vessel
+D000646,Nikolaj Kozloff,1968-11-05,BY,,,individual
+D000653,Jurij Kuznetsov,1985,RU,,,individual
+D001458,Phoenix Shipping G.m.b.H.,,GB,,,entity
+D000524,Drew Bianci,1974-11-08,IR,,,individual
+D000840,Ted Hernández,1985,DE,,,individual
+D000839,Mariam Sadeghi,1980-07-27,IR,,,individual
+D002207,Mahmood ben Ahmad al-Farsi,1973-01-20,EG,,,individual
+D001437,Red Sea Construction AO,,CN,,,entity
+D001974,Hosseini Reza,,AF,,,individual
+D002168,Danny Nowak,1976-05-24,FR,,,individual
+D002158,Gamal Qasem,1983-09-04,YE,,,individual
+D001573,Hormuz Pride One Spirit,,CM,,,vessel
+D001570,M/T Night Hawk Star,,KM,,,vessel
+D000176,Nikolaj Aleksandrovich Smirnoff,1976-10-09,RU,,,individual
+D001866,Maggie J. Schroeder,,FR,,,individual
+D001267,The Nile Valley Logistics Sociedad Anonima,,LB,,,entity
+D001230,Jade Dragon Minerals Company,,IQ,,,entity
+D001360,The Al-Bahr Investments GmbH,,IQ,,,entity
+D001914,Fung Gao,1968-12-13,SG,,,individual
+D001190,"Blue Horizon Petroleum, L.L.C.",,YE,,,entity
+D001087,Altai Engineering L.L.C.,,FR,,,entity
+D000904,Ihor Volkoff,1996-01-01,RU,,,individual
+D002074,"Kuznetsov, Aleksander",1956-12-21,BY,,,individual
+D002206,Chien-Kuo Wang,1981-07-18,TW,,,individual
+D001879,Wei Hu,1975-01-17,SG,,,individual
+D000428,Iryna Fedoroffa,1968,UA,,,individual
+D000006,Charlie Kowalsky,1983,AU,,,individual
+D000826,Laila El Sayed,1957,IQ,,,individual
+D000284,Kave Muradi,1979-08-09,BR,,,individual
+D000750,Daniel Nowak,1959-04-06,MX,,,individual
+D001407,The Ivory Coast Aviation Public Joint Stock Company,,IR,,,entity
+D000045,Djavad Esfahani,1998-01-11,MX,,,individual
+D000819,Omer Zaidi,1957-06-09,YE,,,individual
+D001543,M/T Golden Anchor III,,RU,,,vessel
+D001204,Phoenix Electronics Company,,KZ,,,entity
+D000995,Ahmet ben Ali Salah,1985,AE,,,individual
+D000604,Chih-Chiang Lam,,SG,,,individual
+D001169,The Al-Noor Trading G.m.b.H.,,EG,,,entity
+D001580,Vessel Kestrel Alpha,,KM,imo,IMO9423761,vessel
+D000413,Jamaal al-Rashid,,GB,,,individual
+D000194,Volodymyr Wolkow,1958-09-19,CN,,,individual
+D001172,IVORY COAST ELECTRONICS PJSC,,MX,,,entity
+D000157,Suzy Nguyen,1961,DE,,,individual
+D001180,Euphrates Textiles Limited Liability Company,,AU,,,entity
+D000658,Al-Ustadh,,BY,,,individual
+D000228,Nasreen Djafari,1990-08-18,DE,,,individual
+D000369,Mei-Ling Kao,1970-04-21,TW,,,individual
+D001739,Liz Petersen,1989-08-27,AU,,,individual
+D002103,Ming Chou,1982-02-18,HK,,,individual
+D001318,Sinai Engineering Free Zone Establishment,,SY,,,entity
+D001912,Jen A. Mueller,1961-11-02,FR,,,individual
+D001551,M/V Tiger Lily II,,CM,,,vessel
+D002062,Chuck Novak,1966-04-23,GB,,,individual
+D001284,"Golden Crescent Investments, Co",,TW,,,entity
+D000053,Aleksander Aleksandrovich Schewtschenko,,KZ,,,individual
+D000063,Jamie Da Silva,1970-06-28,GB,,,individual
+D001612,M/T Hormuz Pride II,,PA,,,vessel
+D001048,Orion Petroleum JSC,,JO,,,entity
+D001559,Star of Aden III Express,,RU,,,vessel
+D001481,ZENITH CHEMICALS Co.,,EG,,,entity
+D001258,The Titan Import Export L.L.C.,,BR,,,entity
+D001909,Maggie Hernández,,DE,,,individual
+D001376,"Phoenix Minerals, FZ-LLC",,UA,,,entity
+D000332,Tareq ben Abdullah Mansoor,,UA,,,individual
+D001860,Ming Lee,,CN,,,individual
+D001662,Mike Du Bois,,MX,,,individual
+D001391,Caspian Engineering GmbH,,KZ,,,entity
+D001855,Dan Fisher,1999-01-14,MX,,,individual
+D001103,Northern Lights Minerals L.L.C.,,UA,,,entity
+D000378,Abu Omar,1989-04-18,CA,,,individual
+D000636,Hossain Rezaie,,AF,,,individual
+D002191,Xiao Ming Li,1962-01-17,HK,,,individual
+D002160,Jen Muller,1977-09-28,AU,,,individual
+D000564,Ling Zhu,1987,RU,,,individual
+D001530,Atlantic Hope One Spirit,,LR,,,vessel
+D000758,Anthony Fischer,,BR,,,individual
+D001533,Pacific Glory Spirit,,MH,,,vessel
+D000991,Jennifer Bianchi,,CA,,,individual
+D000640,Ibrahim al-Rashid,1973-09-08,AE,,,individual
+D000828,Chiang Tchen,1956,SG,,,individual
+D000180,Mikhael Ivanovich Volkov,1999,RU,,,individual
+D000641,Elizabeth O'Brien,1962-05-25,US,,,individual
+D002022,Ling Kao,1993-04-27,HK,,,individual
+D000320,Hassane Al Sayyid,1975-11-23,SA,,,individual
+D002100,Wei Yeung,1970-08-05,TW,,,individual
+D001962,Jen Petersen,1951-09-17,DE,,,individual
+D001961,Xiaoming Cai,1954-05-02,TW,,,individual
+D000400,Chuck Nguyễn,1995,US,,,individual
+D001501,Baltic Swan One Spirit,,IR,,,vessel
+D001869,Yan Gao,1996-03-13,SG,,,individual
+D000370,Yan Chen,,HK,,,individual
+D000680,Jen Larson,1982-04-26,AU,,,individual
+D001256,Aral Investments Company,,LB,,,entity
+D000410,Svitlana Fedorova,1984-11-26,AU,,,individual
+D001752,Ping Chen,1986-09-20,HK,,,individual
+D000633,Yen Wu,,TW,,,individual
+D001071,SUMMIT STEEL PJSC,,KZ,,,entity
+D000204,Chiang Lee,1958,HK,,,individual
+D001765,Tareq Al Farsi,1999-12-28,IQ,,,individual
+D000570,Gamal Masri,,AE,,,individual
+D000824,Evgeniy Smirnov,1981-08-17,BY,,,individual
+D000437,Po Suen,1962-12-19,SG,,,individual
+D000519,Chien-Kuo Hsu,1976-04,HK,,,individual
+D002208,Hua Zhu,1981-02-19,SG,,,individual
+D000275,Hsiang Chao,1960-01-17,SG,,,individual
+D000115,Yelena Ivanovna Chevtchenko,1977-02-08,CA,,,individual
+D001523,Kestrel One Express,,IR,,,vessel
+D001920,Ming Wang,1954-10-14,SG,,,individual
+D001001,Tommy Nguyễn,1962-11-08,CA,,,individual
+D001419,Harbor Point Import Export FZ-LLC,,US,,,entity
+D002137,Olha Petrovna Tkatchenko,1997-10-07,KZ,,,individual
+D001307,Onyx Maritime Ltd,,LB,,,entity
+D000163,"Zaitsev, Volodymyr",1964-03-06,UA,,,individual
+D001872,Yen Zhu,1986-07-23,CN,,,individual
+D002125,Rich A. Schmidt,1986-05-11,AU,,,individual
+D002093,Suzy A. Mueller,1968-02-22,FR,,,individual
+D002252,Kave Rezaei,1974-05-18,IR,,,individual
+D001682,Mei-Ling Lam,1963-07-10,HK,,,individual
+D001182,Zagros Group,,SY,registration,REG-330538,entity
+D001814,Yan Zhu,1977-07-14,HK,,,individual
+D000343,Shireen Djafari,1995-12-01,MX,,,individual
+D001226,Euphrates Shipping GmbH,,AE,,,entity
+D001110,The Eastern Star Import Export G.m.b.H.,,JO,,,entity
+D000357,Aicha Qasem,1972-08-06,AF,,,individual
+D000091,Mei Ling Yeung,1976-03-06,TW,,,individual
+D002190,Jamie M. Andersen,1970-06-01,CA,,,individual
+D001928,Billy A. Ferreira,1979-03-04,US,,,individual
+D001119,Meridian Holdings Free Zone Establishment,,UA,,,entity
+D001200,Sahara Logistics Company,,LB,,,entity
+D000208,Smirnova Olha,,UA,,,individual
+D000771,Hassane Rashid,1983-09-03,EG,,,individual
+D000548,Ling Kuo,1954-01-12,CN,,,individual
+D001090,Tigris Construction GmbH,,HK,,,entity
+D001140,"Jade Dragon Logistics, Limited",,IR,,,entity
+D001861,Tareq Farsi,1986-09-27,YE,,,individual
+D001008,Qiang Zhou,1961-11-17,TW,,,individual
+D001575,Vessel Sun Dancer Alpha,,KM,imo,IMO9847837,vessel
+D001930,Johnny Nguyễn,1967-05-11,FR,,,individual
+D001627,Vessel Red Falcon Alpha,,RU,imo,IMO9346837,vessel
+D001847,Mike M. Dubois,1966-04-16,DE,,,individual
+D001308,Emerald Bay Group,,KZ,registration,REG-587770,entity
+D000562,Ming Ma,1986-12-14,HK,,,individual
+D002117,Charlie Novak,1982-03-18,BR,,,individual
+D001195,Zagros Group,,SA,registration,REG-604023,entity
+D002037,Charlie O Brien,1983-11-21,US,,,individual
+D000915,Billy Novak,1994,MX,,,individual
+D000109,Dmitriy Tkatchenko,,BY,,,individual
+D000525,Kave Hosseini,1959-10-04,AF,,,individual
+D000930,Hua Liu,,CN,,,individual
+D002143,Rezaei Kaveh,,IR,,,individual
+D001740,Jian-Guo Kao,,CN,,,individual
+D000632,Hsiang Hwang,1991-06-14,HK,,,individual
+D001247,VOLGA IMPORT EXPORT G.m.b.H.,,GB,,,entity
+D001084,"Delta Import Export, LLC",,CA,,,entity
+D001539,M/T Sea Breeze II,,KM,,,vessel
+D000360,Omer Mansoor,1976-06-15,SY,,,individual
+D000644,Nassrin Morady,1996-01-08,IR,,,individual
+D001806,Danny J. Petersen,1956-01-15,GB,,,individual
+D000036,Natasha Sokoloffa,1972,BR,,,individual
+D000234,Fathima Mansour,,AE,,,individual
+D001476,Phoenix Logistics L.L.C.,,GB,,,entity
+D000227,Alee El Sayed,1962-01-02,IQ,,,individual
+D001529,M/T Hormuz Pride III,,KM,,,vessel
+D001260,Sinai Group,,BR,registration,REG-760917,entity
+D000100,Dick Peterson,,CA,,,individual
+D001033,Jianguo Zhao,,HK,,,individual
+D001578,Vessel Albatross Alpha,,KM,imo,IMO9523543,vessel
+D000796,Tony Schmidt,1973-01-28,US,,,individual
+D001302,"Al-Bahr Textiles, GmbH",,RU,,,entity
+D001628,M/T Aurora,,IR,,,vessel
+D000185,Abdellah Nasser,1969,AE,,,individual
+D002249,Guo Qiang Lin,,TW,,,individual
+D001177,Jade Dragon Engineering PJSC,,YE,,,entity
+D001600,Vessel Silver Lining Alpha,,MH,imo,IMO9533877,vessel
+D001305,Delta Textiles AO,,US,,,entity
+D001744,Mike Müller,1994-08-27,US,,,individual
+D001638,MT Coral Queen III,,CM,,,vessel
+D002204,Ming Ng,1973-04-11,TW,,,individual
+D001675,Bobby Fischer,1971-04-17,BR,,,individual
+D000286,Paul Ivanoff,,UA,,,individual
+D001112,DAMAVAND INVESTMENTS Company,,JO,,,entity
+D001092,Lotus Electronics Company,,GB,,,entity
+D001970,Yen Hoo,1965-11-22,CN,,,individual
+D000626,Rob Muller,1975-02-23,BR,,,individual
+D000854,Farhaad Kareemi,1975-05-14,AF,,,individual
+D001838,Bo Zhao,1963-02-18,HK,,,individual
+D001019,Jim Kowalsky,1999,DE,,,individual
+D001199,Falcon Logistics Limited Liability Company,,AF,,,entity
+D001310,Nile Valley Minerals Co,,AU,,,entity
+D001465,Pacific Rim Group,,KZ,registration,REG-865544,entity
+D000443,Jurij Schewtschenko,1966-12-01,RU,,,individual
+D000004,Ibraheem K.,,SY,passport,SY94812063,individual
+D000325,Husain Mansoor,1984-11-22,AE,,,individual
+D000009,Omer Kassem,1992,IQ,,,individual
+D001510,M/T Bosporus II,,CM,,,vessel
+D001335,Silk Road Construction Limited,,CN,,,entity
+D000739,Mustafa bin Abdullah Mansour,,EG,,,individual
+D001821,Lei Hu,1950-07-18,HK,,,individual
+D000393,Moustafa Saleh,1991-11-05,YE,,,individual
+D000455,Nikolaj Sokoloff,1952-05-12,TW,,,individual
+D001957,Xander A. Schroeder,1962-03-11,DE,,,individual
+D001680,Wei Wu,,TW,,,individual
+D001783,Catherine M. Kowalski,,FR,,,individual
+D001525,Blue Whale Star Spirit,,RU,,,vessel
+D000120,Hosseini Ameer,1959-09-11,IR,,,individual
+D001047,Ivory Coast Textiles G.m.b.H.,,BR,,,entity
+D001571,MV Baltic Swan Star,,KM,,,vessel
+D001658,Yan Liu,1958-07-10,CN,,,individual
+D001716,Mahmoud Mahmoud Farsi,,EG,,,individual
+D001423,EUPHRATES INDUSTRIES GmbH,,BR,,,entity
+D000438,Abdurrahman Zaydi,1993,JO,,,individual
+D001027,Xiang Hu,,SG,,,individual
+D000453,Gamal Mansoor,2000-07-23,IQ,,,individual
+D001137,"Meridian Chemicals, Co.",,HK,,,entity
+D000679,Farhaad Teherani,1981-12-22,IR,,,individual
+D001460,JADE DRAGON AVIATION G.m.b.H.,,MX,,,entity
+D000985,Yusef Hadad,1966,LB,,,individual
+D000169,Aleksander Nikolaevich Sokoloff,1956,RU,,,individual
+D002135,Jim Smith-Jones,1981-06-01,BR,,,individual
+D000197,Iryna Sokoloffa,1965-10-18,BY,,,individual
+D000054,Peggy Ferreira,1978-06-06,BR,,,individual
+D001109,Al-Noor Pharma,,IQ,,,entity
+D000232,Abdurrahman Salah,,SY,,,individual
+D000769,Ling Wang,1990,HK,,,individual
+D000404,Fathima al-Farsi,1991-07-26,BR,,,individual
+D000270,Helena Kozloffa,1957,KZ,,,individual
+D001222,Amber Textiles S.A.,,SY,,,entity
+D002236,Xiao-Ming Hoo,1960-10-06,TW,,,individual
+D001262,Silk Road Electronics Free Zone Establishment,,JO,,,entity
+D002230,Yan Cai,,SG,,,individual
+D001006,Jennifer Mueller,1962-02-17,CA,,,individual
+D002017,Abdel Rahman Chahine,1988-06-28,IQ,,,individual
+D000265,Ayesha bin Khalid Salah,1978-04-17,YE,,,individual
+D001610,Aurora Star Spirit,,CM,,,vessel
+D001644,M/T Lady Fortune III,,PA,,,vessel
+D000221,Hosein Karimy,,AF,,,individual
+D000647,Zhenya,,AE,,,individual
+D000174,Pavel Zaytsev,1966-12-05,BY,,,individual
+D001659,Trish Andersson,,US,,,individual
+D001462,Atlas Minerals S.A.,,UA,,,entity
+D000631,Kate M. Mueller,,SA,,,individual
+D001450,Ivory Coast Group,,IQ,registration,REG-139869,entity
+D000860,Mahmood Hadad,1963,SA,,,individual
+D002213,Wei Huang,1955-02-03,SG,,,individual
+D001807,Xiao Ming Lau,1970-09-16,TW,,,individual
+D001113,Orion Import Export Joint Stock Company,,BY,,,entity
+D000650,Farhaad Hosseiny,1974-09-26,AF,,,individual
+D000689,Yusuf al-Hashimi,,YE,,,individual
+D001689,Chuck J. O'Brien,,DE,,,individual
+D002106,Mike Anderson,1989-10-07,FR,,,individual
+D001031,Tommy Du Bois,1964,US,,,individual
+D000411,Kuo-Chiang Zhang,1982-05-25,RU,,,individual
+D000960,Ming Wu,,TW,,,individual
+D001168,Tigris Agro FZ-LLC,,EG,,,entity
+D001312,"Sinai Minerals, Limited",,TW,,,entity
+D001324,"Ural Investments, Ltd",,SG,,,entity
+D002029,Wei Yeung,1954-07-17,SG,,,individual
+D001609,MV Morning Glory One,,PA,,,vessel
+D000523,Jen Schmid,1961-05,FR,,,individual
+D001670,Irena Kuznetsova,,UA,,,individual
+D001605,MV Storm Petrel II,,LR,,,vessel
+D001479,Golden Crescent Logistics Joint Stock Company,,BR,,,entity
+D001738,Yan Huang,1952-09-13,TW,,,individual
+D002171,Bob Smith-Jones,1992-05-05,AU,,,individual
+D001349,EASTERN STAR CONSTRUCTION L.L.C.,,UA,,,entity
+D002126,Kuo-Chiang Ng,1973-12-23,SG,,,individual
+D001418,The Ivory Coast Steel Free Zone Establishment,,FR,,,entity
+D000863,Ling Luo,1995-03-06,TW,,,individual
+D001114,Jade Dragon Group,,RU,registration,REG-427282,entity
+D001161,Sahara Trading Free Zone Establishment,,HK,,,entity
+D000777,Alex Du Bois,1952-10-08,US,,,individual
+D001596,MT Nordic Star II,,MH,,,vessel
+D002238,Hsiao-Ming Huang,1964-05-02,SG,,,individual
+D000944,Ping Luo,1985-01-05,CN,,,individual
+D000645,Hasan ibn Mustafa Zaydi,1969-11-09,SY,,,individual
+D001556,Vessel Marlin Alpha,,KM,imo,IMO9090303,vessel
+D001464,Altai Pharma GmbH,,JO,,,entity
+D000533,Po Gao,1992,TW,,,individual
+D000919,Richard Silva,1966-07-10,US,,,individual
+D001248,Summit Investments FZ-LLC,,SA,,,entity
+D001061,Damavand Electronics G.m.b.H.,,AU,,,entity
+D002179,Xander Petersen,1959-12-22,DE,,,individual
+D000961,James Smith-Jones,1961,GB,,,individual
+D001735,Ping Cai,,SG,,,individual
+D001105,The Emerald Bay Petroleum Co.,,DE,,,entity
+D002127,Ling Gao,1960-08-17,TW,,,individual
+D000909,Yung Hu,1957-10-24,CN,,,individual
+D001146,Delta Engineering,,RU,,,entity
+D001980,Will A. Andersen,,MX,,,individual
+D000787,Chun Cai,1972-05-26,HK,,,individual
+D001157,Sinai Engineering Public Joint Stock Company,,EG,,,entity
+D001453,Jade Dragon Textiles Co.,,MX,,,entity
+D000008,Hussien Alfarsi,1969-08-13,TW,,,individual
+D002084,Hsiang Hsu,1987-05-02,HK,,,individual
+D001988,Hsiao-Chun Zhu,,TW,,,individual
+D001432,Pacific Rim Textiles Limited Liability Company,,IQ,,,entity
+D000083,Yousef Zeidi,1985-08-04,SA,,,individual
+D001340,Red Sea Maritime Limited,,AU,,,entity
+D000611,Jun Hsu,1955-06-21,SG,,,individual
+D000246,Mehdy Ahmadee,1990,AF,,,individual
+D000732,Wladimir Zaytsev,1988-03-19,UA,,,individual
+D000978,Ling Lee,1954-08-24,CN,,,individual
+D000537,Umar Hashimi,1993,JO,,,individual
+D001944,Mei Ling Hsu,1984-04-07,TW,,,individual
+D001939,Hsiang Sun,,HK,,,individual
+D000478,Muhamad Qassem,,EG,,,individual
+D000764,Brahim al-Masri,1999-03-07,JO,,,individual
+D001643,Baltic Swan II Trader,,KM,,,vessel
+D001098,Sahara Import Export FZE,,LB,,,entity
+D000745,Ihor Zaytsev,1954-10-02,BY,,,individual
+D000694,Helena Schewtschenko,1979-05-16,UA,,,individual
+D000461,Victor Smirnoff,1975,GB,,,individual
+D001514,Silver Lining III Express,,RU,,,vessel
+D000526,Yung Liou,1998,TW,,,individual
+D000259,Mahmood Hashimi,1982-01-04,FR,,,individual
+D000522,Fung A.,,HK,passport,HK45914351,individual
+D000011,Hosein Esfahany,1989-02-10,AF,,,individual
+D000772,Aly al-Sayed,1965,IQ,,,individual
+D002245,Fung Lam,1972-08-01,TW,,,individual
+D001692,Rezaei Kave,,IR,,,individual
+D002104,Dan Fisher,,MX,,,individual
+D001426,Emerald Bay Logistics LLC,,CA,,,entity
+D002174,Maggie J. Hernandez,1964-05-20,FR,,,individual
+D001225,Delta Aviation Co.,,BR,,,entity
+D002010,Hua Suen,1975-05-14,SG,,,individual
+D001771,Suzy Ferreyra,1966-03-01,DE,,,individual
+D001767,Wei Liu,1980-10-26,SG,,,individual
+D000113,Aly Al Hashemi,,YE,,,individual
+D000990,Ping Luo,1950-07-08,TW,,,individual
+D001647,MV Amber Sky II,,IR,,,vessel
+D000931,Chun Suen,1965-10-03,HK,,,individual
+D001899,Jian Guo Ma,1985-10-23,SG,,,individual
+D001163,Summit Holdings,,SY,,,entity
+D000882,Fathima ben Mahmoud Farsi,1965-05-12,EG,,,individual
+D001736,Billy Ferreira,,US,,,individual
+D000878,Abu Layth,,US,,,individual
+D001393,Ivory Coast Group,,US,registration,REG-929554,entity
+D000363,Hsiang Ng,,TW,,,individual
+D001198,Sinai Investments GmbH,,TW,,,entity
+D001917,Guo Qiang Wu,1955-05-09,TW,,,individual
+D001461,"Euphrates Chemicals, JSC",,UA,,,entity
+D001239,The Amber Agro Co,,AE,,,entity
+D001544,M/V Lady Fortune,,RU,,,vessel
+D000398,Hua Mah,,TW,,,individual
+D002128,Xiao Jun Zhu,1984-11-16,CN,,,individual
+D001160,Eastern Star Minerals JSC,,UA,,,entity
+D001615,M/T Andromeda II,,PA,,,vessel
+D000886,Qiang Zhou,1956-05-11,HK,,,individual
+D001697,Ed A. Larsen,1954-01-10,MX,,,individual
+D000551,Sayid Saleh,1973-01-12,YE,,,individual
+D000126,Olha Sokoloffa,1967-09-09,UA,,,individual
+D001448,The Zenith Steel Ltd.,,CN,,,entity
+D002246,Chien-Kuo Gao,1999-11-02,HK,,,individual
+D001985,Kuo-Chiang Yang,1970-09-11,HK,,,individual
+D001989,Jian Guo Cai,1965-08-10,CN,,,individual
+D000719,Jamaal al-Hashimi,1964,SY,,,individual
+D001188,Eastern Star Electronics Limited Liability Company,,AF,,,entity
+D001217,Golden Crescent Industries Sociedad Anonima,,SG,,,entity
+D000094,Tarik ben Muhammad Barkat,,AE,,,individual
+D001608,Vessel Crimson Dawn Alpha,,MH,imo,IMO9246442,vessel
+D000595,Andy A.,1979-04-03,CA,passport,CA86727796,individual
+D000887,Katherine Petersen,,FR,,,individual
+D001845,Chiang Ma,,SG,,,individual
+D002148,Pat Fisher,1991-12-03,AU,,,individual
+D001066,Harbor Point Logistics Ltd,,JO,,,entity
+D000329,Trish Lefevre,1978-08-13,CA,,,individual
+D001345,Amber Trading JSC,,TW,,,entity
+D000558,Muhamad al-Farsi,2000-12-22,YE,,,individual
+D000925,Jianguo Huang,1989-11-08,HK,,,individual
+D000073,Xiao Jun Lau,,TW,,,individual
+D001812,Charlie García,,GB,,,individual
+D000262,Djavad Rezaei,1972-02-14,AF,,,individual
+D000388,The Broker,1980-10-08,TW,,,individual
+D000353,Ted M. Andersen,,AU,,,individual
+D001955,Jenny J. Kowalski,1969-01-22,GB,,,individual
+D000567,Dimitri Smirnov,1971-01,KZ,,,individual
+D000233,Jafari Hosein,1951-05-21,AF,,,individual
+D001797,Abdurrahman Shahin,1988-07-02,SY,,,individual
+D000778,Wei Wong,1973-12-17,HK,,,individual
+D000509,Jamaal Al Farsi,1954,AE,,,individual
+D000585,Maggie Müller,1962-02-17,CA,,,individual
+D000667,Waleed Farsi,1959-11-06,EG,,,individual
+D001827,Ling Hsu,1982-12-25,TW,,,individual
+D000706,Ihor Aleksandrovich Sokoloff,1957-04-24,KZ,,,individual
+D001694,José Schmidt,1960-03-05,FR,,,individual
+D000308,Suzy A.,1991,DE,passport,DE36603437,individual
+D000775,Hsiao-Ming Mah,1958-02-22,CN,,,individual
+D001850,Dan Fischer,1999-01-19,FR,,,individual
+D000390,Swetlana K.,,UA,passport,UA68032570,individual
+D000580,Chien-Kuo Lo,1980-09-09,SG,,,individual
+D002049,Bob M. Garcia,1983-07-07,AU,,,individual
+D001485,Zenith Investments L.L.C.,,AU,,,entity
+D000755,Maggie OBrien,1986-07-09,US,,,individual
+D001018,Maggie Peterson,1960-07-15,FR,,,individual
+D001769,Jon A. Schroeder,,BR,,,individual
+D000497,"Tkachenko, Jurij",,RU,,,individual
+D000472,Alex Anderson,1966-01-26,MX,,,individual
+D001885,Maggie Du Bois,1953-12-07,MX,,,individual
+D000302,Qiang Cai,1972-08-07,HK,,,individual
+D000200,Babac Kareemi,,IR,,,individual
+D002079,Tony Sørensen,1983-08-24,MX,,,individual
+D000199,Hussien al-Sayed,1967-08-26,SY,,,individual
+D000888,Aly Haddade,1976,SY,,,individual
+D000376,Ling A.,1982-02-27,TW,passport,TW11469609,individual
+D000222,Hasan Rasheed,1969-06-28,EG,,,individual
+D000742,Hossain Mohamadi,1958,AF,,,individual
+D001997,Xander M. Sorensen,2000-08-26,DE,,,individual
+D000132,Aly Nasser,1962,AF,,,individual
+D001520,M/V Sea Breeze One,,KM,,,vessel
+D001681,Kate Petersen,1998-07-16,CA,,,individual
+D001435,"Al-Noor Technologies, S.A.",,CN,,,entity
+D002008,Eddie M. O'Brien,1964-04-06,DE,,,individual
+D000687,Abu Layth,,RU,,,individual
+D001878,Johnny Fischer,1974-10-22,FR,,,individual
+D000334,Catherine Hernandez,1987-02-25,SA,,,individual
+D001808,Mike Hernández,1964-08-24,BR,,,individual
+D001475,"Sinai Holdings, Company",,IQ,,,entity
+D001747,Tony Nguyễn,1955-12-10,FR,,,individual
+D000295,Tatjana Iakovleva,1951-01-07,KZ,,,individual
+D001631,MT Lady Fortune Star,,KM,,,vessel
+D002121,"Volkova, Tatjana",1950-01-28,UA,,,individual
+D000695,Ling Yang,1980-11-23,TW,,,individual
+D000322,Tatjana Fedorova,1983-10-25,KZ,,,individual
+D001759,Wei Sun,1981-05-25,CN,,,individual
+D002038,Mike Schröder,1957-01-22,CA,,,individual
+D001216,The Crystal Agro Limited,,MX,,,entity
+D000171,Tarik Al Masry,1983-04-26,KZ,,,individual
+D000685,Abdel Rahman al-Sayed,1964-01-04,IQ,,,individual
+D002165,Elisabeth M. Fischer,,AU,,,individual
+D000867,Margaret Kowalski,1950-12-13,FR,,,individual
+D001445,Caspian Group,,IR,registration,REG-394828,entity
+D000964,Mei Ling Lo,2002,HK,,,individual
+D000786,Al-Hakim,,FR,,,individual
+D001834,Ted M. Garcia,1985-03-16,FR,,,individual
+D000379,Hosein Muradi,1998-07-19,AF,,,individual
+D000033,Laila ben Hussein al-Hashimi,1986-01-06,JO,,,individual
+D002066,Guoqiang Ma,1962-08-07,CN,,,individual
+D001011,Jose Schmidt,,BR,,,individual
+D000918,Xiao-Ming Yang,1962-11-07,HK,,,individual
+D001158,Orion Group,,BY,registration,REG-234229,entity
+D002217,Tony A. Schroeder,1995-01-26,DE,,,individual
+D001034,Mei Ling Hoo,1963-12-04,TW,,,individual
+D001791,Jianguo Cai,,CN,,,individual
+D001935,Xiao Ming Hu,1960-08-24,CN,,,individual
+D001421,Volga Engineering G.m.b.H.,,AE,,,entity
+D001613,Vessel Marlin Alpha,,CM,imo,IMO9738180,vessel
+D001829,Will Lefevre,,FR,,,individual
+D000034,Ihsan Teherani,,IR,,,individual
+D001434,Pacific Rim Aviation Public Joint Stock Company,,GB,,,entity
+D001724,Elisabeth OBrien,1954-03-17,AU,,,individual
+D001471,Ural Electronics Free Zone Establishment,,AE,,,entity
+D001463,Orion Engineering PJSC,,SG,,,entity
+D002133,Lei Hu,1957-04-21,HK,,,individual
+D001327,Sahara Technologies Ltd.,,GB,,,entity
+D000244,Farhaad Mohammadi,1964-09-06,JO,,,individual
+D000354,Abdulrahman Rasheed,,YE,,,individual
+D000206,Yung Chan,1999-05-17,HK,,,individual
+D000359,Halid Qasem,,EG,,,individual
+D001040,Xiang Zhou,1952-06-04,TW,,,individual
+D001524,Amber Sky III,,MH,,,vessel
+D001993,Zhiqiang Zhu,,CN,,,individual
+D001945,Ping Chu,1973-10-08,TW,,,individual
+D000530,Bob Sorenson,,RU,,,individual
+D001233,Damavand Holdings FZE,,EG,,,entity
+D001864,Trish Sørensen,1961-04-19,DE,,,individual
+D000350,Brahim Sayed,,YE,,,individual
+D000791,Farhaad Ahmadee,1968,AF,,,individual
+D000035,Evgeni Aleksandrovich Fedorov,,UA,,,individual
+D000763,Nasreen Hoseini,1978-09-27,AF,,,individual
+D002193,Ming Lin,1989-02-20,CN,,,individual
+D000463,José Sorenson,1979,FR,,,individual
+D001950,Beth O'Brien,1978-04-05,CA,,,individual
+D000870,Nikolaj Jakowlew,1958-10-23,KZ,,,individual
+D001192,"Euphrates Trading, Free Zone Establishment",,HK,,,entity
+D000927,Po Yeung,1997-08-13,CN,,,individual
+D002083,Mike M. Andersen,1963-07-13,US,,,individual
+D000361,Natasha Yakovleva,1998,HK,,,individual
+D000254,Nikolay Iwanow,1984,GB,,,individual
+D000936,Elizabeth Bianchi,,DE,,,individual
+D000561,"Petrova, Irena",1975-03-14,KZ,,,individual
+D001086,"Onyx Investments, PJSC",,US,,,entity
+D001665,Hsiao-Chun Chen,1999-01-05,HK,,,individual
+D001028,Drew Nguyen,1982-12-18,DE,,,individual
+D000409,Alexandr Petrow,1997-05-27,UA,,,individual
+D001273,Zenith Electronics JSC,,TW,,,entity
+D001347,AMBER MINERALS Limited,,SY,,,entity
+D000747,Daniel Mueller,1971,DE,,,individual
+D000765,Yuri Ivanovich Petrova,,BY,,,individual
+D001892,Tariq Muhammad Farsi,1955-02-05,YE,,,individual
+D002118,Feng Ma,1973-01-12,TW,,,individual
+D000942,Guo Qiang Chan,1985-07-15,SG,,,individual
+D000341,Eddie J. Silva,,MX,,,individual
+D001185,Al-Bahr Engineering PJSC,,HK,,,entity
+D002214,Hsiang Zhou,1963-10-02,CN,,,individual
+D001590,Vessel Ocean Pearl Alpha,,RU,imo,IMO9224321,vessel
+D002172,Tony M. Ferreira,,AU,,,individual
+D000937,Susan Sorensen,,MX,,,individual
+D000776,Hosein Jafary,1960-10-17,AF,,,individual
+D002226,Guoqiang Yang,1985-10-08,TW,,,individual
+D001947,Catherine Fischer,1964-04-27,MX,,,individual
+D000853,Guo Qiang Hwang,1967-04-04,SG,,,individual
+D001309,Onyx Pharma,,FR,,,entity
+D000299,Sa'id Barkat,1951-07-27,YE,,,individual
+D002023,Tom Larson,1995-02-24,DE,,,individual
+D002063,Pepe J. Silva,1980-12-17,BR,,,individual
+D001545,Vessel Pacific Glory Alpha,,MH,imo,IMO9350702,vessel
+D001708,Hua Cai,1965-07-02,TW,,,individual
+D000899,Ling Ma,1975-10-08,CN,,,individual
+D001508,MV Sea Breeze Star,,RU,,,vessel
+D000116,Ted M. Kowalski,,AU,,,individual
+D001207,Delta Maritime G.m.b.H.,,DE,,,entity
+D001546,Iron Duke,,KM,,,vessel
+D000211,Abu Omar,1974-12-04,FR,,,individual
+D000041,Khalid Saleh,1994,EG,,,individual
+D000440,Hsiang Yang,1969-03-13,TW,,,individual
+D002086,Bob J. Kowalski,1987-10-03,AU,,,individual
+D001730,Tao Chow,1969-03-06,HK,,,individual
+D000654,Leila bin Hussein Al Hashemi,1984,JO,,,individual
+D001484,The Ural Engineering Ltd,,GB,,,entity
+D001495,Polar Bear Express,,KM,,,vessel
+D000623,Fung Cai,2000-07-06,HK,,,individual
+D001150,"Zagros Petroleum, Limited",,SG,,,entity
+D000917,Abdulrahman ibn Mustafa Haddade,1951-02-23,EG,,,individual
+D000856,Guoqiang Wu,1987-07-13,TW,,,individual
+D001606,MT Black Tide One,,CM,,,vessel
+D001030,Maggie Novak,1981,DE,,,individual
+D000267,Muhamad Al Hashemi,1990-04-21,YE,,,individual
+D000714,Babac Esfahani,1990-12-24,AF,,,individual
+D001278,Orion Minerals Ltd.,,KZ,,,entity
+D000459,Mei-Ling Zhang,1950-05-02,CN,,,individual
+D000143,Abu Omar,1969-03-27,HK,,,individual
+D000655,Mariam Muhammadi,1957-03-26,AF,,,individual
+D001876,Mike Schröder,1995-09-24,AU,,,individual
+D001274,SAHARA AVIATION S.A.,,BY,,,entity
+D001813,Xiang Hu,1996-10-12,TW,,,individual
+D000175,Hsiang Liou,2000,HK,,,individual
+D001750,Yen Hoo,1993-03-25,TW,,,individual
+D001151,LOTUS STEEL Ltd.,,GB,,,entity
+D001794,Mustapha Elsayed,1982-05-24,JO,,,individual
+D000068,Babac A.,1983-11-04,AF,passport,AF17732117,individual
+D000062,Abdurrahman Naser,1989-01-15,AE,,,individual
+D001184,Euphrates Investments Joint Stock Company,,FR,,,entity
+D000444,Danny Larson,1987-01-01,CA,,,individual
+D001640,MV Andromeda III,,KM,,,vessel
+D000037,Rich Du Bois,1960-12-24,CA,,,individual
+D000971,Xiang Xu,,CN,,,individual
+D000780,Hosein Ahmady,1980-06-12,AF,,,individual
+D001836,Catherine Schroder,1975-12-17,BR,,,individual
+D001396,Phoenix Aviation Joint Stock Company,,FR,,,entity
+D000087,Ling Hu,1951-08-16,TW,,,individual
+D000487,Waleed Naser,1970-09-20,SY,,,individual
+D000027,Farhaad Hoseini,1997-08-15,AF,,,individual
+D000804,Katherine O'Brien,,BR,,,individual
+D001723,Hua Hu,1961-01-13,SG,,,individual
+D000088,Swetlana Iakovleva,,BY,,,individual
+D000996,Charlie Schmitt,1969-06-22,DE,,,individual
+D000757,Beth Silva,1966,MX,,,individual
+D000290,Hasan al-Hashimi,,JO,,,individual
+D001535,M/V Ocean Titan One,,IR,,,vessel
+D001519,MT Silver Crest One,,CM,,,vessel
+D000555,Ling Li,1994-10,CN,,,individual
+D000147,Dan Ferreyra,,GB,,,individual
+D001923,Yen Zhang,1998-04-04,SG,,,individual
+D000983,Irena Petrowa,1991-07-13,KZ,,,individual
+D000287,Xiao Jun Chang,1998-02-13,CN,,,individual
+D000072,Oumar Salah,1980-11-18,AU,,,individual
+D001353,Golden Crescent Aviation G.m.b.H.,,IR,,,entity
+D001136,The Sahara Agro LLC,,AF,,,entity
+D001933,Fung Li,1965-03-10,SG,,,individual
+D000111,Ahmad Shahin,2000-02-10,AE,,,individual
+D000475,Xiao Ming Yeung,,HK,,,individual
+D001372,Al-Bahr Shipping G.m.b.H.,,JO,,,entity
+D000414,Ling Chow,1956-05-11,HK,,,individual
+D000253,Mahmood Nacer,1959-08-23,LB,,,individual
+D001472,Harbor Point Textiles Company,,YE,,,entity
+D000516,Abdurrahman Masri,1958-05-17,SA,,,individual
+D000901,Youri Schewtschenko,1955-02-28,RU,,,individual
+D000560,Ahmed Al Hashemi,1985-01-17,SA,,,individual
+D001873,Alex Peterson,1956-10-28,GB,,,individual
+D000447,Pepe M.,,CA,passport,CA87391622,individual
+D001981,Andy Da Silva,1975-03-26,CA,,,individual
+D001844,Dick Schmitt,1976-04-01,CA,,,individual
+D002184,Liz Nowak,1950-12-06,AU,,,individual
+D001883,Tareq Farsi,1967-12-19,SY,,,individual
+D002030,"Kuznetsova, Natalya",1957-01-23,RU,,,individual
+D001425,Volga Chemicals Company,,YE,,,entity
+D001381,BALTIC STEEL Co,,AE,,,entity
+D002077,Natalya Kuznetsova,1995-01-14,KZ,,,individual
+D000973,Wei Luo,1970-02-12,HK,,,individual
+D002003,Jian-Guo Guo,,CN,,,individual
+D000395,Mikey Schmidt,1953-10-11,FR,,,individual
+D001241,DELTA STEEL Ltd,,SG,,,entity
+D001214,Meridian Minerals Limited,,SA,,,entity
+D001231,BALTIC CONSTRUCTION GmbH,,JO,,,entity
+D000002,Abu Omar,1973-09-08,AE,,,individual
+D001641,Vessel Coral Queen Alpha,,LR,imo,IMO9893129,vessel
+D001756,Suzy J. Kowalski,1961-05-26,CA,,,individual
+D001673,Ed Novak,1999-01-22,DE,,,individual
+D002247,Petrov Iurii,1965-01-16,KZ,,,individual
+D000661,Muhamad bin Yusuf Mansur,1987-05-11,JO,,,individual
+D000894,Jenny García,1979,AU,,,individual
+D000274,Chuck A. Silva,,DE,,,individual
+D001371,Sinai Agro Joint Stock Company,,BR,,,entity
+D000799,Ali Qasim,,EG,,,individual
+D002046,Guo Qiang Hsu,1980-05-27,CN,,,individual
+D000962,Tommy O Brien,1961-10-22,AU,,,individual
+D000674,Leyla El Farsi,1966,JO,,,individual
+D002187,Trish M. Sorensen,1983-08-19,MX,,,individual
+D001780,Hua Wang,1996-03-08,HK,,,individual
+D001586,Vessel Kestrel Alpha,,KM,imo,IMO9306634,vessel
+D000727,Xiang Hu,,HK,,,individual
+D000590,Ping Lee,1966,HK,,,individual
+D002009,Feng Wu,,CN,,,individual
+D000576,Mike Bianci,1973,TW,,,individual
+D001509,M/V Silver Lining One,,LR,,,vessel
+D000285,The Broker,1962-02-22,FR,,,individual
+D001162,Nile Valley Petroleum FZE,,FR,,,entity
+D000705,Jamal Qasim,,JO,,,individual
+D001978,Suzy J. Lefevre,1966-04-03,CA,,,individual
+D000408,Alex Schmitt,,US,,,individual
+D001378,Golden Crescent Technologies Ltd.,,YE,,,entity
+D000418,Meryem K.,1979-08-08,AF,passport,AF97052860,individual
+D001714,Natasha Nikolaevna Kusnezowa,,RU,,,individual
+D000093,Olha Wolkowa,,RU,,,individual
+D001382,URAL IMPORT EXPORT SA,,BR,,,entity
+D000464,Jamie Schroeder,1993-08-09,AU,,,individual
+D000407,Feng Lau,1959-01-09,TW,,,individual
+D001394,Silk Road Group,,CA,registration,REG-384445,entity
+D000926,Wei Liu,,TW,,,individual
+D000520,Rida Isfahani,1988,AF,,,individual
+D001255,Delta Chemicals Ltd,,EG,,,entity
+D001374,Red Sea Industries Ltd.,,AU,,,entity
+D000195,José Novak,1959-04-06,MX,,,individual
+D000291,Evgeniy Tkatchenko,1978-04-27,RU,,,individual
+D001415,Eastern Star Steel GmbH,,MX,,,entity
+D000782,Lei Wu,1973,HK,,,individual
+D001383,The Titan Logistics GmbH,,IR,,,entity
+D000289,Andrej Tkachenko,1954-06-12,RU,,,individual
+D001898,Ed Garcia,1992-11-19,DE,,,individual
+D000637,Zhiqiang Zhou,1952-06-04,TW,,,individual
+D001799,Liz O Brien,1957-01-05,BR,,,individual
+D001891,Jen J. Bianchi,1984-02-11,FR,,,individual
+D001073,Pacific Rim Logistics Co.,,JO,,,entity
+D001070,"Amber Steel, PJSC",,SY,,,entity
+D002048,Kave Rezai,1993-02-20,IR,,,individual
+D001041,Jun Guo,1987-12-19,CN,,,individual
+D001960,"Petrov, Jurij",1965-10-12,RU,,,individual
+D001693,Mostafa ben Ibrahim Elmasry,1977-01-25,SA,,,individual
+D001859,Suzy J. Dubois,1995-12-10,GB,,,individual
+D001741,Jon Schmidt,1954-06-02,GB,,,individual
+D002196,Tony A. Fischer,1984-10-18,GB,,,individual
+D000065,Husain Zeidi,1957,EG,,,individual
+D001816,José Schröder,1970-03-09,AU,,,individual
+D001132,Atlas Import & Export FZE,,AF,,,entity
+D000871,Abdallah Haddad,1977,SA,,,individual
+D001946,Chiang Lin,1964-02-26,CN,,,individual
+D001017,Sayid Nacer,1983-09-23,SA,,,individual
+D001537,Desert Rose,,MH,,,vessel
+D000540,Fung Wong,,TW,,,individual
+D001815,Yen Hwang,1965-11-18,CN,,,individual
+D002091,Suzy J. Kowalski,1988-04-26,FR,,,individual
+D001406,Silk Road Minerals Sociedad Anonima,,AE,,,entity
+D001517,M/V Storm Petrel One,,IR,,,vessel
+D002101,Tarek Farsi,,YE,,,individual
+D000013,Lei A.,,HK,passport,HK88412792,individual
+D001067,The Delta Pharma Company,,SG,,,entity
+D001385,Silk Road Technologies FZ-LLC,,US,,,entity
+D001941,Yen Zhou,1979-03-19,CN,,,individual
+D001398,Caspian Group,,US,registration,REG-755746,entity
+D001611,Vessel Grand Voyager Alpha,,CM,imo,IMO9651575,vessel
+D001263,Zenith Textiles PJSC,,SA,,,entity
+D001135,Phoenix Holdings Public Joint Stock Company,,AF,,,entity
+D000293,Mohamed Salah,1955-05-09,LB,,,individual
+D000733,Mustafa Mansour,,EG,,,individual
+D001657,Hsiao-Ming Hsu,,HK,,,individual
+D000515,Xiao Ming Kuo,1990-01-01,TW,,,individual
+D000392,Volodymyr A.,,UA,passport,UA37373925,individual
+D002182,Yan Zhu,1988-03-25,TW,,,individual
+D000945,Elizabeth O'Brien,1978,US,,,individual
+D001325,Jade Dragon Import Export Co,,IR,,,entity
+D001196,Eastern Star Holdings,,AU,,,entity
+D000738,Ayesha Zaydi,1968-05-01,LB,,,individual
+D000933,Yen Li,1979-02-09,SG,,,individual
+D001620,Vessel Ocean Pearl Alpha,,RU,imo,IMO9644856,vessel
+D001377,Amber Maritime Co.,,SA,,,entity
+D001727,Mahmood Al Farsi,1994-08-11,EG,,,individual
+D000239,Shireen Hosseiny,1983-01-20,CA,,,individual
+D002042,Yan Wang,1985-09-17,CN,,,individual
+D001679,Ming Li,1953-04-18,SG,,,individual
+D000900,Jamie Schmidt,1993-09-06,MX,,,individual
+D001636,M/T Black Tide II,,KM,,,vessel
+D002251,Rezaei Kaveh,1982-03-24,IR,,,individual
+D000310,Svitlana Zaiceva,1970,UA,,,individual
+D001958,Maggie A. Schmidt,1956-04-12,GB,,,individual
+D000864,Mehdy Muradi,2000-07-26,AF,,,individual
+D000457,Pat Nguyễn,,MX,,,individual
+D000517,Jim OBrien,1978,US,,,individual
+D001986,Mustafa Mansour,,YE,,,individual
+D001328,Emerald Bay Aviation Sociedad Anonima,,YE,,,entity
+D000779,Chirine Hosseiny,1980,AF,,,individual
+D001431,Al-Bahr Shipping PJSC,,AF,,,entity
+D000305,Po Liou,1983-12-25,BY,,,individual
+D000793,Yousef Kassem,1957,IQ,,,individual
+D000348,Aly Saleh,1989-05-07,MX,,,individual
+D000301,Bill Nguyễn,1969-04-08,FR,,,individual
+D000107,Alexandr Ivanoff,,UA,,,individual
+D000875,Fathima Hashemi,1970-03-11,YE,,,individual
+D000231,Tommy García,,IQ,,,individual
+D001803,Chun Yeung,1955-09-02,CN,,,individual
+D000203,Helena Kuznetsoffa,1968-09-14,UA,,,individual
+D000381,Khaled al-Sayed,1972-01-05,JO,,,individual
+D001470,Ural Technologies GmbH,,GB,,,entity
+D001884,Jen J. Mueller,,MX,,,individual
+D001003,Maggie Larson,1981-06-28,CA,,,individual
+D000883,Babac Mohamadi,1989-10-02,IR,,,individual
+D000377,Alexandr Iakovlev,1986,RU,,,individual
+D001351,Euphrates Minerals G.m.b.H.,,AE,,,entity
+D001943,Ibrahim Rashid,1951-03-09,LB,,,individual
+D001036,James Ferreira,,US,,,individual
+D001937,Dan M. Silva,1956-02-01,US,,,individual
+D001245,"Jade Dragon Agro, FZ-LLC",,AE,,,entity
+D001538,Vessel Baltic Swan Alpha,,IR,imo,IMO9316594,vessel
+D001968,Wei Gao,,TW,,,individual
+D001579,MV Night Hawk III,,CM,,,vessel
+D001938,Peggy García,1979-01-05,US,,,individual
+D000833,Victor Zaytsev,1950-07-27,UA,,,individual
+D001202,Jade Dragon Chemicals AO,,KZ,,,entity
+D000082,Tareq Qasim,1972-12,AE,,,individual
+D001915,Jian Guo Guo,1951-03-26,CN,,,individual
+D002058,Chih-Chiang Zhu,1980-10-23,HK,,,individual
+D002027,Ling Zhao,1980-07-15,CN,,,individual
+D001574,Vessel Caspian Moon Alpha,,KM,imo,IMO9434901,vessel
+D000164,Dick Schröder,1986-07-09,DE,,,individual
+D000355,Husayn Nasir,,US,,,individual
+D000746,Bill Kowalsky,1972-07-11,AU,,,individual
+D000500,Paul Volkoff,1991-10-21,RU,,,individual
+D001642,MV Polar Bear One,,IR,,,vessel
+D001416,Zagros Logistics FZE,,US,,,entity
+D000252,Natasha Petrovna Tkatchenko,,BY,,,individual
+D000190,Waleed Kassem,1970,EG,,,individual
+D001929,Bo Zhao,1958-01-15,SG,,,individual
+D000783,Abd al-Rahman Alfarsi,1989-09-24,JO,,,individual
+D001279,Volga Investments Ltd.,,KZ,,,entity
+D001706,"Kuznetsova, Irina",1997-11-20,RU,,,individual
+D000578,Ted J. Schroeder,1971-05-22,FR,,,individual
+D001025,Ling Ma,,HK,,,individual
+D001790,Jenny M. Smith-Jones,1975-07-15,BR,,,individual
+D002228,Johnny Garcia,1982-05-18,AU,,,individual
+D000615,Ping Ma,1974-03-19,TW,,,individual
+D001454,Pacific Rim Aviation Public Joint Stock Company,,AU,,,entity
+D001924,Ling Cai,1993-04-10,CN,,,individual
+D001880,Mustapha Masri,1986-08-04,JO,,,individual
+D000622,Yelena Petrovna Fyodorova,1992-07-21,CN,,,individual
+D000773,Yuri Petrovich Petrov,1954-11-21,BY,,,individual
+D000480,Jian Guo Yeung,1976-06-26,TW,,,individual
+D001366,Titan Group,,BY,registration,REG-788937,entity
+D001083,Nile Valley Engineering Free Zone Establishment,,BR,,,entity
+D000587,Wei Choi,1987-07,HK,,,individual
+D000825,Zhenya,,HK,,,individual
+D001208,Falcon Petroleum Ltd,,LB,,,entity
+D001365,Falcon Group,,KZ,registration,REG-641651,entity
+D002180,Tony Kowalsky,1998-12-23,FR,,,individual
+D001749,Billy M. Ferreira,1974-02-18,CA,,,individual
+D000842,Eugene Kozloff,1958-12-22,UA,,,individual
+D000609,Yung Mah,,HK,,,individual
+D000010,Nassrin Morady,,IR,,,individual
+D000488,Shevchenko Wladimir,1973-11-26,JO,,,individual
+D000380,Johnny Kowalski,1950-12-13,FR,,,individual
+D000579,Catherine Nowak,,LB,,,individual
+D002210,Hua Xu,2000-02-24,CN,,,individual
+D001400,The Summit Pharma Free Zone Establishment,,IQ,,,entity
+D000847,Bobby Andersen,1977,US,,,individual
+D000066,Waleed Farsi,,EG,,,individual
+D000446,Rob DaSilva,1960-05-06,BR,,,individual
+D000402,Hua Li,1978-03-07,HK,,,individual
+D000792,Mustapha Zeidi,1966,LB,,,individual
+D000342,Trish O Brien,1975-11-08,CA,,,individual
+D001686,Yen Zhao,,TW,,,individual
+D000715,Xiaoming Liu,,CN,,,individual
+D001833,Guoqiang Yang,1997-07-16,CN,,,individual
+D000263,Catherine Silva,2000-11-15,US,,,individual
+D001254,Al-Noor Logistics Co.,,JO,,,entity
+D002015,Suzy Muller,,CA,,,individual
+D002092,Wei Woo,,SG,,,individual
+D000210,Olha Ivanovna Petroffa,1981,UA,,,individual
+D001965,Pepe A. Nguyen,1963-12-05,DE,,,individual
+D002221,Yen Zhang,,TW,,,individual
+D001737,Guo Qiang Lee,1957-10-21,TW,,,individual
+D001699,Peggy Du Bois,1950-08-14,FR,,,individual
+D002024,Hsiang Hoo,1976-10-24,TW,,,individual
+D000946,Evgeni Petrovich Zaytsev,1964-07-02,KZ,,,individual
+D002059,Elisabeth Fischer,,US,,,individual
+D000189,Ihor Zaicev,1973-04-15,BY,,,individual
+D000603,Hsiang Chen,,HK,,,individual
+D001057,"Aral Holdings, FZ-LLC",,YE,,,entity
+D000261,Achmed Qasim,,EG,,,individual
+D000651,Abu Layth,,IQ,,,individual
+D001369,Damavand Pharma,,IQ,,,entity
+D000460,Chiang Lau,1974-02-05,CN,,,individual
+D000903,Yusuf al-Hashimi,,EG,,,individual
+D001223,The Al-Bahr Technologies L.L.C.,,YE,,,entity
+D000594,Suzy A. Bianchi,1992-11-05,US,,,individual
+D001513,M/T Nordic Star Star,,LR,,,vessel
+D000283,Zhi Qiang Hsu,1975-09-19,UA,,,individual
+D000873,Helena Zaytseva,2000-07-19,UA,,,individual
+D000662,Bob Bianci,1959-02-19,DE,,,individual
+D001527,MV Sea Lion One,,CM,,,vessel
+D000192,Bill Muller,1960-07-02,CA,,,individual
+D001268,Kamchatka Petroleum Public Joint Stock Company,,BY,,,entity
+D001788,Hua Yeung,1959-09-22,CN,,,individual
+D001251,Red Sea Group,,AE,registration,REG-442599,entity
+D001862,Bill Ferreyra,1956-09-04,US,,,individual
+D000586,Xiao Ming Zhu,1979,CN,,,individual
+D000767,Dick Bianchi,1995-10-14,CA,,,individual
+D001870,Fung Lee,1998-09-19,TW,,,individual
+D001720,Ling Kao,1981-11-21,CN,,,individual
+D000807,Al-Ustadh,,YE,,,individual
+D001841,Ming Lam,1997-08-14,TW,,,individual
+D001948,Xander García,1965-07-26,MX,,,individual
+D000318,Jurij Iwanow,1981-05-11,KZ,,,individual
+D001038,Guoqiang Lin,,TW,,,individual
+D001874,Xander Petersen,1954-08-18,FR,,,individual
+D000238,Wei Wong,1982-08-06,HK,,,individual
+D001474,Nile Valley Holdings Ltd,,FR,,,entity
+D001486,The Onyx Electronics Limited,,CA,,,entity
+D000720,Abdul Rahman Shahin,,JO,,,individual
+D001456,The Blue Horizon Logistics L.L.C.,,JO,,,entity
+D000471,Sadeghi Hossain,,IR,,,individual
+D000186,Dima,1994-03-14,UA,,,individual
+D001089,Aral Textiles Co.,,CA,,,entity
+D001703,Drew Du Bois,1956-01-25,CA,,,individual
+D000713,Chirine Moradi,1990,IR,,,individual
+D000096,Mohamed Barkat,1991-02-22,SY,,,individual
+D001042,Johnny Le Fevre,1952,DE,,,individual
+D001952,Tommy Ferreira,1973-10-20,US,,,individual
+D002145,Nataliya Kuznetsoffa,1967-01-28,BY,,,individual
+D000657,Rida Muhammadi,1981,IR,,,individual
+D001313,Onyx Group,,AE,registration,REG-942989,entity
+D000156,Xiao-Ming M.,,HK,passport,HK26983468,individual
+D000722,Zhenya,,IQ,,,individual
+D001577,MT Golden Wave One,,CM,,,vessel
+D001951,Rob Nowak,1969-08-05,US,,,individual
+D001054,Lotus Construction Sociedad Anonima,,SY,,,entity
+D001333,The Delta Shipping Joint Stock Company,,JO,,,entity
+D001987,Oumar Nasser,1975-06-26,JO,,,individual
+D001343,EASTERN STAR ENGINEERING Ltd,,AU,,,entity
+D000467,Andrey Zaicev,,UA,,,individual
+D000668,Yan Cai,1996-01-19,HK,,,individual
+D001410,Al-Noor Electronics GmbH,,DE,,,entity
+D000224,Youri K.,1996-09-09,BY,passport,BY33752864,individual
+D000018,Oumar al-Masri,,YE,,,individual
+D000521,Jian-Guo Zhang,1979-04-23,HK,,,individual
+D001742,Xiao-Ming Liou,1977-01-14,TW,,,individual
+D000077,Alee El Amin,2000-04-09,LB,,,individual
+D001810,Jen J. Mueller,1950-01-17,GB,,,individual
+D000448,Johnny Ferreyra,1986-08,GB,,,individual
+D001858,Danny Novak,1959-04-24,CA,,,individual
+D000543,Meryem M.,,IR,passport,IR41912349,individual
+D000141,Po Hsu,2000,JO,,,individual
+D000167,Fathima Barkat,1953-12-17,IQ,,,individual
+D001488,Emerald Bay Agro Limited,,GB,,,entity
+D002147,Ling Gao,1957-11-25,CN,,,individual
+D001203,Baltic Engineering SA,,US,,,entity
+D000145,Kathy Sorenson,1958-01-22,TW,,,individual
+D000235,Tao Lin,1978-03-19,CN,,,individual
+D001996,Hsiao-Chun Wu,1967-10-28,SG,,,individual
+D001220,Altai Group,,CA,registration,REG-732694,entity
+D001916,Jun Li,,TW,,,individual
+D001046,Orion Engineering Limited Liability Company,,SA,,,entity
+D000885,Fung Zhou,1990-02-08,HK,,,individual
+D000026,Mahdi Sadeqi,1992-05-14,AF,,,individual
+D000507,Drew Sorensen,,MX,,,individual
+D000566,Ping Chang,1968-01-13,CN,,,individual
+D000017,Nikolay Kozloff,1957-02-07,BY,,,individual
+D001358,Crystal Chemicals,,AF,,,entity
+D001585,Vessel Nordic Star Alpha,,CM,imo,IMO9947230,vessel
+D000470,Fung Zhang,1973,CN,,,individual
+D002181,Ping Chou,1972-06-05,SG,,,individual
+D000485,Zhi Qiang Lee,,SG,,,individual
+D000681,Tarek Barkat,1967-06-21,AE,,,individual
+D000902,Chiang Lo,1957-07-03,SG,,,individual
+D000251,José Ferreyra,,FR,,,individual
+D000607,Hsiang Choi,1981-11-16,TW,,,individual
+D000441,Drew Pedersen,1981-01-28,AU,,,individual
+D001849,Alex Sørensen,1961-04-21,FR,,,individual
+D001621,Vessel Green Meadow Alpha,,PA,imo,IMO9622111,vessel
+D000397,Big Mo,1996-12-27,IQ,,,individual
+D000057,Mostafa Hashemi,1978-08-10,EG,,,individual
+D000572,Elisabeth Schmid,,AU,,,individual
+D002218,Catherine M. Kowalski,,BR,,,individual
+D000058,Irena Petrovna Zaytseva,1978,RU,,,individual
+D000699,Paul Smirnoff,1991-02-10,UA,,,individual
+D001170,Sahara Construction SA,,AU,,,entity
+D001405,Falcon Steel Ltd,,LB,,,entity
+D001963,Mike A. Mueller,1955-09-10,DE,,,individual
+D001289,Meridian Petroleum Ltd,,US,,,entity
+D001700,Mikey Andersen,1957-05-17,DE,,,individual
+D000099,Abdulrahman Al Sayyid,1994-04-03,IQ,,,individual
+D002151,Fung Hwang,1950-01-12,TW,,,individual
+D001871,Xiaojun Chen,1951-11-06,SG,,,individual
+D001863,Kuo-Chiang Zhou,,TW,,,individual
+D000403,Dmitry Petrovich Ivanov,1993-05-11,BY,,,individual
+D002244,Meiling Lin,1980-06-09,TW,,,individual
+D000399,Yung Xu,,SG,,,individual
+D000074,Kave Karimy,1981,AF,,,individual
+D001317,"Amber Import Export, AO",,HK,,,entity
+D001420,"Crystal Trading, Co.",,SY,,,entity
+D000762,Serguei Sokoloff,1951-06-23,BY,,,individual
+D002115,Kave Rezaee,1957-12-20,AF,,,individual
+D001964,Liz Garcia,1992-10-01,CA,,,individual
+D002248,Brahim al-Rashid,1964-01-18,SA,,,individual
+D000855,Yen Kwok,1950-08-27,TW,,,individual
+D001442,The Atlas Chemicals AO,,DE,,,entity
+D000691,Al-Ustadh,,BR,,,individual
+D000743,Rida Moradi,1984-10-02,AF,,,individual
+D000059,Ameer Muradi,1962,DE,,,individual
+D002178,Mei Ling Chen,,TW,,,individual
+D001534,Vessel Star of Aden Alpha,,PA,imo,IMO9029946,vessel
+D000969,Wladimir Jakowlew,1976-05-14,KZ,,,individual
+D000836,Catherine Hernandez,1989,MX,,,individual
+D001672,Zhiqiang Wu,1982-11-13,CN,,,individual
+D002043,Yung Wang,1988-01-01,CN,,,individual
+D001240,Tigris Electronics Ltd,,US,,,entity
+D002001,Ming Chou,1973-10-20,SG,,,individual
+D000502,Zhi Qiang Liou,,CN,,,individual
+D001348,Delta Holdings S.A.,,SG,,,entity
+D001270,Onyx Shipping,,AF,,,entity
+D001567,M/T Kestrel,,KM,,,vessel
+D001100,Harbor Point Engineering,,IR,,,entity
+D000330,Eddie Nguyen,1971-06-21,US,,,individual
+D001438,Damavand Minerals GmbH,,FR,,,entity
+D001500,Vessel Atlantic Hope Alpha,,MH,imo,IMO9648195,vessel
+D001548,M/V Sapphire III,,RU,,,vessel
+D000212,Xiao Ming Luo,,SG,,,individual
+D001387,Pacific Rim Engineering Sociedad Anonima,,GB,,,entity
+D000023,Andrey Sokoloff,1988-01-26,BY,,,individual
+D000391,Zhiqiang Hu,1976-06-25,CN,,,individual
+D000031,Jamaal al-Amin,,LB,,,individual
+D001846,Hua Kao,,SG,,,individual
+D000079,Jim Larson,1955,CN,,,individual
+D001789,Ebrahim al-Rashid,2000-01-24,SY,,,individual
+D001341,Al Noor Import Export Limited,,BR,,,entity
+D001554,Sapphire,,CM,,,vessel
+D000458,Xiang Zhu,1978-10-18,HK,,,individual
+D001370,Orion Steel Company,,MX,,,entity
+D001147,"Nile Valley Aviation, OAO",,HK,,,entity
+D000549,Abdallah Saleh,1955-01-02,JO,,,individual
+D000247,Jim Novak,1972-08-16,SG,,,individual
+D002072,Hua Hsu,2000-03-23,HK,,,individual
+D001126,Baltic Industries Ltd,,US,,,entity
+D001664,Rick O'Brien,1987-05-21,BR,,,individual
+D000844,Danny O'Brien,1954-06-14,BR,,,individual
+D000861,Oualid Al Hashemi,1975-07-25,AE,,,individual
+D000385,Nikolay Iakovlev,1988-05-03,KZ,,,individual
+D002057,Yousef ben Muhammad Hashemi,1981-06-22,YE,,,individual
+D000639,Abdellah al-Hashimi,1950-10-18,IQ,,,individual
+D001587,Atlantic Hope III Trader,,KM,,,vessel
+D001189,Blue Horizon Engineering LLC,,US,,,entity
+D001218,EASTERN STAR PHARMA Public Joint Stock Company,,CA,,,entity
+D000319,Ling Zhang,1996-01-04,AF,,,individual
+D001058,Red Sea Engineering PJSC,,GB,,,entity
+D000356,Olha M.,,KZ,passport,KZ91969137,individual
+D000237,Ehsaan K.,1957,IR,passport,IR50291713,individual
+D002167,Pepe Lefevre,,GB,,,individual
+D001045,"Baltic Pharma, Co.",,LB,,,entity
+D000838,Hasan Salah,1996-02-05,SA,,,individual
+D001745,Guo Qiang Lee,,SG,,,individual
+D001191,Lotus Minerals,,KZ,,,entity
+D001798,Rick Schmitt,1966-08-24,DE,,,individual
+D000849,Reza Hosseini,,IR,,,individual
+D002025,Po Hu,1967-11-25,CN,,,individual
+D000257,Jenny Novak,1958,IQ,,,individual
+D001257,Silk Road Petroleum FZ-LLC,,LB,,,entity
+D000834,Robert Ferreira,,FR,,,individual
+D001062,Altai Investments OAO,,US,,,entity
+D002105,Jian Guo Chen,1990-03-10,TW,,,individual
+D000830,Ming Hu,,HK,,,individual
+D000538,Chuck Larson,1977,AU,,,individual
+D000351,Hussain Elmasry,1968,SY,,,individual
+D000678,Ling Hoo,1948,TW,,,individual
+D001044,Zenith Investments Limited,,EG,,,entity
+D000910,Jamie Schroder,1974-02-08,AU,,,individual
+D000323,Andy Muller,1968-02-14,DE,,,individual
+D002011,Bill Andersen,1993-06-16,AU,,,individual
+D001009,Bob Larson,1955,BR,,,individual
+D001014,Nikolaj Petrov,1990,KZ,,,individual
+D000788,Edward Mueller,,FR,,,individual
+D001133,Zagros Shipping OAO,,CA,,,entity
+D001825,Wei Gao,,TW,,,individual
+D001593,M/V Green Meadow II,,RU,,,vessel
+D000264,Will O'Brien,,AU,,,individual
+D000095,Chun Gao,1961-10-24,HK,,,individual
+D001314,Titan Group,,GB,registration,REG-633927,entity
+D001379,Lotus Maritime Limited,,KZ,,,entity
+D000012,Hassane ben Mustafa Zeidi,,CA,,,individual
+D000999,Po Chen,1953-08-20,CN,,,individual
+D001129,Eastern Star Logistics Public Joint Stock Company,,IQ,,,entity
+D002033,Peggy Kowalsky,1983-02-22,MX,,,individual
+D002235,Xiang Gao,1967-01-07,CN,,,individual
+D000941,Yung Chow,1994-11-21,CN,,,individual
+D000924,Elizabeth Sorensen,,BR,,,individual
+D001452,The Jade Dragon Holdings PJSC,,HK,,,entity
+D000439,Ling K.,,IQ,passport,SG47524870,individual
+D000794,Zhiqiang Zhu,1994,CN,,,individual
+D001144,Nile Valley Construction G.m.b.H.,,IQ,,,entity
+D001469,Aral Trading GmbH,,IR,,,entity
+D001304,Damavand Import Export GmbH,,MX,,,entity
+D002053,Hsiang Gao,1971-12-14,TW,,,individual
+D001540,MV Blue Whale,,MH,,,vessel
+D000663,Dima,,SG,,,individual
+D000986,Beth Larson,1957,DE,,,individual
+D000160,Tony Bianci,1975-11-01,MX,,,individual
+D000638,Kuo-Chiang Chao,1981-03,TW,,,individual
+D000952,Wei Liu,1998,TW,,,individual
+D000128,Kathy Du Bois,1995-08-03,DE,,,individual
+D001455,Phoenix Steel,,CN,,,entity
+D001459,Golden Crescent Electronics Sociedad Anonima,,UA,,,entity
+D000056,Hua Tchen,1966-04-03,MX,,,individual
+D002012,Catherine M. O'Brien,1951-01-28,GB,,,individual
+D000419,Moradi Farhaad,1975-10-10,AF,,,individual
+D000125,Mahmood Zaidi,1965-06-25,IQ,,,individual
+D001639,Caspian Moon III Trader,,PA,,,vessel
+D000712,Hussien Hadad,1960,SY,,,individual
+D002131,Ling Chao,1969-02-21,SG,,,individual
+D000808,Charlie Hernández,1957-01-19,FR,,,individual
+D001228,Meridian Minerals L.L.C.,,LB,,,entity
+D001088,Baltic Minerals LLC,,EG,,,entity
+D000721,Yousef ibn Hassan Al Masry,1994-09-08,IQ,,,individual
+D001440,Amber Electronics,,EG,,,entity
+D000468,Bill Nowak,1991-11-03,MX,,,individual
+D000881,Meiling Xu,1955-08-28,TW,,,individual
+D001482,Baltic Aviation AO,,UA,,,entity
+D000571,Chuck Schmitt,1993-02-19,DE,,,individual
+D001388,Silk Road Investments Ltd,,SA,,,entity
+D002140,Danny J. Fischer,1963-04-01,GB,,,individual
+D001552,M/V Hormuz Pride Star,,KM,,,vessel
+D001911,Yen Choi,1984-01-07,TW,,,individual
+D000948,Jian-Guo Chang,1983-04-14,HK,,,individual
+D000187,Victor Schewtschenko,,SY,,,individual
+D001698,Elisabeth OBrien,1966-09-19,CA,,,individual
+D001344,"Atlas Aviation, LLC",,SY,,,entity
+D000850,Abdurrahman al-Rashid,2000,YE,,,individual
+D001478,Baltic Electronics FZE,,BY,,,entity
+D001117,Emerald Bay Investments Co,,BY,,,entity
+D001971,Gamal Qasem,1975-03-09,SY,,,individual
+D000513,Nikolaj Nikolaevich Chevtchenko,1984-01-22,RU,,,individual
+D001384,Blue Horizon Construction GmbH,,BY,,,entity
+D000660,Jawad Isfahani,1981-10-11,IR,,,individual
+D001589,MT Storm Petrel III,,IR,,,vessel
+D001966,Tommy J. Larsen,,GB,,,individual
+D000321,Fatma ben Hassan Salah,1953-07-04,KZ,,,individual
+D000216,Leyla Shahin,1998,UA,,,individual
+D001082,NILE VALLEY STEEL Sociedad Anonima,,IQ,,,entity
+D000997,Jawad Hosseiny,1952-04-05,AF,,,individual
+D001522,MV Silver Crest,,CM,,,vessel
+D001634,M/V Bosporus Star,,CM,,,vessel
+D001286,Eastern Star Chemicals FZE,,SA,,,entity
+D002237,Jun Guo,1963-10-19,SG,,,individual
+D001550,Vessel Amber Sky Alpha,,MH,imo,IMO9619939,vessel
+D000908,Anthony Sorensen,1979,FR,,,individual
+D001316,The Blue Horizon Minerals LLC,,DE,,,entity
+D000939,Hsiao-Ming Chou,1967,HK,,,individual
+D000085,Aly al-Farsi,1984-12-10,JO,,,individual
+D000943,Abdel Rahman Al Masry,1959-09-22,SA,,,individual
+D002021,Lei Cai,1957-05-05,SG,,,individual
+D002082,Po Hwang,1990-05-18,SG,,,individual
+D002156,Andy Hernandez,1979-04-17,CA,,,individual
+D000988,William Sorensen,1997,US,,,individual
+D001107,Ivory Coast Engineering GmbH,,CA,,,entity
+D002130,Hua Zhang,,HK,,,individual
+D001242,The Euphrates Construction FZE,,MX,,,entity
+D000897,Abdel Rahman ibn Omar Zaidi,1996,JO,,,individual
+D000968,Edward Nowak,,BR,,,individual
+D001868,Guo Qiang Zhou,1965-03-07,HK,,,individual
+D001236,Baltic Maritime Co,,TW,,,entity
+D001757,Yen Chu,1978-06-15,CN,,,individual
+D000294,Zhi Qiang Suen,1972-09-07,JO,,,individual
+D001895,Ming Zhou,1983-03-27,HK,,,individual
+D001826,Alex Pedersen,1970-01-06,MX,,,individual
+D001926,Liz García,1984-05-27,CA,,,individual
+D000214,Dick Larson,1988-06,DE,,,individual
+D001288,Ural Shipping Co,,CN,,,entity
+D001354,Blue Horizon Construction PJSC,,MX,,,entity
+D002045,Jenny Hernandez,1975-12-10,MX,,,individual
+D000201,Andriy Sergeyevich Schewtschenko,1957-04-09,KZ,,,individual
+D000043,Volodymyr Kozlov,2000-09-13,UA,,,individual
+D001409,Atlas Industries FZE,,DE,,,entity
+D001518,MV Tiger Lily III,,LR,,,vessel
+D000102,Said bin Ibrahim Shaheen,,YE,,,individual
+D000820,Sasha,,TW,,,individual
+D000078,Muhamad El-Masri,1995-08-17,AE,,,individual
+D000967,Daniel Silva,,FR,,,individual
+D001498,Vessel Ocean Titan Alpha,,RU,imo,IMO9364140,vessel
+D000123,Paul Smirnoff,1981-04-13,UA,,,individual
+D001843,Maggie Nguyen,1972-09-12,BR,,,individual
+D000577,Tom Smith-Jones,1959-11-24,MX,,,individual
+D000424,Trish M. Bianchi,1961-08-16,US,,,individual
+D001029,Ahmed al-Rashid,1970-02-27,SA,,,individual
+D000634,Kate Ferreira,,US,,,individual
+D002044,Meiling Chen,1968-11-02,CN,,,individual
+D001932,Hsiao-Ming Huang,1998-10-05,HK,,,individual
+D000664,Yusuf bin Mahmoud al-Hashimi,,EG,,,individual
+D000845,Chun Chao,1979-05-06,HK,,,individual
+D002169,Po Zhao,,CN,,,individual
+D001903,Hua Zhang,1972-05-27,CN,,,individual
+D001209,KAMCHATKA ELECTRONICS Company,,BY,,,entity
+D001283,Summit Textiles,,BY,,,entity
+D002002,Catherine O'Brien,1968-04-25,GB,,,individual
+D000110,Catherine Lefevre,1966-03-17,MX,,,individual
+D000981,Mohammad Farsi,1965-08-20,YE,,,individual
+D000843,Andrew Fischer,,US,,,individual
+D000367,Hsiao-Chun Luo,1988-05-13,HK,,,individual
+D002162,Mei Ling Chu,1959-03-12,TW,,,individual
+D002071,Kate J. O'Brien,1971-09-11,CA,,,individual
+D000122,Sergey Kusnezow,1961-09-24,KZ,,,individual
+D000602,Mahmud Salah,,SA,,,individual
+D000652,Andrew Nowak,1965-12-11,MX,,,individual
+D001893,Elisabeth J. Fischer,1965-02-17,DE,,,individual
+D002240,Zhiqiang Gao,,CN,,,individual
+D000608,Andy Kowalsky,1969-04-16,DE,,,individual
+D000556,Dick Kowalsky,1979,FR,,,individual
+D000770,Andrej Kozloff,1990-04-02,KZ,,,individual
+D001650,Coral Queen One Express,,RU,,,vessel
+D000922,Ping Yang,1978-04-28,TW,,,individual
+D001386,FALCON ELECTRONICS PJSC,,UA,,,entity
+D000064,"Petrov, Viktor",,BY,,,individual
+D001329,"Volga Petroleum, Public Joint Stock Company",,UA,,,entity
+D000365,Abdulla al-Masri,1981-09-18,UA,,,individual
+D001721,Hsiao-Chun Yang,1964-05-04,HK,,,individual
+D001854,José Silva,1966-11-28,FR,,,individual
+D001238,Crystal Maritime S.A.,,FR,,,entity
+D002055,Meiling Lin,1952-07-07,CN,,,individual
+D001856,Hsiang Lin,1991-02-07,TW,,,individual
+D001762,Wei Ma,,HK,,,individual
+D001632,M/T Marlin,,MH,,,vessel
+D000450,Olha Ivanoffa,,UA,,,individual
+D000949,Jian-Guo Suen,1982-08-23,SG,,,individual
+D001894,Tao Yeung,1966-09-08,HK,,,individual
+D001285,Titan Aviation FZE,,KZ,,,entity
+D001995,Youssef Hashemi,,SY,,,individual
+D001684,Xiao-Ming Liu,,CN,,,individual
+D000589,Mike García,1969-02-10,US,,,individual
+D000610,Dick Sorenson,1973,BR,,,individual
+D001039,Bo Guo,,TW,,,individual
+D001890,Dan J. Mueller,,CA,,,individual
+D000718,The Accountant,,HK,,,individual
+D000977,Lei Lee,1956-07-21,HK,,,individual
+D001927,Jurij Ivanovich Petrow,1950-04-19,KZ,,,individual
+D001125,The Al-Bahr Chemicals Company,,RU,,,entity
+D001141,ALTAI TEXTILES Ltd,,IQ,,,entity
+D002098,Po Luo,1966-01-06,HK,,,individual
+D000209,Tehrani Hoseyn,,IR,,,individual
+D000429,Jim Bianchi,1990-10,MX,,,individual
+D000510,Chun Zhou,,CN,,,individual
+D000992,Jenny Fisher,1956-02-17,GB,,,individual
+D000955,Thomas Ferreira,1981-05-02,BR,,,individual
+D001375,Baltic Import Export L.L.C.,,SY,,,entity
+D001701,Tao Zhou,1987-05-11,SG,,,individual
+D000592,Jim Mueller,1996-12-16,DE,,,individual
+D000627,Ming Tchen,1995-05-22,MX,,,individual
+D000481,Rich Novak,1989,GB,,,individual
+D000506,Chiang Woo,,HK,,,individual
+D001056,Onyx Logistics Free Zone Establishment,,CN,,,entity
+D000432,Ping Hu,1975-01-28,HK,,,individual
+D000766,Abdul Rahman bin Ali Shahin,,SA,,,individual
+D001842,Tao Hu,1952-10-17,SG,,,individual
+D000386,Ehsaan Ahmadi,1974-02-02,IR,,,individual
+D001875,Kathy Schroeder,1998-06-14,GB,,,individual
+D000598,Dmitry Sokoloff,1973-06-12,JO,,,individual
+D001753,Ming Choi,1975-08-12,TW,,,individual
+D001392,Meridian Import Export Limited,,FR,,,entity
+D000071,Alex O Brien,1999-02-25,US,,,individual
+D000229,Paul Petrov,1954-11-21,AF,,,individual
+D000736,Ping Cai,,TW,,,individual
+D000630,Xiang Kwok,1974-07-11,TW,,,individual
+D000345,Aleksander Volkoff,1965-09-22,KZ,,,individual
+D000737,Helena Yakovleva,1985-12-13,RU,,,individual
+D001651,Crimson Dawn III Spirit,,IR,,,vessel
+D001685,Danny Novak,1955-08-02,GB,,,individual
+D001362,The Atlas Petroleum GmbH,,JO,,,entity
+D000730,Big Mo,,SA,,,individual
+D001818,Yung Zhu,1982-08-22,CN,,,individual
+D002173,Zhi Qiang Huang,1971-10-08,TW,,,individual
+D001976,Ming Hu,1956-06-25,HK,,,individual
+D001646,MT Sea Lion,,KM,,,vessel
+D000217,Rick Bianchi,1992-11-24,CA,,,individual
+D000226,Yousef ben Abdullah Naser,,JO,,,individual
+D000149,Chun Woo,1973-09-04,CN,,,individual
+D001244,"Golden Crescent Maritime, Ltd",,SA,,,entity
+D000818,Lei Yeung,1991-09-17,HK,,,individual
+D001115,Northern Lights Minerals FZE,,BY,,,entity
+D000932,Xiaojun Wu,,HK,,,individual
+D001024,Hsiang Choi,1983,TW,,,individual
+D000614,Ed Lefèvre,1989-02-03,BR,,,individual
+D000205,Halid Alamin,1986-04-19,AU,,,individual
+D000683,Ihor Nikolaevich Iwanow,1986-01-07,KZ,,,individual
+D001683,Jon Nguyen,1997-12-26,CA,,,individual
+D000268,Suzy O'Brien,1967-06-14,BR,,,individual
+D000431,Tony Du Bois,1961-04-22,GB,,,individual
+D001156,Caspian Group,,SA,registration,REG-373656,entity
+D000335,Po Chou,1975-05,CN,,,individual
+D001339,Blue Horizon Construction Company,,CA,,,entity
+D001782,Hsiao-Ming Liu,1977-06-05,CN,,,individual
+D002202,Charlie OBrien,,DE,,,individual
+D000445,Chiang Luo,,SG,,,individual
+D000140,Irena Wolkowa,1953-11,YE,,,individual
+D000277,Jawad Karimi,1986-02-08,EG,,,individual
+D000801,Jose Silva,,US,,,individual
+D001512,M/T Albatross Star,,IR,,,vessel
+D000121,Achmed Barkat,,LB,,,individual
+D000803,Aicha bin Khalid Saleh,1958-02-13,YE,,,individual
+D002177,Jen Bianci,,DE,,,individual
+D000312,Laila Salah,1988-02-05,SA,,,individual
+D000893,Michael Dubois,1978-03-27,FR,,,individual
+D001265,Silk Road Chemicals GmbH,,YE,,,entity
+D002088,Hsiao-Ming Lee,1995-12-06,CN,,,individual
+D002060,Chih-Chiang Hwang,1979-11-06,CN,,,individual
+D001250,Al-Bahr Import Export,,YE,,,entity
+D000421,Sue Smith Jones,,FR,,,individual
+D000726,Drew García,1991,GB,,,individual
+D001334,The Atlas Shipping JSC,,YE,,,entity
+D000563,Youssef Haddade,,LB,,,individual
+D001778,Eddie Du Bois,1953-05-22,GB,,,individual
+D000643,Xiao-Ming Lam,1964,CN,,,individual
+D001243,ALTAI CONSTRUCTION GmbH,,HK,,,entity
+D000813,Feng Gao,,SG,,,individual
+D001597,MV Kestrel II,,IR,,,vessel
+D001561,Golden Wave Star Trader,,IR,,,vessel
+D001131,The Aral Shipping LLC,,FR,,,entity
+D001776,Jenny M. O'Brien,,DE,,,individual
+D000744,Dima,,US,,,individual
+D001940,Wei Hoo,1994-11-01,SG,,,individual
+D000953,Dmitriy Schewtschenko,1987-05-25,UA,,,individual
+D000469,Jawad Jafari,,AF,,,individual
+D000848,Svitlana Petrova,1986,BY,,,individual
+D001319,ORION TRADING Limited,,EG,,,entity
+D001707,Ping Sun,1962-09-08,HK,,,individual
+D002243,Iurii Sergeyevich Petroff,1984-03-15,RU,,,individual
+D000269,Abdurrahman Muhammad Mansour,,EG,,,individual
+D000982,Achmed Hashemi,1987,SA,,,individual
+D001671,Ming Sun,1986-05-11,TW,,,individual
+D002241,Sue M. Larsen,1953-03-18,DE,,,individual
+D000729,Tareq Rashid,1994-10-01,EG,,,individual
+D000328,Tatyana Petrovna Kuznetsoffa,1987,SY,,,individual
+D001085,Northern Lights Technologies Joint Stock Company,,EG,,,entity
+D001975,Dan A. Mueller,,FR,,,individual
+D002069,Tony Nguyễn,1960-05-02,AU,,,individual
+D000101,Waleed al-Amin,1957-08-01,SY,,,individual
+D002007,Guo Qiang Yang,,HK,,,individual
+D000358,Ebrahim Amin,,IQ,,,individual
+D000907,Lei Suen,1964-09-26,HK,,,individual
+D001175,Tigris Minerals GmbH,,CA,,,entity
+D001568,MT Ocean Titan,,RU,,,vessel
+D001677,Hua Xu,1987-11-01,CN,,,individual
+D001907,Trish J. Nowak,1985-10-08,BR,,,individual
+D001074,Harbor Point Steel Limited Liability Company,,TW,,,entity
+D000891,Pat Bianci,1981-02-26,US,,,individual
+D000789,Yan Wang,,CN,,,individual
+D000435,Shireen Sadeghi,1992-04-28,TW,,,individual
+D001770,Chun Lee,1974-05-24,CN,,,individual
+D000366,Dan J. Schmidt,1954-03-27,GB,,,individual
+D000600,Peggy Petersen,,FR,,,individual
+D002107,Bobby A. Schmidt,2000-12-19,GB,,,individual
+D002052,Bo Wang,1952-04-18,TW,,,individual
+D000553,Lei Lee,,HK,,,individual
+D001787,Catherine Peterson,1965-09-04,BR,,,individual
+D001565,Night Hawk II,,IR,,,vessel
+D002114,Wei Ma,1954-12-28,SG,,,individual
+D001717,Drew A. Silva,,US,,,individual
+D002119,Jen Smith Jones,1994-08-14,AU,,,individual
+D000832,Sasha,,MX,,,individual
+D001104,"Zenith Engineering, FZ-LLC",,EG,,,entity
+D001516,Vessel Atlantic Hope Alpha,,KM,imo,IMO9078423,vessel
+D002231,Rich OBrien,1972-09-28,CA,,,individual
+D001389,Jade Dragon Trading Limited Liability Company,,LB,,,entity
+D002223,Liz J. Bianchi,1992-08-17,AU,,,individual
+D001663,Jenny M. Nguyen,1953-12-27,US,,,individual
+D000619,Khaled Mansour,1978,KZ,,,individual
+D001775,Ed Novak,1977-01-05,MX,,,individual
+D001000,William Andersen,,US,,,individual
+D001449,Atlas Trading,,BY,,,entity
+D001060,"Blue Horizon Industries, Ltd.",,BR,,,entity
+D000535,Tony Smithjones,1965-07,AU,,,individual
+D001355,Nile Valley Pharma FZ-LLC,,MX,,,entity
+D000879,Andrew Smith-Jones,,GB,,,individual
+D000307,Hua Lo,,CN,,,individual
+D001290,Onyx Steel FZ-LLC,,TW,,,entity
+D000785,The Engineer,,HK,,,individual
+D001322,"Harbor Point Agro, Free Zone Establishment",,IR,,,entity
+D001016,Ehsaan Hoseini,1974,AF,,,individual
+D001118,Emerald Bay Minerals,,SY,,,entity
+D001043,Damavand Import Export FZE,,SG,,,entity
+D000129,Khaled Zaidi,1971,LB,,,individual
+D000613,Hsiao-Chun Li,1973-01,HK,,,individual
+D000422,The Accountant,1978-11-14,SY,,,individual
+D000138,Abdellah Mansoor,1999-01-03,LB,,,individual
+D000892,Margaret Dubois,,GB,,,individual
+D000134,Laila Qasim,,JO,,,individual
+D000191,Alexander Petrovich Smirnoff,1976,RU,,,individual
+D001298,Delta Construction Public Joint Stock Company,,FR,,,entity
+D000055,Ameer Teherani,,IR,,,individual
+D001839,Bob Du Bois,1982-11-10,FR,,,individual
+D002183,Jian Guo Choi,,HK,,,individual
+D000557,Lei Luo,,CN,,,individual
+D001801,Tony Nguyễn,1979-12-13,AU,,,individual
+D002138,Xiao Ming Li,1976-07-15,SG,,,individual
+D000266,Tarek ben Saeed Zaydi,1952-05-21,JO,,,individual
+D001221,Lotus Pharma G.m.b.H.,,SG,,,entity
+D001731,Irena Nikolaevna Kuznetsoffa,1993-01-28,BY,,,individual
+D001857,Tkachenko Olga,1993-06-10,BY,,,individual
+D001618,MT Wind Runner One,,RU,,,vessel
+D001746,Chuck Garcia,1990-12-04,GB,,,individual
+D000682,Rob Hernández,1991-03-23,AU,,,individual
+D001261,Summit Electronics Sociedad Anonima,,KZ,,,entity
+D001094,PHOENIX PETROLEUM Limited Liability Company,,JO,,,entity
+D001625,MV Sun Dancer Star,,MH,,,vessel
+D000798,Wei Zhu,,TW,,,individual
+D001921,Yen Cai,1959-06-20,HK,,,individual
+D001075,Baltic Textiles L.L.C.,,YE,,,entity
+D001149,Aral Logistics Public Joint Stock Company,,CA,,,entity
+D001583,Star of Aden Star Trader,,CM,,,vessel
+D000869,Chiang Chu,1965,SG,,,individual
+D000774,Al-Hakim,,UA,,,individual
+D002132,Fung Hwang,1981-01-15,SG,,,individual
+D001444,Jade Dragon Investments FZE,,SY,,,entity
+D001235,Meridian Textiles PJSC,,SY,,,entity
+D000735,Paul Zaytsev,1964,BY,,,individual
+D001186,Golden Crescent Textiles,,CA,,,entity
+D000130,Lei Chang,1994-12-10,CN,,,individual
+D001532,Vessel Silver Lining Alpha,,IR,imo,IMO9833766,vessel
+D000702,Lei Chang,1984-08-09,CN,,,individual
+D000814,Nassrin Rezaie,2000-08-11,AF,,,individual
+D001411,The Ural Trading S.A.,,MX,,,entity
+D001582,MV Iron Duke One,,CM,,,vessel
+D001967,Tao Zhang,1994-01-23,CN,,,individual
+D001954,Hua Sun,,CN,,,individual
+D000249,Mustapha Zaydi,1963-03-12,LB,,,individual
+D000047,Mohamed Mansour,1957-03-16,JO,,,individual
+D002039,Danny García,1993-02-24,CA,,,individual
+D002068,Maggie Hernández,1964-05-19,GB,,,individual
+D000103,Hassane Barkat,1986-01-16,EG,,,individual
+D001053,Falcon Construction LLC,,EG,,,entity
+D001743,Lei Zhou,1995-12-23,HK,,,individual
+D002142,Xiao Ming Liu,1996-07-17,CN,,,individual
+D000292,Hassane Al Farsi,1991-03-09,FR,,,individual
+D001417,Baltic Engineering Joint Stock Company,,FR,,,entity
+D000940,Yan Liu,,SG,,,individual
+D000921,Ming Huang,1989,TW,,,individual
+D000987,Jose Lefevre,,GB,,,individual
+D002159,Hsiao-Chun Chu,1989-01-20,CN,,,individual
+D000014,Hassane Amin,,SA,,,individual
+D002031,Peggy M. Smith-Jones,,DE,,,individual
+D001037,Charlie Andersson,1982,DE,,,individual
+D002166,Hosseini Rida,1978-09-06,AF,,,individual
+D001562,M/V Sea Lion III,,RU,,,vessel
+D002157,Trish Andersen,1970-07-10,CA,,,individual
+D001159,Emerald Bay Group,,SG,registration,REG-514399,entity
+D001153,Onyx Textiles,,HK,,,entity
+D000278,Nikolaj Volkoff,1990,UA,,,individual
+D001785,Kathy A. Schroeder,,AU,,,individual
+D001904,Yan Hu,1957-05-20,TW,,,individual
+D002061,Chuck Garcia,1967-06-13,MX,,,individual
+D001139,Atlas Group,,BR,registration,REG-714643,entity
+D000383,Qiang Chu,1967-03-21,SG,,,individual
+D001504,M/V Morning Glory,,KM,,,vessel
+D000998,Ebrahim Naser,1950-03-13,AE,,,individual
+D000599,Sayid Nasir,1969-03,SA,,,individual
+D001557,Vessel Silver Crest Alpha,,RU,imo,IMO9736672,vessel
+D000552,Ameer Ahmadee,1973-06-13,AF,,,individual
+D000696,Michael Andersen,,FR,,,individual
+D000527,Mihail Tkatchenko,1953-05-10,KZ,,,individual
+D000139,Tatjana Kozlova,1986,KZ,,,individual
+D001629,MV Sea Lion Star,,IR,,,vessel
+D000416,Ehsaan Isfahani,,JO,,,individual
+D001908,Ling Chao,1986-12-14,TW,,,individual
+D001352,Crystal Shipping,,SY,,,entity
+D000966,Paul Ivanovich Sokoloff,1972-10-06,BY,,,individual
+D000288,Alex Smith Jones,1972,MX,,,individual
+D000148,Husayn Qasem,1955-06-04,EG,,,individual
+D000865,Dick Fischer,1976-11-08,CA,,,individual
+D000993,Elizabeth Garcia,1956,BR,,,individual
+D001614,Pacific Glory III,,PA,,,vessel
+D000406,"Petrov, Igor",1964-07-23,UA,,,individual
+D001654,Wei Ma,1950-03-20,TW,,,individual
+D001429,CRYSTAL TECHNOLOGIES L.L.C.,,DE,,,entity
+D001116,Harbor Point Minerals FZE,,CN,,,entity
+D002205,Tao Hu,1964-11-12,CN,,,individual
+D001800,Tao Hu,1960-11-28,SG,,,individual
+D000371,Volodymyr Fyodorov,1983,BY,,,individual
+D002194,Wei Ma,,TW,,,individual
+D000258,Iryna Shevchenko,1989-01,KZ,,,individual
+D000184,Djavad Tehrani,1975,AF,,,individual
+D000677,Tariq bin Hussein al-Farsi,1984-12-10,JO,,,individual
+D001277,Tigris Aviation S.A.,,SY,,,entity
+D001713,Jianguo Zhao,1965-01-06,CN,,,individual
+D000642,Umar Qasim,1962-10-07,IQ,,,individual
+D000795,Hua Zhang,,SG,,,individual
+D002200,Elisabeth Peterson,1975-06-20,DE,,,individual
+D001281,Falcon Chemicals Limited Liability Company,,IR,,,entity
+D001022,Patricia Fischer,1963-06-15,CA,,,individual
+D000223,Yung Lo,1957-12-02,GB,,,individual
+D002203,Hua Guo,,SG,,,individual
+D001918,Tony Larson,1955-08-28,FR,,,individual
+D000970,Elizabeth Bianchi,,BR,,,individual
+D001210,Tigris Chemicals Ltd.,,SA,,,entity
+D000483,Mohamed Sayed,1970-03-26,SY,,,individual
+D000800,Victor Kuznetsoff,1968-07-21,UA,,,individual
+D000430,Charlie Le Fevre,1979-12-20,AU,,,individual
+D001648,Hormuz Pride Spirit,,CM,,,vessel
+D001840,Hsiang Luo,1959-10-14,CN,,,individual
+D001695,Kathy J. Fischer,1950-04-07,AU,,,individual
+D001332,Euphrates Minerals Sociedad Anonima,,BY,,,entity
+D000243,Olha Fedorova,2000-07-13,UA,,,individual
+D001982,Yen Chang,1993-08-09,SG,,,individual
+D001050,Pacific Rim Group,,SY,registration,REG-934524,entity
+D000934,Kathy Schmidt,1961,FR,,,individual
