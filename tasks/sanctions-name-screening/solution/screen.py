@@ -35,7 +35,7 @@ from difflib import SequenceMatcher
 # Latin spellings (q/k/g -> k, s/z/ص/ض -> s, ...) so the two sides align.
 ARABIC = {
     "ا": "a", "أ": "a", "إ": "i", "آ": "a", "ب": "b", "ت": "t", "ث": "t", "ج": "j", "ح": "h", "خ": "h",
-    "د": "d", "ذ": "d", "ر": "r", "ز": "s", "س": "s", "ش": "s", "ص": "s", "ض": "\x04", "ط": "t", "ظ": "s",
+    "د": "d", "ذ": "d", "ر": "r", "ز": "z", "س": "s", "ش": "s", "ص": "s", "ض": "\x04", "ط": "t", "ظ": "z",
     "ع": "e", "غ": "k", "ف": "f", "ق": "k", "ك": "k", "ل": "l", "م": "m", "ن": "n", "ه": "h", "و": "w",
     "ي": "y", "ى": "a", "ة": "a", "ء": "", "ئ": "y", "ؤ": "w", "ٱ": "a",
     "پ": "p", "چ": "s", "ژ": "j", "گ": "k", "ک": "k", "ی": "y",
@@ -104,12 +104,6 @@ EQUIV = {
     "novak": "nowak", "bianci": "bianchi", "larson": "larsen", "fisher": "fischer", "kowalsky": "kowalski",
     "ferreyra": "ferreira", "anderson": "andersen", "andersson": "andersen", "schroder": "schroeder",
     "muller": "mueller",
-    # chinese (pinyin <- wade-giles / cantonese)
-    "chang": "zhang", "wong": "wang", "lee": "li", "lau": "liu", "liou": "liu", "chan": "chen", "tchen": "chen",
-    "yeung": "yang", "hwang": "huang", "chao": "zhao", "chou": "zhou", "chow": "zhou", "ng": "wu", "woo": "wu",
-    "hsu": "xu", "suen": "sun", "mah": "ma", "chu": "zhu", "kuo": "guo", "kwok": "guo", "lam": "lin", "kao": "gao",
-    "lo": "luo", "tsai": "cai", "choi": "cai", "chun": "jun", "yen": "yan", "fung": "feng", "yung": "yong",
-    "hsiang": "xiang", "po": "bo", "chiang": "qiang", "hsiao": "xiao", "chih": "zhi", "chien": "jian", "hoo": "hu",
     # arabic / persian cross-romanization
     "gamal": "jamal", "achmed": "ahmad", "ahmet": "ahmad", "oualid": "walid", "oumar": "omar", "umar": "omar",
     "omer": "omar", "brahim": "ibrahim", "mustapha": "mustafa", "rida": "reza", "ihsan": "ehsan",
@@ -165,7 +159,7 @@ CANTONESE = {"cheung": "zhang", "wong": "wang huang", "lee": "li", "lau": "liu",
              "tong": "tang", "sung": "song", "tse": "xie", "hon": "han", "tso": "cao", "pang": "peng", "tsang": "zeng",
              "keung": "jiang", "yuen": "yuan", "sum": "shen", "poon": "pan", "to": "du", "yip": "ye", "fung": "feng",
              "tai": "dai", "faan": "fan", "leung": "liang", "chin": "qian", "chui": "cui", "liou": "liu", "tchen": "chen",
-             "chao": "zhao", "cheng": "zheng cheng"}
+             "chao": "zhao", "cheng": "zheng cheng", "yen": "yan", "yung": "yong", "hsiao": "xiao", "hsiang": "xiang"}
 _WG_INITIALS = [("zh", "ch"), ("ch", "ch"), ("sh", "sh"), ("b", "p"), ("p", "p"), ("d", "t"), ("t", "t"), ("g", "k"),
                 ("k", "k"), ("z", "ts"), ("c", "ts"), ("j", "ch"), ("q", "ch"), ("x", "hs"), ("r", "j")]
 _WG_FINALS = {"ong": "ung", "ian": "ien", "ie": "ieh", "uo": "o", "you": "yu", "yi": "i", "ye": "yeh", "iong": "iung",
@@ -203,8 +197,9 @@ def readings(tok: str) -> frozenset[str]:
     return frozenset(r)
 
 
-PARTICLES = {"al", "el", "bin", "ibn", "ben", "bint", "bnt", "the", "of", "de", "da", "di", "von", "van", "y", "and",
-             "du", "le", "la", "der", "den", "del", "mac", "mc"}
+PARTICLES = {"al", "el", "bin", "ibn", "ben", "bint", "bnt", "bn", "the", "of", "de", "da", "di", "von", "van", "y",
+             "and", "du", "le", "la", "der", "den", "del", "mac", "mc"}
+NASAB = {"bin", "ibn", "ben", "bint", "bnt", "bn", "b"}
 PREFIX_STRIP = ("van", "von", "der", "den", "del", "mac", "mc", "le", "la", "du", "de", "da", "di", "el", "al", "o")
 ENTITY_SUFFIX = {"llc", "limited", "liability", "company", "ltd", "sa", "sociedad", "anonima", "gmbh", "jsc",
                  "joint", "stock", "ao", "oao", "pjsc", "public", "co", "fze", "fz", "free", "zone",
@@ -241,7 +236,7 @@ LEXICON = [
     ("farsi", ["Al Farsi", "Alfarsi", "El Farsi", "Farsi", "al-Farsi", "Farisi", "الفارسي"]),
     ("masri", ["Al Masry", "El-Masri", "Elmasry", "Masri", "al-Masri", "Masry", "المصري"]),
     ("hashimi", ["Al Hashemi", "Hashemi", "Hashimi", "al-Hashimi", "Hashmi", "الهاشمي", "هاشمی"]),
-    ("sayed", ["Al Sayyid", "El Sayed", "Elsayed", "Sayed", "al-Sayed", "Sayyid", "Seyed", "السيد", "سید"]),
+    ("sayed", ["Al Sayyid", "El Sayed", "Elsayed", "Sayed", "al-Sayed", "Sayyid", "Sayid", "Seyed", "السيد", "سید"]),
     ("haddad", ["Hadad", "Haddad", "Haddade", "حداد"]),
     ("nasser", ["Nacer", "Naser", "Nasir", "Nasser", "Nassir", "ناصر"]),
     ("saleh", ["Salah", "Saleh", "Salih", "صالح"]),
@@ -316,7 +311,12 @@ def tokens(name: str, kind: str, keep_particles: bool = False) -> list[str]:
                 out.append("o" + raw[i + 1])
                 i += 2
                 continue
-            if not keep_particles and (t in PARTICLES or (t in ASSIMILATED and i + 1 < len(raw) and raw[i + 1][:1] == t[1:2])):
+            if t in ("alle", "allh", "allah") and out:
+                out[-1] = out[-1] + t  # Nasrallah written as two words
+                i += 1
+                continue
+            if not keep_particles and (t in PARTICLES and not (i == 0 and t in NASAB)
+                                       or (t in ASSIMILATED and i + 1 < len(raw) and raw[i + 1][:1] == t[1:2])):
                 i += 1
                 continue
             if len(t) == 1:
@@ -335,7 +335,7 @@ def tokens(name: str, kind: str, keep_particles: bool = False) -> list[str]:
     return out
 
 
-def fold(t: str, script: bool = False) -> str:
+def fold(t: str, script: bool = False, keep_z: bool = False) -> str:
     """Spelling normalization shared by all keys."""
     t = EQUIV.get(t, t)
     if len(t) > 3 and t.endswith("h") and t[-2] in "aeiou":
@@ -353,6 +353,8 @@ def fold(t: str, script: bool = False) -> str:
     if len(t) > 3 and t.endswith("w"):
         t = t[:-1] + "v"
     for a, b in FOLD_RULES:
+        if keep_z and a == "z":
+            continue
         t = t.replace(a, b)
     t = re.sub(r"c(?=[eiy])", "s", t)
     t = t.replace("c", "k")
@@ -428,7 +430,8 @@ class Tok:
             relaxed = relaxed.replace("v", "")
         self.relaxed = (relaxed or k) + final
         self.texts = (t, t.replace("v", "u").replace("y", "i")) if self.script else (t,)
-        self.hard_s, self.slots_s = _analyse(t, soft="aeiouyvw\x06\x07")  # for comparison with a vowel-less script
+        tz = re.sub(r"([^aeiou])\1+", r"\1", fold(base, self.script, keep_z=True).replace("\x03", ""))
+        self.hard_s, self.slots_s = _analyse(tz, soft="aeiouyvw\x06\x07")  # for comparison with a vowel-less script
         self.hard_l, self.slots_l = _analyse(t, soft="aeiouy\x06\x07")    # for comparison between Latin spellings
 
     def blocks(self) -> set[str]:
@@ -445,9 +448,9 @@ CLASS = {"a": "A", "e": "E", "i": "I", "y": "I", "o": "U", "u": "U", "v": "U", "
 
 def _analyse(t: str, soft: str) -> tuple[str, list[tuple[set, set]]]:
     """Consonant skeleton and, per gap, (vowel classes, long-vowel classes)."""
-    m = re.search(r"[aeiou]h[aeiou]?$", t)
+    m = re.search(r"[aeiou]ha$", t)
     if len(t) > 3 and m:
-        t = t[: m.start() + 1]  # final h after a vowel is silent (taha -> ta, abdullah -> abdulla)
+        t = t[: m.start() + 1]  # final -ha: the h is silent (Taha -> ta)
     hard, slots, cur = [], [], ""
     for ch in t:
         if ch in soft:
@@ -483,8 +486,8 @@ def _script_compatible(lat: Tok, scr: Tok) -> bool:
     for i, ((lc, ll), (sc, _sl)) in enumerate(zip(lat.slots_s, scr.slots_s)):
         if i == 0 and bool(lc) != bool(sc):
             return False  # a word-initial vowel needs an alif or ayn on the script side
-        if i == last and "O" not in sc and bool(lc) != bool(sc):
-            return False  # a final vowel is written in the script (except an optional final ha)
+        if i == last and "O" not in sc and bool(lc - {"E"}) != bool(sc):
+            return False  # a final vowel is written in the script (except an optional final ha / a French -e)
         for c in sc:
             if c in ("E", "O"):
                 continue
@@ -493,16 +496,13 @@ def _script_compatible(lat: Tok, scr: Tok) -> bool:
                     return False
             elif c not in lc and "E" not in lc:
                 return False  # every long vowel in the script must be answered
-        for c in ll:
-            if c == "E" or c in sc or "E" in sc or ("Y" in sc and c in ("A", "I")):
-                continue
-            return False  # every long digraph in the Latin spelling needs a script long vowel
     return True
 
 
 def _latin_compatible(a: Tok, b: Tok, family: bool) -> bool:
     return _slots_compatible(a.hard_l, a.slots_l, b.hard_l, b.slots_l, family) or (
-        a.hard_l != a.hard_s and _slots_compatible(a.hard_s, a.slots_s, b.hard_s, b.slots_s, family))
+        (a.hard_l != a.hard_s or b.hard_l != b.hard_s)
+        and _slots_compatible(a.hard_s, a.slots_s, b.hard_s, b.slots_s, family))
 
 
 def _slots_compatible(ah, aslots, bh, bslots, family: bool) -> bool:
@@ -571,7 +571,7 @@ def token_alternatives(tok: str, family: bool = False) -> list[Tok]:
     script = tok.startswith(SCRIPT_MARK)
     mark = SCRIPT_MARK if script else ""
     if "\x04" in base:
-        return [a for v in ("d", "s") for a in token_alternatives(mark + base.replace("\x04", v), family)]
+        return [a for v in ("d", "z") for a in token_alternatives(mark + base.replace("\x04", v), family)]
     alts = [Tok(tok)]
     if family:
         alts += [Tok(mark + f) for f in _prefix_forms(base)]  # Da Silva / DaSilva / Silva, van den Berg
@@ -666,7 +666,8 @@ class NameForm:
             for ca, cf in zip(cust.alts, cust.falts):
                 if len(ca) < 2:
                     continue
-                for i in (0, len(ca) - 1):  # family name is first or last, never a middle token
+                positions = {"first": (0,), "last": (len(ca) - 1,), "either": (0, len(ca) - 1)}[getattr(cust, "order", "either")]
+                for i in positions:  # family name is first or last, never a middle token
                     fs = best(cf[i], family, family=True)
                     if fs is None:
                         continue
@@ -701,6 +702,8 @@ def _set_equal(la: list[list[Tok]], ca: list[list[Tok]]) -> bool:
 
 class Customer:
     def __init__(self, name: str, kind: str):
+        low = name.lower()
+        self.order = "first" if "," in name else ("last" if re.search(r"\b(bin|ibn|ben|bint|b\.)\s", low) else "either")
         toks, variants = name_variants(name, kind, customer=True)
         self.plain = tuple(_plain(t) for t in toks)
         self.alts = [[token_alternatives(t) for t in v] for v in variants]

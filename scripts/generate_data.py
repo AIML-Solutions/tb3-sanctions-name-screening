@@ -715,9 +715,13 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
         if k == "T10_stacked":
             name = render(rng, p, conventions, k=3)
         if k == "T3_structure":
-            name = render(rng, p, conventions, k=1, order_variation=False)
-            toks = name.split()
-            name = f"{toks[-1]}, {' '.join(toks[:-1])}" if rng.random() < 0.5 else f"{toks[-1]} {' '.join(toks[:-1])}"
+            if p.culture == "chinese":
+                # order variation only; syllables of the given name stay together
+                name = romanize_chinese(rng, p.given_syls, p.surname[0], p.surname_alt, conventions, 1)
+            else:
+                name = render(rng, p, conventions, k=1, order_variation=False)
+                toks = name.split()
+                name = f"{toks[-1]}, {' '.join(toks[:-1])}" if rng.random() < 0.5 else f"{toks[-1]} {' '.join(toks[:-1])}"
         if name is None:
             name = render(rng, p, conventions, k=pick(rng, [1, 2]))
         if cdob and rng.random() < 0.15 and k not in ("T5_alias_weak_corroborated", "T9_dob_partial", "T11_twin"):
