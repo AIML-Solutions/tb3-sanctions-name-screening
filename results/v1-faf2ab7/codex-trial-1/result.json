@@ -1,0 +1,119 @@
+{
+    "id": "682f4edb-979e-420c-8e59-666e778f9af6",
+    "task_name": "terminal-bench/sanctions-name-screening",
+    "trial_name": "sanctions-name-screening__CjpBsa5",
+    "trial_uri": "file:///tmp/claude-1000/-home-dennis/df25b411-c284-408b-9aa9-ba0b160c27d1/scratchpad/harbor/codex-run/sanctions-name-screening__CjpBsa5",
+    "task_id": {
+        "path": "tasks/sanctions-name-screening"
+    },
+    "source": null,
+    "task_checksum": "2aa6b061f5594c0f0bd213bc95a6173827bb7eb562e10cf75994a94075b36a5e",
+    "config": {
+        "task": {
+            "path": "tasks/sanctions-name-screening",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "sanctions-name-screening__CjpBsa5",
+        "trials_dir": "/tmp/claude-1000/-home-dennis/df25b411-c284-408b-9aa9-ba0b160c27d1/scratchpad/harbor/codex-run",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "codex",
+            "import_path": null,
+            "model_name": "openai/gpt-5.6-sol",
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {
+                "reasoning_effort": "xhigh"
+            },
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "baf8831c-79e5-4448-aa52-50383b907e1b",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "codex",
+        "version": "0.153.4",
+        "model_info": {
+            "name": "gpt-5.6-sol",
+            "provider": "openai"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 2129684,
+        "n_cache_tokens": 2026240,
+        "n_output_tokens": 20917,
+        "cost_usd": 1.6426119999999997,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "separate",
+    "exception_info": null,
+    "started_at": "2026-09-09T06:50:51.758619Z",
+    "finished_at": "2026-09-09T07:05:35.864080Z",
+    "environment_setup": {
+        "started_at": "2026-09-09T06:50:51.776414Z",
+        "finished_at": "2026-09-09T06:50:53.810573Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-09-09T06:50:53.810633Z",
+        "finished_at": "2026-09-09T06:52:55.431267Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-09-09T06:52:55.431448Z",
+        "finished_at": "2026-09-09T07:05:04.112122Z"
+    },
+    "verifier": {
+        "started_at": "2026-09-09T07:05:18.234015Z",
+        "finished_at": "2026-09-09T07:05:35.864053Z"
+    },
+    "step_results": null
+}

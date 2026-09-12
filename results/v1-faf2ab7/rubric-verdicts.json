@@ -1,0 +1,144 @@
+{
+  "checks": {
+    "verifiable": {
+      "outcome": "pass",
+      "explanation": "tests/test_decisions.py is a pure deterministic CSV comparison against baked labels with fixed numeric thresholds; no LLM judge, no randomness, no network. test.sh installs nothing at verify time (pytest and pytest-json-ctrf are baked into tests/Dockerfile) and the whole grade runs in under two seconds."
+    },
+    "solvable": {
+      "outcome": "pass",
+      "explanation": "solution/screen.py is a stdlib-only reference engine that runs in ~1.5s and scores recall 1.0000, precision 1.0000 and uid accuracy 1.0000 with 0 false positives in every decoy class, i.e. every threshold cleared with maximum margin. Its ~550 lines of tables and matching logic are consistent with the stated 6-hour expert estimate."
+    },
+    "difficult": {
+      "outcome": "pass",
+      "explanation": "Clearing a 0.97 precision floor and a 0.97 recall floor simultaneously across Arabic/Persian/Cyrillic/Chinese romanization, script-only entries, name-order and patronymic variation, and weak-alias corroboration is well beyond an undergraduate exercise; naive edit-distance matching trades one floor against the other. The 1800-entry list with 4200 look-alike random negatives makes the precision side genuinely adversarial."
+    },
+    "interesting": {
+      "outcome": "pass",
+      "explanation": "Sanctions/watchlist name screening is a paid, regulated function at every bank and list vendor, and per-class recall/precision floors are exactly the model-validation bar applied before a screening engine is trusted. This is a real job, not a contrived puzzle."
+    },
+    "outcome_verified": {
+      "outcome": "pass",
+      "explanation": "The verifier reads only /app/decisions.csv and scores the end state; it never inspects the agent's source, tooling or method, and the instruction explicitly permits any language or library. No process constraints are enforced."
+    },
+    "anti_cheat_robustness": {
+      "outcome": "fail",
+      "explanation": "customer_id encodes the generator phase and therefore the label: in tests/data/labels.csv ids 1-613 are 100% MATCH, 614-1009 are 100% NO_MATCH, and 1628-5827 (4200 of 5827 customers, all R0_random) are 100% NO_MATCH, and /app/dev/labels_dev.csv exposes the identical structure so the rule is directly learnable. An agent that simply suppresses matches for ids >= 1628 and 614-1009 eliminates every random and D1/D2/D3/D5 false positive for free, which removes the precision half of the task; separately all 117 customers carrying an id_type/id_number are true matches, so 'has an identifier -> MATCH' is a free class with no negative controls."
+    },
+    "task_security": {
+      "outcome": "pass",
+      "explanation": "No credential access, no exfiltration, no obfuscation, no host or Docker-socket access, and no prompt injection anywhere in the Dockerfiles, scripts or data. The only outbound call is a build-time pinned uv installer from astral.sh in tests/Dockerfile; all runtime execution is local file I/O."
+    },
+    "functional_verification": {
+      "outcome": "pass",
+      "explanation": "Every assertion executes against the agent's produced decisions.csv, computing recall, precision, per-class recall, per-class false-positive rates and matched_uid accuracy. There is no grepping of source files or keyword matching anywhere."
+    },
+    "deterministic_reproducible": {
+      "outcome": "pass",
+      "explanation": "Python deps are pinned (pandas==3.0.5, rapidfuzz==3.14.6, unidecode==1.4.0, pytest==9.1.1, pytest-json-ctrf==0.5.2, uv 0.9.7), apt packages are correctly unpinned, base images are tagged, and no live service is consulted. The oracle is pure stdlib with PYTHONHASHSEED=0 and produced byte-identical output on repeat runs."
+    },
+    "essential_difficulty": {
+      "outcome": "pass",
+      "explanation": "The output format is three columns and the thresholds are stated normatively, so failures come from name-equivalence reasoning and the alias/DOB/identifier rules rather than clerical formatting. Nothing hinges on precision, rounding or ordering minutiae."
+    },
+    "test_instruction_alignment": {
+      "outcome": "pass",
+      "explanation": "Every assertion (one row per customer, no unknown ids, decision vocabulary, matched_uid present on MATCH, the six thresholds) traces to the Output and Scoring sections of /app/screening_policy.md, which the instruction names as the governing policy and which ships in the agent image. At 137 lines the test file is slightly over the ~100-line guideline but each test maps one-to-one to a stated requirement."
+    },
+    "novel": {
+      "outcome": "pass",
+      "explanation": "The watchlist, customer batch, class taxonomy and policy are bespoke synthetic artefacts with no public counterpart, and the required transliteration/alias reasoning cannot be recalled from a training corpus. Off-the-shelf fuzzy matching does not clear the dual floors."
+    },
+    "agentic": {
+      "outcome": "pass",
+      "explanation": "The agent must explore the watchlist structure, read the policy, build an engine, and iterate against the labelled dev sample measuring per-class recall and FPR before submitting. This is inherently a multi-step build-measure-refine loop, not a single generation."
+    },
+    "reviewable": {
+      "outcome": "fail",
+      "explanation": "tests/data/labels.csv is 5827 hardcoded ground-truth rows with no shipped generator and no derivation path, so a reviewer cannot check that any label is correct except by trusting the author's own oracle. The class codes the verifier keys on (T*/D*/R0 prefixes drive different thresholds) are documented nowhere in the task, and README.md asserts a deterministic generator that is not included."
+    },
+    "instruction_concision": {
+      "outcome": "pass",
+      "explanation": "Three paragraphs, human-written, no headings or roleplay, absolute paths in backticks, goal stated first, and no solution approach suggested. The 'In short' sentence restates the policy file it just cited, which is mildly redundant but stays within requirements rather than steps."
+    },
+    "solution_quality": {
+      "outcome": "pass",
+      "explanation": "solve.sh is a four-line invocation of solution/screen.py, which genuinely computes the answer through transliteration, tokenization, phonetic keys and the policy rules. Nothing is echoed or hardcoded, and the large file lives in solution/ rather than a heredoc."
+    },
+    "separate_verifier_configured": {
+      "outcome": "pass",
+      "explanation": "The verifier reads only /app/decisions.csv (declared in artifacts) and /tests/data/labels.csv (baked via COPY . /tests/); pytest and pytest-json-ctrf are pre-installed in tests/Dockerfile and test.sh installs nothing. No asset is duplicated between environment/ and tests/, and the intentional divergence (labels only in the verifier image, a different draw in /app/dev/) is stated in verification_explanation."
+    },
+    "environment_hygiene": {
+      "outcome": "fail",
+      "explanation": "environment/Dockerfile bakes pandas, rapidfuzz and unidecode into the agent image although the reference solution is stdlib-only and the environment has internet, so these are not start-state requirements; pre-installing a fuzzy-matcher and a transliteration library telegraphs the solution shape that the instruction is careful not to reveal. tests/Dockerfile also installs curl and uv 0.9.7 that test.sh explicitly says it never uses, and COPY . /tests/ drags a stale tests/__pycache__ into the verifier image."
+    },
+    "structured_data_schema": {
+      "outcome": "pass",
+      "explanation": "The decisions.csv schema is normative in both instruction.md and the Output section of /app/screening_policy.md: header row, exact column names and order, the {MATCH, NO_MATCH} vocabulary, empty matched_uid on NO_MATCH, and the tie-break rule for choosing a uid. Input schemas for watchlist.json and customers.csv are documented in the policy's Inputs section."
+    },
+    "typos": {
+      "outcome": "pass",
+      "explanation": "All paths, filenames, column names, CLI flags and the declared artifact path are consistent across task.toml, instruction.md, both Dockerfiles, solve.sh, test.sh and the test module. No misspelled identifiers found."
+    },
+    "difficulty_explanation_quality": {
+      "outcome": "fail",
+      "explanation": "The field explains the transliteration/decoy tension well, but omits both mandated sentences: it never states that the data is synthetic (that appears only in README.md's Additional Notes) nor whether it is realistic, and it never says who would do this work in the real world. It also leans on 'A screening engine must...' framing rather than describing the task's intrinsic difficulty."
+    },
+    "solution_explanation_quality": {
+      "outcome": "pass",
+      "explanation": "The field describes the actual strategy - script-aware transliteration into a phonetic key, order-invariant token matching, strong-vs-weak alias handling, DOB and identifier rules, corroboration to suppress common-name false positives - and matches what screen.py implements, including its ranking order. A non-specialist can follow it without opening solve.sh."
+    },
+    "verification_explanation_quality": {
+      "outcome": "fail",
+      "explanation": "It accurately lists what the tests check, but six inequality-based thresholds (0.97 recall, 0.97 precision, 0.97 uid accuracy, 0.90 per-class recall, 0.05 decoy FPR, 0.01 random FPR) are stated with no calibration rationale whatsoever. Given the reference engine scores a perfect 1.0000 on every metric and its normalization tables plausibly mirror the label generator's, the explanation must show these floors were validated against an independent correct implementation and not only the reference."
+    },
+    "category_and_tags": {
+      "outcome": "pass",
+      "explanation": "Operations/Compliance is the right primary domain for sanctions screening, and the tags (compliance, entity-resolution, transliteration, python, data) are specific and discoverable rather than generic. No template defaults remain."
+    },
+    "task_name": {
+      "outcome": "pass",
+      "explanation": "sanctions-name-screening is lowercase kebab-case, exactly three hyphen-separated tokens, and tells a reader precisely what the task is without opening a file."
+    },
+    "resource_configuration": {
+      "outcome": "pass",
+      "explanation": "All values are deliberately non-default: agent 14400s against a 6-hour expert estimate, 2 CPUs / 4GB for the agent, 1 CPU / 2GB / 5GB for the verifier. The 600s verifier timeout is generous for a suite that finishes in about two seconds, but it is only a cap and the difficulty is reasoning-bound, not compute-bound."
+    },
+    "task_readme": {
+      "outcome": "pass",
+      "explanation": "The four reviewer-facing sections are mandated by CONTRIBUTING.md, and the Additional Notes on synthetic data provenance and the dev/batch relationship add context found nowhere else. The 'Task Metadata' bullet list at the top is pure duplication of task.toml and could be dropped."
+    },
+    "expert_time_estimate": {
+      "outcome": "pass",
+      "explanation": "6.0 hours is non-default and plausible for building the transliteration tables, token alignment and policy rules that the ~550-line reference solution embodies. It is consistent with the difficulty explanation and sits comfortably inside the 4-hour agent timeout being a stretch rather than trivial."
+    },
+    "task_toml_schema": {
+      "outcome": "pass",
+      "explanation": "Sections and fields match the Harbor schema and the reference task in tb3/tasks/batched-eval-parity exactly, including the [task] name/description/authors block, [verifier.environment], and root-level schema_version and artifacts. No invented fields are present."
+    },
+    "no_extraneous_files": {
+      "outcome": "fail",
+      "explanation": "solution/__pycache__/screen.cpython-313.pyc and tests/__pycache__/test_decisions.cpython-313-pytest-9.1.1.pyc are checked-in build cruft that nothing references, and the tests one is additionally copied into the verifier image by COPY . /tests/. Delete both directories and add a .gitignore entry."
+    },
+    "artifact_efficiency": {
+      "outcome": "not_applicable",
+      "explanation": "The single artifact is /app/decisions.csv, a small agent-produced deliverable that is the answer itself, with no build-time-fixed tree to bake and no [[verifier.collect]] hooks. The N/A clause of the criterion applies directly."
+    },
+    "verifier_execution_isolation": {
+      "outcome": "not_applicable",
+      "explanation": "The verifier only parses the agent's CSV with the csv module; it never imports, executes or invokes anything the agent produced. Reading agent-produced data is explicitly outside this criterion."
+    },
+    "ctrf_reporting": {
+      "outcome": "pass",
+      "explanation": "test.sh runs pytest with --ctrf /logs/verifier/ctrf.json, and the six discrete threshold tests each report separately so a failing submission shows exactly which bar it missed. Each test also prints its computed metric via -rA for provenance."
+    },
+    "do_not_modify_enforced": {
+      "outcome": "not_applicable",
+      "explanation": "Neither instruction.md nor screening_policy.md forbids modifying or requires preserving any concrete artifact; the only related statement is that decisions.csv is the sole graded output. Tampering with /app inputs would in any case be pointless because the verifier grades in a separate container against baked labels."
+    },
+    "binary_reward": {
+      "outcome": "pass",
+      "explanation": "test.sh has exactly two reward writes, echo 1 on pytest exit 0 and echo 0 otherwise, with no other path touching reward.txt or reward.json. All continuous metrics are thresholded inside pytest assertions and only reported to stdout and ctrf.json."
+    }
+  }
+}

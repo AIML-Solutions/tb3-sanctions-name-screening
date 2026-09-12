@@ -1,0 +1,50 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 5 items
+
+test_decisions.py .....                                                  [100%]
+
+==================================== PASSES ====================================
+_____________________________ test_overall_recall ______________________________
+----------------------------- Captured stdout call -----------------------------
+recall=0.9849 (tp=1304, fn=20)
+____________________________ test_overall_precision ____________________________
+----------------------------- Captured stdout call -----------------------------
+precision=0.9954 (tp=1304, fp=6)
+__________________________ test_matched_uid_accuracy ___________________________
+----------------------------- Captured stdout call -----------------------------
+uid_accuracy=0.9992
+____________________________ test_per_class_recall _____________________________
+----------------------------- Captured stdout call -----------------------------
+T10_stacked: recall=0.9722 (70/72)
+T11_twin: recall=1.0000 (58/58)
+T12_script_customer: recall=1.0000 (32/32)
+T13_id_unlisted_name_match: recall=0.9596 (95/99)
+T1_translit: recall=0.9744 (380/390)
+T2_script: recall=0.9853 (67/68)
+T3_structure: recall=0.9524 (60/63)
+T4_alias_strong: recall=1.0000 (35/35)
+T5_alias_weak_corroborated: recall=1.0000 (18/18)
+T6_id_exact: recall=1.0000 (101/101)
+T7_entity_suffix: recall=1.0000 (261/261)
+T8_vessel_prefix: recall=1.0000 (83/83)
+T9_dob_partial: recall=1.0000 (44/44)
+________________________ test_per_class_false_positives ________________________
+----------------------------- Captured stdout call -----------------------------
+D1_name_dob_conflict: fpr=0.0000 (0/214) limit=0.05
+D2_near_name: fpr=0.0038 (1/263) limit=0.05
+D3_weak_alias_alone: fpr=0.0000 (0/37) limit=0.05
+D4_entity_near_name: fpr=0.0000 (0/202) limit=0.05
+D5_partial_dob_conflict: fpr=0.0000 (0/80) limit=0.05
+D6_same_given: fpr=0.0000 (0/89) limit=0.05
+D7_id_unlisted: fpr=0.0000 (0/105) limit=0.05
+R0_random: fpr=0.0012 (5/4200) limit=0.01
+=========================== short test summary info ============================
+PASSED test_decisions.py::test_overall_recall
+PASSED test_decisions.py::test_overall_precision
+PASSED test_decisions.py::test_matched_uid_accuracy
+PASSED test_decisions.py::test_per_class_recall
+PASSED test_decisions.py::test_per_class_false_positives
+============================== 5 passed in 0.04s ===============================

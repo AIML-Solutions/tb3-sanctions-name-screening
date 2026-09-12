@@ -1,0 +1,111 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 5 items
+
+test_decisions.py EEEEE                                                  [100%]
+
+==================================== ERRORS ====================================
+____________________ ERROR at setup of test_overall_recall _____________________
+
+    @pytest.fixture(scope="module")
+    def graded():
+        labels = _labels()
+>       decisions = _decisions()
+                    ^^^^^^^^^^^^
+
+test_decisions.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _decisions():
+>       assert DECISIONS.exists(), "/app/decisions.csv was not produced"
+E       AssertionError: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:34: AssertionError
+___________________ ERROR at setup of test_overall_precision ___________________
+
+    @pytest.fixture(scope="module")
+    def graded():
+        labels = _labels()
+>       decisions = _decisions()
+                    ^^^^^^^^^^^^
+
+test_decisions.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _decisions():
+>       assert DECISIONS.exists(), "/app/decisions.csv was not produced"
+E       AssertionError: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:34: AssertionError
+_________________ ERROR at setup of test_matched_uid_accuracy __________________
+
+    @pytest.fixture(scope="module")
+    def graded():
+        labels = _labels()
+>       decisions = _decisions()
+                    ^^^^^^^^^^^^
+
+test_decisions.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _decisions():
+>       assert DECISIONS.exists(), "/app/decisions.csv was not produced"
+E       AssertionError: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:34: AssertionError
+___________________ ERROR at setup of test_per_class_recall ____________________
+
+    @pytest.fixture(scope="module")
+    def graded():
+        labels = _labels()
+>       decisions = _decisions()
+                    ^^^^^^^^^^^^
+
+test_decisions.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _decisions():
+>       assert DECISIONS.exists(), "/app/decisions.csv was not produced"
+E       AssertionError: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:34: AssertionError
+_______________ ERROR at setup of test_per_class_false_positives _______________
+
+    @pytest.fixture(scope="module")
+    def graded():
+        labels = _labels()
+>       decisions = _decisions()
+                    ^^^^^^^^^^^^
+
+test_decisions.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _decisions():
+>       assert DECISIONS.exists(), "/app/decisions.csv was not produced"
+E       AssertionError: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:34: AssertionError
+=========================== short test summary info ============================
+ERROR test_decisions.py::test_overall_recall - AssertionError: /app/decisions...
+ERROR test_decisions.py::test_overall_precision - AssertionError: /app/decisi...
+ERROR test_decisions.py::test_matched_uid_accuracy - AssertionError: /app/dec...
+ERROR test_decisions.py::test_per_class_recall - AssertionError: /app/decisio...
+ERROR test_decisions.py::test_per_class_false_positives - AssertionError: /ap...
+============================== 5 errors in 0.05s ===============================

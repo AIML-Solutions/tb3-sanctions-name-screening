@@ -1,18 +1,21 @@
 # sanctions-name-screening: a Terminal-Bench 3 task
 
 An original [Terminal-Bench 3](https://github.com/laude-institute/terminal-bench-3) task, built to the TB3
-contribution bar: it passes the TB3 static checks and rubric review, the reference solution scores
-1.0 and the no-op agent 0.0 in Docker, and the frontier coding agents that TB3 CI runs by default
-(Codex `gpt-5.6-sol` at `xhigh`, Claude Code `claude-opus-5` at `max`) fail it, including when they
-are told to cheat.
+contribution bar: the TB3 static checks and rubric review, oracle 1.0 / nop 0.0 in Docker, and trials of the
+frontier coding agents that TB3 CI runs by default (Codex `gpt-5.6-sol` at `xhigh`, Claude Code
+`claude-opus-5` at `max`), including trials where the agents are told to cheat.
+
+**Status:** see [Results](#results) for what has actually been run against which version of the task.
+Version 1 was solved by Codex in 12 minutes through leakage in the data (details in
+[Why the agents fail](#why-the-agents-fail)); version 2 removed the leakage and is the version under test.
 
 The task itself lives in [`tasks/sanctions-name-screening/`](tasks/sanctions-name-screening/) in the
 exact layout TB3 expects, so it can be dropped into a TB3 pull request as-is.
 
 ## The task in one paragraph
 
-A compliance team must screen a batch of 5,827 onboarding customers (individuals, companies, vessels)
-against a 1,800-entry sanctions list and write `MATCH` / `NO_MATCH` decisions with the matched list
+A compliance team must screen a batch of 6,514 onboarding customers (individuals, companies, vessels)
+against a 2,100-entry sanctions list and write `MATCH` / `NO_MATCH` decisions with the matched list
 uid. The list mixes Latin and original-script names (Arabic, Persian, Cyrillic), several romanization
 systems (Wade-Giles, Cantonese, pinyin; French, German and English transliterations of Arabic and
 Russian), name-order and particle variation, patronymics and nasab chains, nicknames, strong and weak
@@ -29,12 +32,15 @@ Screening policy the verifier enforces:
 
 ```
 tasks/sanctions-name-screening/   the TB3 task (task.toml, instruction.md, README.md,
-                                  environment/, solution/, tests/)
-scripts/generate_data.py          deterministic generator for the watchlist, the hidden
-                                  customer batch + labels, and the public dev sample
+                                  environment/, solution/, tests/ incl. the data generator)
+scripts/generate_data.py          wrapper around tests/generate_data.py
+scripts/score.sh                  scores the reference solution on hidden and dev splits
+scripts/tests/                    focused policy unit tests for the reference solution
 scripts/checks/                   the TB3 static checks, vendored so they run offline
 scripts/make_cheat_task.sh        builds the /cheat variant (red-team prompt appended)
-docs/                             TB3 task template used as the schema reference
+scripts/summarize_runs.py         harbor job directories -> results table
+docs/oracle-iterations.md         every reference-solution change with its measured effect
+docs/task-template.toml           TB3 task template used as the schema reference
 ```
 
 ## Reproducing every gate
@@ -86,16 +92,21 @@ FAILURE_ANALYSIS_PLACEHOLDER
   container reveals a label; the public dev sample is a second draw from the same generator with a
   different seed, so the policy is learnable but the batch is not.
 - **Two floors per class.** Overall recall and precision at least 0.97, recall at least 0.90 in each
-  of nine true-match classes (transliteration, script-only, structure, strong alias, corroborated
-  weak alias, identifier, entity suffix, vessel prefix, partial DOB), false-positive rate at most
-  0.05 in each of five decoy classes and at most 0.01 among 4,200 unrelated customers, and the right
-  uid on at least 0.97 of true matches. Loosening the matcher to lift one class breaks a decoy
+  of thirteen true-match classes (transliteration, script-only, structure, strong alias, corroborated
+  weak alias, identifier, entity suffix, vessel prefix, partial DOB, stacked conventions, twins,
+  script-side customers, unlisted identifiers), false-positive rate at most 0.05 in each of seven
+  decoy classes and at most 0.01 among 4,200 unrelated customers, and the right uid on at least 0.97
+  of true matches. Loosening the matcher to lift one class breaks a decoy
   ceiling; tightening it drops a true-match class. Each threshold is a separate pytest so a failing
   run shows which bar was missed.
-- **Stdlib-only reference solution.** `solution/screen.py` (transliteration tables, a small name
-  lexicon, role-aware token alignment, the policy rules) proves the task is solvable inside the
-  environment with no network and no extra packages; pandas, rapidfuzz and unidecode are installed
-  for the agent's convenience, not required.
+- **Stdlib-only reference solution.** `solution/screen.py` (transliteration tables, a phonological
+  slot model for vowels, Wade-Giles reading sets, a small name lexicon, role-aware alignment, the policy
+  rules) proves the task is solvable inside the environment with no network and no extra packages. It
+  scores 0.985 recall / 0.995 precision on the hidden batch, deliberately not 100%: the remaining misses
+  are documented rule gaps, and `docs/oracle-iterations.md` records every change and its effect.
+- **A sample, not a census.** The development sample is generated with four romanization conventions;
+  the batch uses ten. The instruction says so. A matcher that reproduces the sample's spellings does not
+  clear the per-class floors on the batch.
 - **Synthetic, realistic data.** Name pools, romanization variants, alias conventions, partial dates
   and identifier formats follow list-publisher practice (OFAC SDN, HMT, EU), but no entry corresponds
   to a real listed party.
