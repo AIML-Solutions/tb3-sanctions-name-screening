@@ -6,8 +6,10 @@ frontier coding agents that TB3 CI runs by default (Codex `gpt-5.6-sol` at `xhig
 `claude-opus-5` at `max`), including trials where the agents are told to cheat.
 
 **Status:** see [Results](#results) for what has actually been run against which version of the task.
-Version 1 was solved by Codex in 12 minutes through leakage in the data (details in
-[Why the agents fail](#why-the-agents-fail)); version 2 removed the leakage and is the version under test.
+Version 1 was solved by Codex in 12 minutes through leakage in the data; version 2 removed the leakage and
+Codex still passed it in 37 minutes by calibrating on the sample and mining the visible batch; version 3
+grades the agent's *engine* on a second batch it never sees (details in
+[Why the agents fail](#why-the-agents-fail)) and is the version under test.
 
 The task itself lives in [`tasks/sanctions-name-screening/`](tasks/sanctions-name-screening/) in the
 exact layout TB3 expects, so it can be dropped into a TB3 pull request as-is.
@@ -21,8 +23,11 @@ systems (Wade-Giles, Cantonese, pinyin; French, German and English transliterati
 Russian), name-order and particle variation, patronymics and nasab chains, nicknames, strong and weak
 aliases, partial dates of birth and identifiers. The batch is seeded with look-alikes that must not be
 flagged. The verifier grades the decisions against hidden labels with both a recall floor and a
-precision floor, per variation class. That is the model-validation bar a bank applies before trusting
-a vendor screening engine, and generic fuzzy matching trades one floor against the other.
+precision floor, per variation class, and then runs the agent's engine (`/app/screen.py`, standard
+library only) on a second batch that exists only in the verifier image, with four romanization
+conventions the agent never saw, to the same bars. That is the model-validation bar a bank applies
+before trusting a vendor screening engine: a held-out batch, and generic fuzzy matching trades one
+floor against the other.
 
 Full task description: [`instruction.md`](tasks/sanctions-name-screening/instruction.md).
 Screening policy the verifier enforces:
@@ -87,10 +92,16 @@ FAILURE_ANALYSIS_PLACEHOLDER
 
 ## Design notes
 
-- **Outcome-verified, not process-verified.** The verifier reads one artifact, `/app/decisions.csv`,
-  and scores it against labels that exist only in the verifier image. Nothing in the agent's
-  container reveals a label; the public dev sample is a second draw from the same generator with a
-  different seed, so the policy is learnable but the batch is not.
+- **Outcome-verified, not process-verified.** The verifier reads two artifacts, `/app/decisions.csv`
+  and `/app/screen.py`, and scores them against labels that exist only in the verifier image. Nothing
+  in the agent's container reveals a label; the public dev sample is a second draw from the same
+  generator with a different seed, so the policy is learnable but the batch is not.
+- **A batch the agent never sees.** Batch B (verifier image only) has new customers against the same
+  list and four further romanization conventions, named in the instruction and policy (Turkish and
+  Indonesian spellings of Arabic names, scientific transliteration of Russian, Hokkien/Teochew Chinese
+  surnames). The verifier deletes its label files from disk before running the engine, runs it as an
+  unprivileged user with a 300 s budget, and applies the same floors. An engine that reproduces the
+  spellings it can see does not clear them; one that implements the policy does.
 - **Two floors per class.** Overall recall and precision at least 0.97, recall at least 0.90 in each
   of thirteen true-match classes (transliteration, script-only, structure, strong alias, corroborated
   weak alias, identifier, entity suffix, vessel prefix, partial DOB, stacked conventions, twins,

@@ -13,6 +13,7 @@ shows which bar it missed. Deterministic and offline.
 import csv
 import os
 import subprocess
+import tempfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -55,15 +56,14 @@ def _decisions(path: Path, what: str):
         return rows
 
 
-def _run_engine(tmp: Path) -> Path:
+def _run_engine() -> Path:
     """Run /app/screen.py on batch B as an unprivileged user, offline, with a time budget."""
     assert ENGINE.exists(), "/app/screen.py was not produced"
-    work = tmp / "b"
-    work.mkdir()
+    work = Path(tempfile.mkdtemp(prefix="engine-b-", dir="/tmp"))  # world-traversable parent
     for name in ("watchlist.json", "customers_b.csv"):
         (work / name).write_bytes((DATA / name).read_bytes())
     (work / "screen.py").write_bytes(ENGINE.read_bytes())
-    os.chmod(work, 0o777)
+    os.chmod(work, 0o1777)
     for p in work.iterdir():
         os.chmod(p, 0o644)
     cmd = ["python3", "screen.py", "--watchlist", "watchlist.json", "--customers", "customers_b.csv", "--out", "decisions_b.csv"]
@@ -106,14 +106,14 @@ def graded_a():
 
 
 @pytest.fixture(scope="module")
-def graded_b(tmp_path_factory):
-    out = _run_engine(tmp_path_factory.mktemp("engine"))
-    return _grade(LABELS["labels_b.csv"], _decisions(out, "batch B"), "batch B")
+def graded_b():
+    return _grade(LABELS["labels_b.csv"], _decisions(_run_engine(), "batch B"), "batch B")
 
 
 @pytest.fixture(params=["A", "B"], scope="module")
-def graded(request, graded_a, graded_b):
-    return request.param, (graded_a if request.param == "A" else graded_b)
+def graded(request):
+    # each batch is graded independently: a failure on one does not hide the other's numbers
+    return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
 
 
 def test_overall_recall(graded):
