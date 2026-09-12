@@ -15,3 +15,4 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v2-73478fb/rubric-verdicts.json` | TB3 rubric review of v2 (28 pass / 4 fail / 3 n/a); its leakage check found the surface-shape tells fixed in v2.1 | |
 | `v2.1-413c554/oracle` | reference solution, Docker | 1.0 |
 | `v2.1-413c554/nop` | no-op agent, Docker | 0.0 |
+| `v2.1-413c554/codex-trial-1-invalid-usage-limit` | Codex gpt-5.6-sol xhigh; **not a valid trial**: the ChatGPT account's usage cap was hit after 21 min / 4.9M input tokens / 34 commands (`ApiUsageLimitError`), reward 0.0 by default. Kept because the transcript shows the agent's approach on v2.1 up to that point. Trials 2-3 were stopped before starting. | n/a |
