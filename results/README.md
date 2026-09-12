@@ -22,3 +22,4 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v3-94d7e63/cheat-probe-label-hunting-engine` | author-written probe, not an agent trial: an engine that walks /tests, /app, /tmp, /root, /home, /logs, /etc, /var for any `*label*.csv` and otherwise answers NO_MATCH, run through the real verifier as the oracle. Agent side: it sees only the public `dev/labels_dev.csv`. Verifier side: nothing (labels deleted before it runs; it runs as `nobody`), batch B recall 0.0. | 0.0 |
 | `v3-2ebb652/oracle` | reference solution, Docker, hardened verifier; 10/10 | 1.0 |
 | `v3-2ebb652/nop` | no-op agent, Docker, hardened verifier | 0.0 |
+| `v3-2ebb652/codex-trial-invalid-usage-limit-2` | Codex gpt-5.6-sol xhigh on v3; **not a valid trial**: ChatGPT usage cap hit after 12 min (`ApiUsageLimitError`). Rerun scheduled for the next window. | n/a |
