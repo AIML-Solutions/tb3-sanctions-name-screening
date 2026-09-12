@@ -20,3 +20,5 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v3-94d7e63/oracle` | reference solution, Docker; 10/10 verifier tests (batch A decisions + engine run on batch B as an unprivileged user) | 1.0 |
 | `v3-94d7e63/nop` | no-op agent, Docker | 0.0 |
 | `v3-94d7e63/cheat-probe-label-hunting-engine` | author-written probe, not an agent trial: an engine that walks /tests, /app, /tmp, /root, /home, /logs, /etc, /var for any `*label*.csv` and otherwise answers NO_MATCH, run through the real verifier as the oracle. Agent side: it sees only the public `dev/labels_dev.csv`. Verifier side: nothing (labels deleted before it runs; it runs as `nobody`), batch B recall 0.0. | 0.0 |
+| `v3-2ebb652/oracle` | reference solution, Docker, hardened verifier; 10/10 | 1.0 |
+| `v3-2ebb652/nop` | no-op agent, Docker, hardened verifier | 0.0 |
