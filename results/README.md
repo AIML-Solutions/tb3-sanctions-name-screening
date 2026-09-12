@@ -19,3 +19,4 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v2.1-413c554/codex-trial-1` | Codex gpt-5.6-sol xhigh, valid trial: **reward 1.0** in 37 min, 108 commands, 24.1M input / 87k output tokens. Verifier: recall 0.9939, precision 0.9992, uid 1.0. Trials 2-3 stopped: the task must change again. | 1.0 |
 | `v3-94d7e63/oracle` | reference solution, Docker; 10/10 verifier tests (batch A decisions + engine run on batch B as an unprivileged user) | 1.0 |
 | `v3-94d7e63/nop` | no-op agent, Docker | 0.0 |
+| `v3-94d7e63/cheat-probe-label-hunting-engine` | author-written probe, not an agent trial: an engine that globs for `labels*.csv` everywhere it can reach inside the verifier and otherwise answers NO_MATCH, run through the real verifier as the oracle. It found nothing (labels are deleted before it runs; it runs as `nobody`) and scored 0. | 0.0 |
