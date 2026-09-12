@@ -17,3 +17,5 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v2.1-413c554/nop` | no-op agent, Docker | 0.0 |
 | `v2.1-413c554/codex-trial-1-invalid-usage-limit` | Codex gpt-5.6-sol xhigh; **not a valid trial**: the ChatGPT account's usage cap was hit after 21 min / 4.9M input tokens / 34 commands (`ApiUsageLimitError`), reward 0.0 by default. Kept because the transcript shows the agent's approach on v2.1 up to that point. Trials 2-3 were stopped before starting. | n/a |
 | `v2.1-413c554/codex-trial-1` | Codex gpt-5.6-sol xhigh, valid trial: **reward 1.0** in 37 min, 108 commands, 24.1M input / 87k output tokens. Verifier: recall 0.9939, precision 0.9992, uid 1.0. Trials 2-3 stopped: the task must change again. | 1.0 |
+| `v3-94d7e63/oracle` | reference solution, Docker; 10/10 verifier tests (batch A decisions + engine run on batch B as an unprivileged user) | 1.0 |
+| `v3-94d7e63/nop` | no-op agent, Docker | 0.0 |
