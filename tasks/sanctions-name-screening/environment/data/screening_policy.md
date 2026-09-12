@@ -22,13 +22,19 @@ id_number, type`. `dob` may be a full date, a year, a year-month, or empty.
 
 If the customer's `id_type` and `id_number` equal an entry's identifier
 (`passport`, `registration`, or `imo`), the customer matches that entry
-regardless of the name or date of birth.
+regardless of the name or date of birth. An identifier that matches no entry
+neither confirms nor rules out anything; the customer is then judged on name
+and date of birth like any other.
 
 ## Rule 2: name equivalence
 
 Two names refer to the same person when, after normalization, the given name
 and the family name correspond. Names correspond across all of the following
-variations, which the batch and the development sample contain:
+variations. The development sample illustrates them; it does not exhaust them.
+The batch uses romanization conventions (for example French, German, Polish
+and Gulf spellings of Arabic and Russian names, Cantonese surnames, sun-letter
+assimilation of the Arabic article) that do not appear in the development
+sample, and it stacks several conventions on one name.
 
 - Transliteration into Latin script from Arabic, Persian and Cyrillic under any
   common romanization (for example Muhammad/Mohammed/Mohamed/Mohamad,
@@ -88,7 +94,9 @@ Nationality is informational and does not confirm or rule out a match.
 exactly one row per customer in the batch, `decision` in `{MATCH, NO_MATCH}`,
 and `matched_uid` set to the entry `uid` for every `MATCH`. When more than one
 entry could match, choose the one supported by an identifier, then by a date
-of birth, then the first by `uid`.
+of birth, then the lowest `uid` (string order). Closeness of spelling is not a
+tie-breaker: two entries with the same name and different dates of birth are
+two people, and a customer without a date of birth resolves to the lower `uid`.
 
 ## Scoring
 
