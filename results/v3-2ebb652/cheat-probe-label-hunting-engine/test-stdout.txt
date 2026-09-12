@@ -9,7 +9,7 @@ test_decisions.py FFFF.FFFF.                                             [100%]
 =================================== FAILURES ===================================
 ____________________________ test_overall_recall[A] ____________________________
 
-graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec81ccfe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404bbd0fe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_overall_recall(graded):
         batch, (stats, _) = graded
@@ -20,12 +20,12 @@ graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<fun
 E       AssertionError: batch A: recall 0.0000 < 0.97
 E       assert 0.0 >= 0.97
 
-test_decisions.py:124: AssertionError
+test_decisions.py:139: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [A] recall=0.0000 (tp=0, fn=1334)
 __________________________ test_overall_precision[A] ___________________________
 
-graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec81ccfe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404bbd0fe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_overall_precision(graded):
         batch, (stats, _) = graded
@@ -36,12 +36,12 @@ graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<fun
 E       AssertionError: batch A: precision 0.0000 < 0.97
 E       assert 0.0 >= 0.97
 
-test_decisions.py:132: AssertionError
+test_decisions.py:147: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [A] precision=0.0000 (tp=0, fp=0)
 _________________________ test_matched_uid_accuracy[A] _________________________
 
-graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec81ccfe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404bbd0fe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_matched_uid_accuracy(graded):
         batch, (stats, _) = graded
@@ -51,12 +51,12 @@ graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<fun
 E       AssertionError: batch A: matched_uid accuracy 0.0000 < 0.97
 E       assert 0.0 >= 0.97
 
-test_decisions.py:139: AssertionError
+test_decisions.py:154: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [A] uid_accuracy=0.0000
 ___________________________ test_per_class_recall[A] ___________________________
 
-graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec81ccfe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404bbd0fe... 0}, 'T5_alias_weak_corroborated': {'n': 6, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_per_class_recall(graded):
         batch, (_, per_class) = graded
@@ -65,13 +65,13 @@ graded = ('A', ({'tp': 0, 'fp': 0, 'fn': 1334, 'tp_uid_ok': 0}, defaultdict(<fun
             if klass.startswith("T"):
                 recall = s["hit"] / s["n"] if s["n"] else 1.0
                 print(f"[{batch}] {klass}: recall={recall:.4f} ({s['hit']}/{s['n']})")
-                if recall < MIN_CLASS_RECALL:
+                if recall < MIN_CLASS_RECALL and s["n"] >= MIN_CLASS_SIZE:
                     failures.append(f"{klass}={recall:.3f}")
 >       assert not failures, f"batch {batch}: per-class recall below {MIN_CLASS_RECALL}: {', '.join(failures)}"
-E       AssertionError: batch A: per-class recall below 0.9: T10_stacked=0.000, T11_twin=0.000, T12_script_customer=0.000, T13_id_unlisted_name_match=0.000, T1_translit=0.000, T2_script=0.000, T3_structure=0.000, T4_alias_strong=0.000, T5_alias_weak_corroborated=0.000, T6_id_exact=0.000, T7_entity_suffix=0.000, T8_vessel_prefix=0.000, T9_dob_partial=0.000
+E       AssertionError: batch A: per-class recall below 0.9: T10_stacked=0.000, T11_twin=0.000, T12_script_customer=0.000, T13_id_unlisted_name_match=0.000, T1_translit=0.000, T2_script=0.000, T3_structure=0.000, T4_alias_strong=0.000, T6_id_exact=0.000, T7_entity_suffix=0.000, T8_vessel_prefix=0.000, T9_dob_partial=0.000
 E       assert not ['T10_stacked=0.000', 'T11_twin=0.000', 'T12_script_customer=0.000', 'T13_id_unlisted_name_match=0.000', 'T1_translit=0.000', 'T2_script=0.000', ...]
 
-test_decisions.py:151: AssertionError
+test_decisions.py:166: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [A] T10_stacked: recall=0.0000 (0/80)
 [A] T11_twin: recall=0.0000 (0/54)
@@ -88,7 +88,7 @@ test_decisions.py:151: AssertionError
 [A] T9_dob_partial: recall=0.0000 (0/53)
 ____________________________ test_overall_recall[B] ____________________________
 
-graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec85ce84..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404c06818..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_overall_recall(graded):
         batch, (stats, _) = graded
@@ -99,12 +99,12 @@ graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<fun
 E       AssertionError: batch B: recall 0.0000 < 0.97
 E       assert 0.0 >= 0.97
 
-test_decisions.py:124: AssertionError
+test_decisions.py:139: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [B] recall=0.0000 (tp=0, fn=1239)
 __________________________ test_overall_precision[B] ___________________________
 
-graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec85ce84..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404c06818..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_overall_precision(graded):
         batch, (stats, _) = graded
@@ -115,12 +115,12 @@ graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<fun
 E       AssertionError: batch B: precision 0.0000 < 0.97
 E       assert 0.0 >= 0.97
 
-test_decisions.py:132: AssertionError
+test_decisions.py:147: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [B] precision=0.0000 (tp=0, fp=0)
 _________________________ test_matched_uid_accuracy[B] _________________________
 
-graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec85ce84..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404c06818..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_matched_uid_accuracy(graded):
         batch, (stats, _) = graded
@@ -130,12 +130,12 @@ graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<fun
 E       AssertionError: batch B: matched_uid accuracy 0.0000 < 0.97
 E       assert 0.0 >= 0.97
 
-test_decisions.py:139: AssertionError
+test_decisions.py:154: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [B] uid_accuracy=0.0000
 ___________________________ test_per_class_recall[B] ___________________________
 
-graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7efec85ce84..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
+graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f404c06818..., 'hit': 0, 'fp': 0}, 'T11_twin': {'n': 43, 'hit': 0, 'fp': 0}, 'D3_weak_alias_alone': {'n': 25, 'hit': 0, 'fp': 0}})))
 
     def test_per_class_recall(graded):
         batch, (_, per_class) = graded
@@ -144,13 +144,13 @@ graded = ('B', ({'tp': 0, 'fp': 0, 'fn': 1239, 'tp_uid_ok': 0}, defaultdict(<fun
             if klass.startswith("T"):
                 recall = s["hit"] / s["n"] if s["n"] else 1.0
                 print(f"[{batch}] {klass}: recall={recall:.4f} ({s['hit']}/{s['n']})")
-                if recall < MIN_CLASS_RECALL:
+                if recall < MIN_CLASS_RECALL and s["n"] >= MIN_CLASS_SIZE:
                     failures.append(f"{klass}={recall:.3f}")
 >       assert not failures, f"batch {batch}: per-class recall below {MIN_CLASS_RECALL}: {', '.join(failures)}"
 E       AssertionError: batch B: per-class recall below 0.9: T10_stacked=0.000, T11_twin=0.000, T12_script_customer=0.000, T13_id_unlisted_name_match=0.000, T1_translit=0.000, T2_script=0.000, T3_structure=0.000, T4_alias_strong=0.000, T5_alias_weak_corroborated=0.000, T6_id_exact=0.000, T7_entity_suffix=0.000, T8_vessel_prefix=0.000, T9_dob_partial=0.000
 E       assert not ['T10_stacked=0.000', 'T11_twin=0.000', 'T12_script_customer=0.000', 'T13_id_unlisted_name_match=0.000', 'T1_translit=0.000', 'T2_script=0.000', ...]
 
-test_decisions.py:151: AssertionError
+test_decisions.py:166: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 [B] T10_stacked: recall=0.0000 (0/67)
 [B] T11_twin: recall=0.0000 (0/43)
@@ -201,4 +201,4 @@ FAILED test_decisions.py::test_overall_recall[B] - AssertionError: batch B: r...
 FAILED test_decisions.py::test_overall_precision[B] - AssertionError: batch B...
 FAILED test_decisions.py::test_matched_uid_accuracy[B] - AssertionError: batc...
 FAILED test_decisions.py::test_per_class_recall[B] - AssertionError: batch B:...
-========================= 8 failed, 2 passed in 0.16s ==========================
+========================= 8 failed, 2 passed in 0.23s ==========================
