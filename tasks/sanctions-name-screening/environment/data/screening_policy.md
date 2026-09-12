@@ -34,7 +34,12 @@ variations. The development sample illustrates them; it does not exhaust them.
 The batch uses romanization conventions (for example French, German, Polish
 and Gulf spellings of Arabic and Russian names, Cantonese surnames, sun-letter
 assimilation of the Arabic article) that do not appear in the development
-sample, and it stacks several conventions on one name.
+sample, and it stacks several conventions on one name. The engine is also run
+on a second batch, not provided, that further uses Turkish spellings of Arabic
+names (Cemal, Hüseyin, Ahmet, Kasım), Indonesian and Malay spellings (Achmad,
+Joesoef, Sjarif), scientific transliteration of Russian names with the
+diacritics stripped (Cajkovskij, Zukov, Sevcenko), and Hokkien and Teochew
+Chinese surnames (Tan, Lim, Ong, Goh, Teo).
 
 - Transliteration into Latin script from Arabic, Persian and Cyrillic under any
   common romanization (for example Muhammad/Mohammed/Mohamed/Mohamad,
@@ -101,8 +106,9 @@ two people, and a customer without a date of birth resolves to the lower `uid`.
 ## Scoring
 
 The batch is scored against hidden labels produced by the same process as
-`/app/dev/labels_dev.csv`. The task passes only if all of the following hold on
-the batch: overall recall of true matches at least 0.97 and overall precision
+`/app/dev/labels_dev.csv`, and the engine `/app/screen.py` is run on a second,
+unseen batch from the same process and scored the same way. The task passes
+only if all of the following hold on each batch: overall recall of true matches at least 0.97 and overall precision
 at least 0.97; recall at least 0.90 within every true-match variation class;
 false-positive rate at most 0.05 within every look-alike decoy class and at
 most 0.01 among unrelated customers; and at least 0.97 of correct matches

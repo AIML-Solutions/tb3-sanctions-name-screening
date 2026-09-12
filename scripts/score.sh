@@ -10,9 +10,12 @@ label=${1:-}
 units=$($pytest -q -p no:cacheprovider "$root/scripts/tests" 2>&1 | tail -1)
 cd "$task"
 $py solution/screen.py --watchlist environment/data/watchlist.json --customers environment/data/customers.csv --out /tmp/score-hidden.csv >/dev/null
-out=$(DECISIONS_PATH=/tmp/score-hidden.csv $pytest -q -p no:cacheprovider tests/test_decisions.py -rA 2>&1 || true)
-rec=$(echo "$out" | grep -oE "^recall=[0-9.]+" | head -1); prec=$(echo "$out" | grep -oE "^precision=[0-9.]+" | head -1)
-uid=$(echo "$out" | grep -oE "^uid_accuracy=[0-9.]+" | head -1)
+# the verifier deletes label files at import: run it from a scratch copy of tests/
+scratch=$(mktemp -d); cp -r tests "$scratch/tests"
+out=$(cd "$scratch/tests" && DECISIONS_PATH=/tmp/score-hidden.csv ENGINE_PATH="$task/solution/screen.py" PYTHONDONTWRITEBYTECODE=1 $pytest -q -p no:cacheprovider test_decisions.py -rA 2>&1 || true)
+rm -rf "$scratch"
+rec=$(echo "$out" | grep -oE "^\[[AB]\] recall=[0-9.]+" | tr '\n' ' '); prec=$(echo "$out" | grep -oE "^\[[AB]\] precision=[0-9.]+" | tr '\n' ' ')
+uid=$(echo "$out" | grep -oE "^\[[AB]\] uid_accuracy=[0-9.]+" | tr '\n' ' ')
 below=$(echo "$out" | grep -oE "^E .*below 0.9: .*" | head -1 | sed "s/.*below 0.9: //"); exceeded=$(echo "$out" | grep -oE "^E .*exceeded: .*" | head -1 | sed "s/.*exceeded: //")
 passed=$(echo "$out" | grep -oE "[0-9]+ passed|[0-9]+ failed" | tr '\n' ' ')
 echo "HIDDEN [$label] $rec $prec $uid | class-recall-below: ${below:-none} | fpr-exceeded: ${exceeded:-none} | $passed| units: $units"
