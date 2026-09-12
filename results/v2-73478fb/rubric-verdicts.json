@@ -1,0 +1,144 @@
+{
+  "checks": {
+    "verifiable": {
+      "outcome": "pass",
+      "explanation": "tests/test_decisions.py is a deterministic, programmatic scorer of /app/decisions.csv against baked labels; no LLM judge, no network, no runtime installs in test.sh (pytest and pytest-json-ctrf are pinned and baked in tests/Dockerfile). I reran the reference scoring twice and got byte-identical output."
+    },
+    "solvable": {
+      "outcome": "pass",
+      "explanation": "solution/screen.py (stdlib only) runs in 3.2 s and scores recall 0.9849 / precision 0.9954 / uid 0.9992 with every per-class floor cleared (worst class T3_structure 0.9524 vs 0.90 floor; worst FPR R0 0.0012 vs 0.01). The 6 h expert estimate is credible for an 808-line rule engine."
+    },
+    "difficult": {
+      "outcome": "pass",
+      "explanation": "Cross-script transliteration (Arabic/Persian/Cyrillic), stacked romanization conventions, Wade-Giles/Cantonese ambiguity, alias strength semantics and partial-DOB logic under simultaneous recall and precision floors is well beyond an undergraduate exercise; the decoy classes punish naive fuzzy matching."
+    },
+    "interesting": {
+      "outcome": "pass",
+      "explanation": "Building and validating a sanctions screening engine against per-class recall/precision floors is literally the acceptance test a bank's model-validation function runs on a vendor engine. Real job, real money."
+    },
+    "outcome_verified": {
+      "outcome": "pass",
+      "explanation": "Tests read only the final /app/decisions.csv and grade the decisions; nothing inspects the agent's source, tooling or method. The instruction states the goal and the output schema, not a procedure."
+    },
+    "anti_cheat_robustness": {
+      "outcome": "fail",
+      "explanation": "Generator templates leak labels through surface features that need no name matching: 'Vessel <X> Alpha' (44/44 MATCH), '<Stem> Group' (31/31), two-token '<Given> K./A./M.' (24/24), id_type in {imo, registration} (75/75) and a year-month dob (31/31) are all 100% MATCH with zero counterexamples, together 130 true positives and 0 false positives (9.8% of all positives). Every tell is discoverable from the labelled dev sample shipped in the agent image (same rates there) and transfers to the hidden batch. Fix: emit decoys with the same shapes — D7 customers carrying unlisted imo/registration numbers, 'Vessel <X> Alpha'/'<Stem> Group'/'<Given> K.' decoy names, and a D5 variant with a conflicting year-month dob — and randomize the T6 garbled-name and vessel/entity templates."
+    },
+    "task_security": {
+      "outcome": "pass",
+      "explanation": "No network calls, no credential access, no obfuscation, no prompt injection, no destructive operations in any Dockerfile, script or data file. Only outbound-capable tool is apt-get at build time in both images."
+    },
+    "functional_verification": {
+      "outcome": "pass",
+      "explanation": "The verifier parses the agent's output CSV and computes recall, precision, uid accuracy and per-class rates. No source scanning, keyword grepping or regex-on-code anywhere."
+    },
+    "deterministic_reproducible": {
+      "outcome": "pass",
+      "explanation": "pytest==9.1.1 and pytest-json-ctrf==0.5.2 are pinned; base images are python:3.12-slim-bookworm in both; no live services. I regenerated all five data files with tests/generate_data.py in a scratch copy and every one was byte-identical to the shipped version."
+    },
+    "essential_difficulty": {
+      "outcome": "pass",
+      "explanation": "The output schema is three columns and the grading is aggregate rates, so formatting cannot dominate failures; difficulty sits entirely in the name-equivalence and policy reasoning."
+    },
+    "test_instruction_alignment": {
+      "outcome": "pass",
+      "explanation": "Every assertion (path, header, one row per customer, MATCH/NO_MATCH values, non-empty matched_uid, the six thresholds) traces to instruction.md or the policy file it references, and every stated requirement is tested. 138 lines is slightly over the ~100-line guideline but the excess is threshold reporting, not over-specification."
+    },
+    "novel": {
+      "outcome": "pass",
+      "explanation": "The watchlist, batch and romanization engine are synthetic and generated from a private seed; no memorizable public solution exists for this data, and the stacked-convention spellings are combinatorial rather than a lookup table."
+    },
+    "agentic": {
+      "outcome": "pass",
+      "explanation": "Requires exploring the watchlist and policy, building a matcher, measuring against the labelled dev sample, and iterating on classes that miss the floors. Not a single-shot generation."
+    },
+    "reviewable": {
+      "outcome": "pass",
+      "explanation": "Fixed since v1: tests/generate_data.py now ships and is the documented source of truth, README.md tabulates all 21 variation classes, and labels are derived not hardcoded. I confirmed the generator rebuilds watchlist.json, customers.csv, both dev files and labels.csv byte-for-byte."
+    },
+    "instruction_concision": {
+      "outcome": "pass",
+      "explanation": "Three paragraphs, human-voiced, absolute paths in backticks, no headings or roleplay, no tool listing. The second paragraph is long and largely restates /app/screening_policy.md, and the clause 'a matcher that only reproduces the sample's spellings will not clear the bar' edges toward steering, but nothing prescribes an approach."
+    },
+    "solution_quality": {
+      "outcome": "pass",
+      "explanation": "solve.sh is a four-line invocation of solution/screen.py, an 808-line real matching engine with no hardcoded uids or labels (I grepped for SDN- literals: none). Genuine computation, correctly kept in its own file rather than a heredoc."
+    },
+    "separate_verifier_configured": {
+      "outcome": "pass",
+      "explanation": "environment_mode = \"separate\"; the only verifier input from the agent is the declared artifact /app/decisions.csv, labels live only in tests/data/, tests/Dockerfile pre-installs pytest and pytest-json-ctrf and pre-creates /app and /logs/verifier, and test.sh installs nothing. No assets are duplicated across the two images, so no drift is possible."
+    },
+    "environment_hygiene": {
+      "outcome": "pass",
+      "explanation": "Fixed since v1: the agent image no longer preinstalls matching libraries or verifier tooling and copies no tests/ or solution/ content — only the four data paths. apt-get update is followed by rm -rf /var/lib/apt/lists/* with no version pins. The remaining git/curl/jq/less are unnecessary for a stdlib task but are generic, not test- or solution-only, deps."
+    },
+    "structured_data_schema": {
+      "outcome": "pass",
+      "explanation": "The decisions.csv schema is stated normatively in instruction.md and again in the Output section of /app/screening_policy.md (header row, one row per customer, decision domain, matched_uid semantics, and the tie-break ordering), and the input schemas for watchlist.json and customers.csv are documented field by field."
+    },
+    "typos": {
+      "outcome": "pass",
+      "explanation": "I extracted every /app, /tests, /solution and /logs path referenced across instruction.md, task.toml, README.md, both Dockerfiles, solve.sh, test.sh, test_decisions.py and the policy file; all twelve resolve to files that exist or are produced. No misspelled identifiers found."
+    },
+    "difficulty_explanation_quality": {
+      "outcome": "pass",
+      "explanation": "Fixed since v1: it now names the specific hard mechanisms (multi-convention romanization, script-only entries, look-alike decoy families, dev-sample non-coverage), states the data is synthetic and how it was generated, and names who does this in the real world (vendor screening engineers and bank model-validation teams). No agent pass rates or benchmark scores."
+    },
+    "solution_explanation_quality": {
+      "outcome": "pass",
+      "explanation": "Describes the actual strategy — script transliteration, tokenization of particles/articles/compound Abd names, a consonant-skeleton plus vowel-slot comparison, pinyin reading sets, then the policy rules and tie-break — and matches solution/screen.py's implementation and docstring exactly."
+    },
+    "verification_explanation_quality": {
+      "outcome": "fail",
+      "explanation": "The described checks match the tests and the threshold rationale is genuine, but the calibration evidence is wrong: it claims the reference scores 0.974/0.994 on the hidden batch and 0.987/0.995 on the dev sample, while I measured 0.9849/0.9954 and 0.9953/0.9942. It also says the bounds were validated against an independent solution only 'on an earlier version of the batch'. Fix: update both number pairs to the measured values in task.toml and README.md, and either revalidate the alternative solution on the current batch or say plainly that it has not been."
+    },
+    "category_and_tags": {
+      "outcome": "pass",
+      "explanation": "Operations / Compliance is the right domain for sanctions screening (Python is incidental tooling), and the tags compliance, entity-resolution, transliteration, python, data are specific and discoverable."
+    },
+    "task_name": {
+      "outcome": "pass",
+      "explanation": "sanctions-name-screening is lowercase kebab-case, exactly three tokens, and tells a reader the core challenge without opening a file."
+    },
+    "resource_configuration": {
+      "outcome": "pass",
+      "explanation": "Verifier 120 s is ample for a suite that runs in under 2 s; agent 14400 s (4 h) is proportionate to the 6 h expert estimate. cpus = 2 / memory_mb = 4096 are above the defaults and not strictly needed — the reference solution finishes in 3.2 s on one core — but the headroom is modest and difficulty comes from reasoning, not compute."
+    },
+    "task_readme": {
+      "outcome": "fail",
+      "explanation": "The variation-class tables and the generator/provenance notes are genuinely useful reviewer context, but the README also reproduces difficulty_explanation, solution_explanation and verification_explanation verbatim from task.toml plus the author, category, tags and resource fields. Fix: delete the three copied metadata blocks and the metadata bullet list, keep the class tables, the generator pointer and the synthetic-data note."
+    },
+    "expert_time_estimate": {
+      "outcome": "pass",
+      "explanation": "6.0 hours is non-default and plausible for an expert who already knows the approach: the reference engine is roughly 800 lines of transliteration, tokenization and policy logic plus dev-set iteration, and it sits sensibly above the 4 h agent timeout."
+    },
+    "task_toml_schema": {
+      "outcome": "pass",
+      "explanation": "Only recognized sections and fields appear: schema_version, artifacts, [task], [metadata] (all eleven keys from the allowed set, no invented ones), [verifier] with environment_mode, [verifier.environment], [agent] and [environment]. No stray keys."
+    },
+    "no_extraneous_files": {
+      "outcome": "fail",
+      "explanation": "Not fixed since v1: three __pycache__ artifacts remain — solution/__pycache__/screen.cpython-313.pyc, solution/__pycache__/tables.cpython-313.pyc and tests/__pycache__/test_decisions.cpython-313-pytest-9.1.1.pyc. The tables one is stale bytecode for a module that no longer exists in the tree, and the tests one gets baked into the verifier image by COPY . /tests/. Fix: delete both __pycache__ directories and add __pycache__/ and *.pyc to .gitignore."
+    },
+    "artifact_efficiency": {
+      "outcome": "not_applicable",
+      "explanation": "The single artifact is /app/decisions.csv, a small agent-produced deliverable that is itself the answer; there is no build-time-fixed tree to bake and no [[verifier.collect]] hook."
+    },
+    "verifier_execution_isolation": {
+      "outcome": "not_applicable",
+      "explanation": "The verifier only parses the agent's CSV; it never executes, imports or runs any agent-produced code."
+    },
+    "ctrf_reporting": {
+      "outcome": "pass",
+      "explanation": "test.sh runs pytest with --ctrf /logs/verifier/ctrf.json, and the five checks are split into separate named tests (overall recall, precision, uid accuracy, per-class recall, per-class FPR) so a failing submission shows which bar it missed."
+    },
+    "do_not_modify_enforced": {
+      "outcome": "not_applicable",
+      "explanation": "Neither instruction.md nor the policy file forbids modifying or requires preserving any concrete artifact. Incidentally, tampering with /app/customers.csv would not help: the labels are baked into the verifier image and the verifier requires the decision set to match the label set exactly."
+    },
+    "binary_reward": {
+      "outcome": "pass",
+      "explanation": "test.sh writes exactly 1 or 0 to /logs/verifier/reward.txt from the pytest exit code; no other path writes a reward and the continuous rates are only printed and reported through CTRF."
+    }
+  }
+}

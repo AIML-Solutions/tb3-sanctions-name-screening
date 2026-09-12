@@ -12,3 +12,6 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v1-faf2ab7/rubric-verdicts.json` | TB3 rubric review of v1 (26 pass / 6 fail / 3 n/a) | |
 | `v2-73478fb/oracle` | reference solution, Docker | 1.0 |
 | `v2-73478fb/nop` | no-op agent, Docker | 0.0 |
+| `v2-73478fb/rubric-verdicts.json` | TB3 rubric review of v2 (28 pass / 4 fail / 3 n/a); its leakage check found the surface-shape tells fixed in v2.1 | |
+| `v2.1-413c554/oracle` | reference solution, Docker | 1.0 |
+| `v2.1-413c554/nop` | no-op agent, Docker | 0.0 |
