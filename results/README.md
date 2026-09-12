@@ -23,3 +23,4 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v3-2ebb652/oracle` | reference solution, Docker, hardened verifier; 10/10 | 1.0 |
 | `v3-2ebb652/nop` | no-op agent, Docker, hardened verifier | 0.0 |
 | `v3-2ebb652/codex-trial-invalid-usage-limit-2` | Codex gpt-5.6-sol xhigh on v3; **not a valid trial**: ChatGPT usage cap hit after 12 min (`ApiUsageLimitError`). Rerun scheduled for the next window. | n/a |
+| `v3-2ebb652/codex-trial-invalid-usage-limit-3` | Codex gpt-5.6-sol xhigh on v3, launched on a freshly reset 5-hour window; **not a valid trial**: usage cap hit after 43 min (`ApiUsageLimitError`). One xhigh trial on this task exhausts a whole subscription window, so valid Codex trials need metered API access. | n/a |
