@@ -14,7 +14,7 @@ exact layout TB3 expects, so it can be dropped into a TB3 pull request as-is.
 
 ## The task in one paragraph
 
-A compliance team must screen a batch of 6,514 onboarding customers (individuals, companies, vessels)
+A compliance team must screen a batch of 6,748 onboarding customers (individuals, companies, vessels)
 against a 2,100-entry sanctions list and write `MATCH` / `NO_MATCH` decisions with the matched list
 uid. The list mixes Latin and original-script names (Arabic, Persian, Cyrillic), several romanization
 systems (Wade-Giles, Cantonese, pinyin; French, German and English transliterations of Arabic and
@@ -95,14 +95,14 @@ FAILURE_ANALYSIS_PLACEHOLDER
   of thirteen true-match classes (transliteration, script-only, structure, strong alias, corroborated
   weak alias, identifier, entity suffix, vessel prefix, partial DOB, stacked conventions, twins,
   script-side customers, unlisted identifiers), false-positive rate at most 0.05 in each of seven
-  decoy classes and at most 0.01 among 4,200 unrelated customers, and the right uid on at least 0.97
+  decoy classes and at most 0.01 among 4,400 unrelated people, companies and vessels, and the right uid on at least 0.97
   of true matches. Loosening the matcher to lift one class breaks a decoy
   ceiling; tightening it drops a true-match class. Each threshold is a separate pytest so a failing
   run shows which bar was missed.
 - **Stdlib-only reference solution.** `solution/screen.py` (transliteration tables, a phonological
   slot model for vowels, Wade-Giles reading sets, a small name lexicon, role-aware alignment, the policy
   rules) proves the task is solvable inside the environment with no network and no extra packages. It
-  scores 0.985 recall / 0.995 precision on the hidden batch, deliberately not 100%: the remaining misses
+  scores 0.986 recall / 0.992 precision on the hidden batch, deliberately not 100%: the remaining misses
   are documented rule gaps, and `docs/oracle-iterations.md` records every change and its effect.
 - **A sample, not a census.** The development sample is generated with four romanization conventions;
   the batch uses ten. The instruction says so. A matcher that reproduces the sample's spellings does not

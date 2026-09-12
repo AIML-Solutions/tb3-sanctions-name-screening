@@ -13,7 +13,7 @@ $py solution/screen.py --watchlist environment/data/watchlist.json --customers e
 out=$(DECISIONS_PATH=/tmp/score-hidden.csv $pytest -q -p no:cacheprovider tests/test_decisions.py -rA 2>&1 || true)
 rec=$(echo "$out" | grep -oE "^recall=[0-9.]+" | head -1); prec=$(echo "$out" | grep -oE "^precision=[0-9.]+" | head -1)
 uid=$(echo "$out" | grep -oE "^uid_accuracy=[0-9.]+" | head -1)
-below=$(echo "$out" | grep -oE "below 0.9: .*" | head -1 | cut -c12-); exceeded=$(echo "$out" | grep -oE "exceeded: .*" | head -1 | cut -c11-)
+below=$(echo "$out" | grep -oE "^E .*below 0.9: .*" | head -1 | sed "s/.*below 0.9: //"); exceeded=$(echo "$out" | grep -oE "^E .*exceeded: .*" | head -1 | sed "s/.*exceeded: //")
 passed=$(echo "$out" | grep -oE "[0-9]+ passed|[0-9]+ failed" | tr '\n' ' ')
 echo "HIDDEN [$label] $rec $prec $uid | class-recall-below: ${below:-none} | fpr-exceeded: ${exceeded:-none} | $passed| units: $units"
 $py solution/screen.py --watchlist environment/data/watchlist.json --customers environment/data/dev/customers_dev.csv --out /tmp/score-dev.csv >/dev/null
