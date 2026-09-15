@@ -13,7 +13,7 @@ under `results/`; every number from a `result.json` or a verifier stdout there.
 | v3 `2ebb652` | Codex gpt-5.6-sol xhigh | no (usage cap, 58 min, fresh weekly quota) | 58 min | | 25.7M / 134k | graded at cut-off: A 0.867 (intermediate file); B 0.948 recall, T10 0.896 / T13 0.870 < 0.90, precision 0.998; reward 0 | informative only |
 | v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 1 | **yes** | 50 min | 69 | 19.0M / 105k | 0.0: A 0.991 / 1.0 pass; B 0.924 recall, six classes < 0.90, precision 1.0 | **genuine failure: incomplete generalization to unseen conventions** |
 | v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 2 | **yes** | 40 min | 62 | 13.6M / 93k | 0.0: A 0.999 / 1.0 pass; B 0.942 recall, five classes < 0.90, precision 1.0 | **genuine failure: incomplete generalization, narrower than trial 1** |
-| v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 3 | pending | | | | | |
+| v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 3 | **yes** | 45 min | 92 | 17.1M / 93k | 0.0: A 0.998 / 1.0 pass; B 0.951 recall, T11 0.884 / T13 0.860 < 0.90, precision 0.999 | **genuine failure: incomplete generalization, narrowest margin** |
 | v3 `2ebb652` | Claude Code claude-opus-5 max | no (API `400 Output blocked by content filtering policy` on the first engine write, 30 min in) | 30 min | 16 tool calls | | no engine written | API failure, not model failure |
 | v3 `2ebb652` | Claude Code claude-opus-5 max x3 | TODO | | | | | |
 | v3 `2ebb652` | Codex, cheat prompt | TODO | | | | | |
@@ -76,9 +76,22 @@ with dev 1,324/1,324. Batch A: recall 0.999, zero false positives. Batch B: reca
 were enough to get the named forms right and not enough to get the conventions right: the misses are the
 combinations the examples do not show (a Turkish spelling inside a family-first structure, an Indonesian
 spelling on a twin that must be resolved by date, an assimilated article on a Hokkien-adjacent name), which
-is what "stacked" and "structure" classes measure. Same primary tag as trial 1; the gap between the two runs
-(0.924 to 0.942) is within one run's worth of rule-writing, so a third trial could plausibly land either side
-of the floor.
+is what "stacked" and "structure" classes measure. Same primary tag as trial 1.
+
+**v3.1 Codex trial 3: same class, narrowest margin, high confidence.** The most careful of the three: 92
+commands, explicit negative controls on the confusable pairs the policy warns about (Hassan/Hussein,
+Samir/Samira, Saleh/Salehi, Faris/Farsi), all named unseen-convention examples verified against list
+entries. Batch A 0.998 / 1.0. Batch B recall 0.951, precision 0.999; T1, T2, T3 and T10 now clear the floor
+and only T11 (twins, 0.884) and T13 (unlisted identifiers, 0.860) do not. Those two classes are where an
+unseen spelling meets a second rule (choose the right twin by date; ignore an identifier the list does not
+know and fall back to the name): the engine's generalization gaps are now concentrated in interactions
+rather than in any single convention. Three runs, three failures of the same kind, with recall on the unseen
+batch rising 0.924 -> 0.942 -> 0.951 and precision never below 0.999: the agents are not guessing, they are
+converging on a policy they cannot finish inferring from what they can see.
+
+**Cross-agent comparison.** Not possible on this task: Claude Code's runs end at the API content filter
+before an engine exists (section 2b). What can be said is that on the visible batch Codex's three engines
+all passed with zero or one false positive, so the difficulty is entirely in the unseen batch.
 
 ## 4. Cross-agent comparison  TODO
 

@@ -109,7 +109,8 @@ run evaluated. Status as of the evening of 2026-09-14; trials continue and resul
 | v3 | Claude Code claude-opus-5 max, 1 attempt | ended by `API Error: 400 Output blocked by content filtering policy` on its first engine write, 30 min in | not a valid trial; API failure |
 | v3.1 | Codex gpt-5.6-sol xhigh, trial 1 | **reward 0.0** in 50 min, no infrastructure error | batch A passed (0.991 / 1.0); batch B recall 0.924, six classes under the floor, precision 1.0 |
 | v3.1 | Codex gpt-5.6-sol xhigh, trial 2 | **reward 0.0** in 40 min, no infrastructure error | batch A passed (0.999 / 1.0); batch B recall 0.942, five classes under the floor, precision 1.0 |
-| v3.1 | Codex trial 3, Codex cheat run | pending: one attempt per subscription window | this table is updated as they land |
+| v3.1 | Codex gpt-5.6-sol xhigh, trial 3 | **reward 0.0** in 45 min, no infrastructure error | batch A passed (0.998 / 1.0); batch B recall 0.951, T11 and T13 under the floor, precision 0.999 |
+| v3.1 | Codex cheat run | pending (next subscription window) | |
 | v3 | Claude Code x3 | blocked by the API content filter at the engine write (3/3 reproductions incl. a re-worded task) | platform limitation, see `results/v3-2ebb652/claude-content-filter-experiments/` |
 
 ### Adversarial (/cheat) trials
