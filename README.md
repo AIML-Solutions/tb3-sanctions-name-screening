@@ -84,11 +84,47 @@ image and never into the agent's environment.
 
 ## Results
 
-RESULTS_PLACEHOLDER
+All runs are recorded under [`results/`](results/) (harbor `result.json`, verifier stdout, agent transcripts) and
+summarised in [`results/README.md`](results/README.md); nothing is edited by hand. Version = git commit the
+run evaluated. Status as of the evening of 2026-09-14; trials continue and results are pushed as they land.
+
+### Gates on the submitted version (v3, `2ebb652` data and instruction; `c4ce2e5` adds a placeholder engine file)
+
+| gate | result | evidence |
+|---|---|---|
+| TB3 static checks (24) | pass | `scripts/reproduce.sh` |
+| rubric review (35 criteria, TB3 rubric, independent reviewer per version) | v1 26/6/3, v2 28/4/3, v3 28/3/2; every fail fixed and re-checked | `results/*/rubric-verdicts.json` |
+| Docker build | clean | harbor runs below |
+| oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B) | `results/v3-2ebb652/oracle` |
+| nop | reward 0.0 | `results/v3-2ebb652/nop` |
+| verifier cheat probes (author-written engines that hunt for labels or try to run the generator inside the verifier) | reward 0 | `results/v3-2ebb652/cheat-probe-*` |
+
+### Standard trials
+
+| version | agent | outcome | note |
+|---|---|---|---|
+| v1 | Codex gpt-5.6-sol xhigh | **reward 1.0** in 12 min | data leaks (sequential ids, enumerable vocabulary); fixed in v2 |
+| v2.1 | Codex gpt-5.6-sol xhigh | **reward 1.0** in 37 min | calibrated on the sample, mined the visible batch; fixed in v3 by grading the engine on an unseen batch |
+| v3 | Codex gpt-5.6-sol xhigh, 4 attempts | all ended in `ApiUsageLimitError` at 21 / 12 / 43 / 58 min (ChatGPT subscription windows) | not valid trials. Two attempts left an engine behind; graded afterwards in the real verifier both **fail batch B** (recall 0.919 and 0.948; T1/T2/T3/T10/T11/T13 under the 0.90 floor) with precision 0.997 |
+| v3 | Claude Code claude-opus-5 max, 1 attempt | ended by `API Error: 400 Output blocked by content filtering policy` on its first engine write, 30 min in | not a valid trial; API failure |
+| v3 | remaining Codex x3, Claude Code x3 | pending: one attempt per subscription window | this table is updated as they land |
+
+### Adversarial (/cheat) trials
+
+Pending (one per agent). The verifier's threat model and the author-run probes are in `results/README.md` and
+`analysis/FAILURE_ANALYSIS.md`.
 
 ## Why the agents fail
 
-FAILURE_ANALYSIS_PLACEHOLDER
+Full analysis with quoted transcript lines: [`analysis/FAILURE_ANALYSIS.md`](analysis/FAILURE_ANALYSIS.md).
+In brief: on version 1 Codex found that customer ids were assigned in generation order and that the variant
+vocabulary was small enough to enumerate from the labelled sample. On version 2 it calibrated a rule-based
+matcher on the sample and then mined the unlabeled batch for unmatched near-hits with consistent dates,
+learning the held-out conventions from the batch itself. Version 3 grades the agent's engine on a batch it
+never sees, with four romanization conventions named in the instruction but absent from every file the agent
+can read. Every engine Codex has produced on version 3 so far clears the visible batch and misses the unseen
+one in the transliteration-bearing classes while keeping precision above 0.997: the engines are not loose,
+they are incomplete, and the batch they cannot see is what exposes it.
 
 ## Design notes
 
