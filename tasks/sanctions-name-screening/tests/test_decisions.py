@@ -60,7 +60,7 @@ def _decisions(path: Path, what: str):
 
 def _run_engine() -> Path:
     """Run /app/screen.py on batch B as an unprivileged user, offline, with time and resource budgets."""
-    assert ENGINE.exists(), "/app/screen.py was not produced"
+    assert ENGINE.exists() and b"no engine was delivered" not in ENGINE.read_bytes(), "/app/screen.py was not produced"
     work = Path(tempfile.mkdtemp(prefix="engine-b-", dir="/tmp"))  # world-traversable parent
     for name in ("watchlist.json", "customers_b.csv"):
         (work / name).write_bytes((DATA / name).read_bytes())

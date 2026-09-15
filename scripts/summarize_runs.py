@@ -25,7 +25,10 @@ def trial_rows(job_dir: Path):
         result_file = trial / "result.json"
         if not result_file.exists():
             continue
-        result = json.loads(result_file.read_text())
+        try:
+            result = json.loads(result_file.read_text())
+        except json.JSONDecodeError:
+            result = {"exception_info": {"exception_type": "unreadable result.json"}}
         verifier = result.get("verifier_result") or {}
         reward = (verifier.get("rewards") or {}).get("reward")
         ctrf = trial / "verifier" / "ctrf.json"
