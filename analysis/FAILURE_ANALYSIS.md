@@ -11,7 +11,8 @@ under `results/`; every number from a `result.json` or a verifier stdout there.
 | v2.1 `413c554` | Codex gpt-5.6-sol xhigh | yes | 37 min | 108 | 24.1M / 87k | 1.0 (A: 0.994 / 0.999) | passed: dev calibration + mining the visible batch |
 | v3 `2ebb652` | Codex gpt-5.6-sol xhigh | no (usage cap, 43 min) | 43 min | 79 | 22.9M / 111k | engine at cut-off, scored afterwards: A 0.975 / 0.997 pass; B 0.919 recall, 6 classes < 0.90, fail | informative only |
 | v3 `2ebb652` | Codex gpt-5.6-sol xhigh | no (usage cap, 58 min, fresh weekly quota) | 58 min | | 25.7M / 134k | graded at cut-off: A 0.867 (intermediate file); B 0.948 recall, T10 0.896 / T13 0.870 < 0.90, precision 0.998; reward 0 | informative only |
-| v3 `2ebb652` | Codex gpt-5.6-sol xhigh x3 | TODO (subscription windows cap every attempt at 43-58 min) | | | | | |
+| v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 1 | **yes** | 50 min | 69 | 19.0M / 105k | 0.0: A 0.991 / 1.0 pass; B 0.924 recall, six classes < 0.90, precision 1.0 | **genuine failure: incomplete generalization to unseen conventions** |
+| v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trials 2-3 | pending (one per subscription window) | | | | | |
 | v3 `2ebb652` | Claude Code claude-opus-5 max | no (API `400 Output blocked by content filtering policy` on the first engine write, 30 min in) | 30 min | 16 tool calls | | no engine written | API failure, not model failure |
 | v3 `2ebb652` | Claude Code claude-opus-5 max x3 | TODO | | | | | |
 | v3 `2ebb652` | Codex, cheat prompt | TODO | | | | | |
@@ -51,7 +52,20 @@ produce that code. Under the assignment's rule that API failures do not count as
 Code trials are recorded as blocked, with transcripts (`results/v3-2ebb652/claude-*`). This is reported to
 Klavis as a question, not hidden.
 
-## 3. Failure classification (per valid trial)  TODO
+## 3. Failure classification (per valid trial)
+
+**v3.1 Codex trial 1: flawed execution of a correct plan (incomplete generalization), high confidence.**
+The agent's plan was right and its self-validation was thorough: it built a rule-based, threshold-free
+matcher, audited every new batch match for precision, corrected two policy edge cases (nickname readings,
+weak-alias tie-break), and reported "Development sample: 1,324/1,324 correct across all 23 classes" and
+"all original-script watchlist words have a deterministic transliteration". On the visible batch it scored
+recall 0.991 with zero false positives. On the unseen batch its precision stayed at 1.0 and its recall fell
+to 0.924, with every transliteration-bearing class under the floor (T1 0.870, T2 0.826, T3 0.897, T10 0.866,
+T11 0.814, T13 0.880) and the identifier, entity and vessel classes intact. The engine is not loose; it is
+missing the four named conventions' rules in enough places that one name in eight slips through. The
+pivotal moment is the final note: it declared completion on the strength of the sample and the visible
+batch, the two things the task says are not a census, without a test it could run for the unseen part.
+Premature confidence is the secondary tag; the primary is incomplete generalization.
 
 ## 4. Cross-agent comparison  TODO
 
