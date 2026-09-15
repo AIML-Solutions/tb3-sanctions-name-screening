@@ -28,3 +28,4 @@ version (git commit) the run evaluated. Nothing here is edited by hand.
 | `v3-2ebb652/codex-trial-invalid-usage-limit-4` | Codex gpt-5.6-sol xhigh on v3, fresh 5-hour window and a freshly reset weekly cap; **not a valid trial**: usage cap hit after 58 min, 25.7M input tokens. Both artifacts existed at cut-off and the verifier graded them: reward 0; batch B recall 0.9483 (T10 0.896, T13 0.870 under the floor), precision 0.998; batch A 0.867 (an intermediate decisions file). Second cut-off engine to fail batch B. | n/a (graded 0.0) |
 | `v3.1-33430e6/oracle` | reference solution, Docker, v3.1 (batch A 3,058 rows); 10/10 | 1.0 |
 | `v3.1-33430e6/nop` | no-op agent, Docker, v3.1 | 0.0 |
+| `v3-2ebb652/claude-content-filter-experiments` | author-run headless Claude Code experiments: original wording and a benign re-wording both end in `400 Output blocked by content filtering policy` at the engine write (3/3 reproductions incl. the trial). See its README. | n/a |

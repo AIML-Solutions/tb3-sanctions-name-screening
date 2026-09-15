@@ -39,6 +39,18 @@ the engine is not loose, it is incomplete. Its notes show it validating "the exp
 named in the instruction; the examples were not enough to cover the conventions. TODO: confirm with valid
 trials whether four hours changes this.
 
+## 2b. Claude Code: blocked by the API content filter (platform limitation, reproduced 3/3)
+
+The Claude Code trial authenticated, analysed the data for 30 minutes, announced "Now I understand the
+problem well. Let me write the engine", and the API rejected that write with `400 Output blocked by content
+filtering policy`; the session ended with no engine. Two author-run headless experiments reproduced it: the
+task as written (blocked after 12 tool calls) and the same data with every sanctions/watchlist/screening word
+replaced by identity-resolution wording (blocked after 14 tool calls). The filter therefore reacts to the
+engine code (multilingual name-transliteration logic and tables), not to the framing, and any solution must
+produce that code. Under the assignment's rule that API failures do not count as model failures, the Claude
+Code trials are recorded as blocked, with transcripts (`results/v3-2ebb652/claude-*`). This is reported to
+Klavis as a question, not hidden.
+
 ## 3. Failure classification (per valid trial)  TODO
 
 ## 4. Cross-agent comparison  TODO
