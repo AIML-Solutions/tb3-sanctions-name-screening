@@ -695,7 +695,8 @@ def build_watchlist(rng, n_ind=1400, n_ent=520, n_ves=180):
 
 
 # --------------------------------------------------------------------------- customers
-def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55):
+def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55, scale=1.0):
+    """scale < 1 thins the decoy and entity/vessel rows proportionally (smaller batches, same classes)."""
     entries, people, entity_names, vessels, twins = wl
     rows, labels = [], []
     listed_people = {p.core() for _e, p, _d, _n in people}
@@ -789,7 +790,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
     for entry, p, dob, nat in people:
         if entry["uid"] in twin_uids:
             continue
-        r = rng.random()
+        r = rng.random() / scale
         if r < 0.22 and dob and len(dob) == 10:
             other = random_dob(rng)
             while other[:4] == dob[:4]:
@@ -835,7 +836,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
 
     # ---- entities
     for entry, name, family in entity_names:
-        r = rng.random()
+        r = rng.random() / scale
         if r < 0.5:
             add(entity_variant(rng, name, family), "", entry["nationalities"][0], "", "", "entity", "MATCH",
                 entry["uid"], "T7_entity_suffix")
@@ -850,7 +851,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
 
     # ---- vessels
     for entry, vname in vessels:
-        r = rng.random()
+        r = rng.random() / scale
         if r < 0.45:
             add(pick(rng, VESSEL_PREFIX) + vname, "", entry["nationalities"][0], "", "", "vessel", "MATCH",
                 entry["uid"], "T8_vessel_prefix")
@@ -878,7 +879,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
         add(render(rng, p, conventions, k=pick(rng, [1, 2])), cdob, nat, "passport", fresh_passport(nat),
             "individual", "MATCH", entry["uid"], "T13_id_unlisted_name_match")
     made = 0
-    while made < max(60, n_random // 40):
+    while made < max(40, n_random // 40):
         culture = pick(rng, ["arabic", "persian", "russian", "chinese", "western"])
         p = make_person(rng, culture)
         if p.core() in listed_people:
@@ -907,7 +908,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
         return tuple(w for w in name.lower().replace("&", "and").replace("-", " ").split() if w not in suffix_words)
 
     made = 0
-    while made < max(40, n_random // 60):
+    while made < max(25, n_random // 60):
         stem, line = pick(rng, ENTITY_STEMS), pick(rng, ENTITY_LINES)
         name = entity_id_name(rng, stem, line)
         if entity_words(name) in listed_entity_words:
@@ -916,7 +917,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
             "entity", "NO_MATCH", "", "D7_id_unlisted")
         made += 1
     made = 0
-    while made < max(30, n_random // 80):
+    while made < max(20, n_random // 80):
         name = vessel_id_name(rng, pick(rng, VESSEL_NAMES))
         core = name.lower()
         for pre in ("vessel ", "mv ", "m/v ", "mt ", "m/t "):
@@ -947,7 +948,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
 
     # ---- unrelated entities and vessels
     made = 0
-    while made < max(120, n_random // 30):
+    while made < max(60, n_random // 30):
         stem, line = pick(rng, ENTITY_STEMS), pick(rng, ENTITY_LINES)
         if (stem, line) in listed_entities:
             continue
@@ -957,7 +958,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
         made += 1
     listed_vessels = {vn for _e, vn in vessels}
     made = 0
-    while made < max(50, n_random // 70):
+    while made < max(30, n_random // 70):
         vname = pick(rng, VESSEL_NAMES) + pick(rng, ["", " II", " III", " Star", " One", " IV", " V", " Queen"])
         if vname in listed_vessels:
             continue
@@ -1022,12 +1023,13 @@ def main():
 
     fields = ["customer_id", "full_name", "dob", "nationality", "id_type", "id_number", "type"]
     lfields = ["customer_id", "expected_decision", "expected_uid", "class"]
-    customers, labels = build_customers(random.Random(SEED_HIDDEN + 1), wl, "C", ALL_CONVENTIONS)
+    customers, labels = build_customers(random.Random(SEED_HIDDEN + 1), wl, "C", ALL_CONVENTIONS,
+                                        n_random=1400, match_rate=0.45, scale=0.6)
     write_csv(ENV / "customers.csv", customers, fields)
     write_csv(TESTS / "labels.csv", labels, lfields)
 
     dev_customers, dev_labels = build_customers(random.Random(SEED_DEV), wl, "D", DEV_CONVENTIONS,
-                                                n_random=300, match_rate=0.22)
+                                                n_random=200, match_rate=0.2, scale=0.45)
     write_csv(ENV / "dev" / "customers_dev.csv", dev_customers, fields)
     write_csv(ENV / "dev" / "labels_dev.csv", dev_labels, lfields)
 

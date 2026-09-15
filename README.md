@@ -16,7 +16,7 @@ exact layout TB3 expects, so it can be dropped into a TB3 pull request as-is.
 
 ## The task in one paragraph
 
-A compliance team must screen a batch of 6,748 onboarding customers (individuals, companies, vessels)
+A compliance team must screen a batch of 3,058 onboarding customers (individuals, companies, vessels)
 against a 2,100-entry sanctions list and write `MATCH` / `NO_MATCH` decisions with the matched list
 uid. The list mixes Latin and original-script names (Arabic, Persian, Cyrillic), several romanization
 systems (Wade-Giles, Cantonese, pinyin; French, German and English transliterations of Arabic and
@@ -88,7 +88,7 @@ All runs are recorded under [`results/`](results/) (harbor `result.json`, verifi
 summarised in [`results/README.md`](results/README.md); nothing is edited by hand. Version = git commit the
 run evaluated. Status as of the evening of 2026-09-14; trials continue and results are pushed as they land.
 
-### Gates on the submitted version (v3, `2ebb652` data and instruction; `c4ce2e5` adds a placeholder engine file)
+### Gates on the submitted version (v3.1: batch A and the dev sample reduced to 3,058 and 1,324 rows so a full-effort trial fits a subscription usage window; batch B, classes, floors and verifier unchanged)
 
 | gate | result | evidence |
 |---|---|---|
@@ -142,14 +142,14 @@ they are incomplete, and the batch they cannot see is what exposes it.
   of thirteen true-match classes (transliteration, script-only, structure, strong alias, corroborated
   weak alias, identifier, entity suffix, vessel prefix, partial DOB, stacked conventions, twins,
   script-side customers, unlisted identifiers), false-positive rate at most 0.05 in each of seven
-  decoy classes and at most 0.01 among 4,400 unrelated people, companies and vessels, and the right uid on at least 0.97
+  decoy classes and at most 0.01 among unrelated people, companies and vessels, and the right uid on at least 0.97
   of true matches. Loosening the matcher to lift one class breaks a decoy
   ceiling; tightening it drops a true-match class. Each threshold is a separate pytest so a failing
   run shows which bar was missed.
 - **Stdlib-only reference solution.** `solution/screen.py` (transliteration tables, a phonological
   slot model for vowels, Wade-Giles reading sets, a small name lexicon, role-aware alignment, the policy
   rules) proves the task is solvable inside the environment with no network and no extra packages. It
-  scores 0.986 recall / 0.992 precision on the hidden batch, deliberately not 100%: the remaining misses
+  scores 0.996 recall / 1.000 precision on batch A and 0.999 / 0.998 on batch B, deliberately not 100%: the remaining misses
   are documented rule gaps, and `docs/oracle-iterations.md` records every change and its effect.
 - **A sample, not a census.** The development sample is generated with four romanization conventions;
   the batch uses ten. The instruction says so. A matcher that reproduces the sample's spellings does not
