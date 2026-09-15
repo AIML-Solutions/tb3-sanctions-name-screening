@@ -1,6 +1,6 @@
 # sanctions-name-screening: a Terminal-Bench 3 task
 
-An original [Terminal-Bench 3](https://github.com/laude-institute/terminal-bench-3) task, built to the TB3
+An original [Terminal-Bench 3](https://github.com/harbor-framework/terminal-bench-3) task, built to the TB3
 contribution bar: the TB3 static checks and rubric review, oracle 1.0 / nop 0.0 in Docker, and trials of the
 frontier coding agents that TB3 CI runs by default (Codex `gpt-5.6-sol` at `xhigh`, Claude Code
 `claude-opus-5` at `max`), including trials where the agents are told to cheat.
