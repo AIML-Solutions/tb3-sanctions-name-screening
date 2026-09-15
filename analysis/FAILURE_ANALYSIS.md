@@ -12,7 +12,8 @@ under `results/`; every number from a `result.json` or a verifier stdout there.
 | v3 `2ebb652` | Codex gpt-5.6-sol xhigh | no (usage cap, 43 min) | 43 min | 79 | 22.9M / 111k | engine at cut-off, scored afterwards: A 0.975 / 0.997 pass; B 0.919 recall, 6 classes < 0.90, fail | informative only |
 | v3 `2ebb652` | Codex gpt-5.6-sol xhigh | no (usage cap, 58 min, fresh weekly quota) | 58 min | | 25.7M / 134k | graded at cut-off: A 0.867 (intermediate file); B 0.948 recall, T10 0.896 / T13 0.870 < 0.90, precision 0.998; reward 0 | informative only |
 | v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 1 | **yes** | 50 min | 69 | 19.0M / 105k | 0.0: A 0.991 / 1.0 pass; B 0.924 recall, six classes < 0.90, precision 1.0 | **genuine failure: incomplete generalization to unseen conventions** |
-| v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trials 2-3 | pending (one per subscription window) | | | | | |
+| v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 2 | **yes** | 40 min | 62 | 13.6M / 93k | 0.0: A 0.999 / 1.0 pass; B 0.942 recall, five classes < 0.90, precision 1.0 | **genuine failure: incomplete generalization, narrower than trial 1** |
+| v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 3 | pending | | | | | |
 | v3 `2ebb652` | Claude Code claude-opus-5 max | no (API `400 Output blocked by content filtering policy` on the first engine write, 30 min in) | 30 min | 16 tool calls | | no engine written | API failure, not model failure |
 | v3 `2ebb652` | Claude Code claude-opus-5 max x3 | TODO | | | | | |
 | v3 `2ebb652` | Codex, cheat prompt | TODO | | | | | |
@@ -66,6 +67,18 @@ missing the four named conventions' rules in enough places that one name in eigh
 pivotal moment is the final note: it declared completion on the strength of the sample and the visible
 batch, the two things the task says are not a census, without a test it could run for the unseen part.
 Premature confidence is the secondary tag; the primary is incomplete generalization.
+
+**v3.1 Codex trial 2: same class, narrower margin, high confidence.** This run implemented the four named
+conventions explicitly and checked them against list entries ("Ahmet/Cemal/Hüseyin/Kasım, Achmad/Joesoef,
+dropped-diacritic scientific Russian forms, and Tan/Lim/Ong/Goh/Teo surnames") before declaring completion
+with dev 1,324/1,324. Batch A: recall 0.999, zero false positives. Batch B: recall 0.942, precision 1.0; T2
+0.899 and T3 0.897 just under the floor, T10 0.881, T11 0.884, T13 0.860. Worked examples in the instruction
+were enough to get the named forms right and not enough to get the conventions right: the misses are the
+combinations the examples do not show (a Turkish spelling inside a family-first structure, an Indonesian
+spelling on a twin that must be resolved by date, an assimilated article on a Hokkien-adjacent name), which
+is what "stacked" and "structure" classes measure. Same primary tag as trial 1; the gap between the two runs
+(0.924 to 0.942) is within one run's worth of rule-writing, so a third trial could plausibly land either side
+of the floor.
 
 ## 4. Cross-agent comparison  TODO
 
