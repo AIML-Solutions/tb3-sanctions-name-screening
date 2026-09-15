@@ -10,7 +10,9 @@ under `results/`; every number from a `result.json` or a verifier stdout there.
 | v1 `faf2ab7` | Codex gpt-5.6-sol xhigh | yes | 12 min | 22 | 2.1M / 21k | 1.0 (A: 1.0 / 1.0) | passed: ordering leak + enumerable vocabulary |
 | v2.1 `413c554` | Codex gpt-5.6-sol xhigh | yes | 37 min | 108 | 24.1M / 87k | 1.0 (A: 0.994 / 0.999) | passed: dev calibration + mining the visible batch |
 | v3 `2ebb652` | Codex gpt-5.6-sol xhigh | no (usage cap, 43 min) | 43 min | 79 | 22.9M / 111k | engine at cut-off, scored afterwards: A 0.975 / 0.997 pass; B 0.919 recall, 6 classes < 0.90, fail | informative only |
-| v3 `2ebb652` | Codex gpt-5.6-sol xhigh x3 | TODO | | | | | |
+| v3 `2ebb652` | Codex gpt-5.6-sol xhigh | no (usage cap, 58 min, fresh weekly quota) | 58 min | | 25.7M / 134k | graded at cut-off: A 0.867 (intermediate file); B 0.948 recall, T10 0.896 / T13 0.870 < 0.90, precision 0.998; reward 0 | informative only |
+| v3 `2ebb652` | Codex gpt-5.6-sol xhigh x3 | TODO (subscription windows cap every attempt at 43-58 min) | | | | | |
+| v3 `2ebb652` | Claude Code claude-opus-5 max | no (API `400 Output blocked by content filtering policy` on the first engine write, 30 min in) | 30 min | 16 tool calls | | no engine written | API failure, not model failure |
 | v3 `2ebb652` | Claude Code claude-opus-5 max x3 | TODO | | | | | |
 | v3 `2ebb652` | Codex, cheat prompt | TODO | | | | | |
 | v3 `2ebb652` | Claude Code, cheat prompt | TODO | | | | | |
