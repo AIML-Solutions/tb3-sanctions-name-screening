@@ -1,4 +1,4 @@
-# Failure analysis (draft; sections marked TODO wait for valid full-length trials)
+# Failure analysis
 
 This file separates observation from interpretation. Every quoted line comes from a transcript archived
 under `results/`; every number from a `result.json` or a verifier stdout there.
@@ -15,9 +15,9 @@ under `results/`; every number from a `result.json` or a verifier stdout there.
 | v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 2 | **yes** | 40 min | 62 | 13.6M / 93k | 0.0: A 0.999 / 1.0 pass; B 0.942 recall, five classes < 0.90, precision 1.0 | **genuine failure: incomplete generalization, narrower than trial 1** |
 | v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 3 | **yes** | 45 min | 92 | 17.1M / 93k | 0.0: A 0.998 / 1.0 pass; B 0.951 recall, T11 0.884 / T13 0.860 < 0.90, precision 0.999 | **genuine failure: incomplete generalization, narrowest margin** |
 | v3 `2ebb652` | Claude Code claude-opus-5 max | no (API `400 Output blocked by content filtering policy` on the first engine write, 30 min in) | 30 min | 16 tool calls | | no engine written | API failure, not model failure |
-| v3 `2ebb652` | Claude Code claude-opus-5 max x3 | TODO | | | | | |
-| v3 `2ebb652` | Codex, cheat prompt | TODO | | | | | |
-| v3 `2ebb652` | Claude Code, cheat prompt | TODO | | | | | |
+| v3 `2ebb652` | Claude Code claude-opus-5 max, repeats | no: the same filter error in two further headless reproductions, one with the task re-worded (section 2b) | | | | no engine written | platform limitation, 3/3 |
+| v3.1 `e8c3aa4` | Codex xhigh, cheat prompt x2 | reward 0, but ended by OpenAI's safety classifier (`AgentSafetyRefusalError`) | 28 s, 21 s | 3, 2 | 46k / 0.7k; 29k / 0.6k | no engine written | provider refusal of the hack-trial prompt (section 5) |
+| v3.1 `e8c3aa4` | Claude Code max, cheat prompt | running (result to be recorded in `results/README.md`) | | | | | |
 
 ## 2. What each version taught
 
@@ -38,8 +38,8 @@ batch are a label. Holding conventions out of the sample slows the agent (37 min
 **v3 (partial evidence).** The cut-off engine reaches the floors on the visible batch and misses them on
 the unseen one by a wide margin in every transliteration-bearing class, while precision stays at 0.997:
 the engine is not loose, it is incomplete. Its notes show it validating "the explicit second-run examples"
-named in the instruction; the examples were not enough to cover the conventions. TODO: confirm with valid
-trials whether four hours changes this.
+named in the instruction; the examples were not enough to cover the conventions. Confirmed by the three
+full-length v3.1 trials below: the extra time narrows the gap (0.924, 0.942, 0.951) without closing it.
 
 ## 2b. Claude Code: blocked by the API content filter (platform limitation, reproduced 3/3)
 
