@@ -1,0 +1,15 @@
+== 1. data determinism (generator rebuilds every data file byte for byte)
+   identical
+== 2. TB3 static checks
+   failures: 0
+== 3. reference solution on hidden batch and dev sample; policy unit tests
+HIDDEN [reproduce]    | class-recall-below: none | fpr-exceeded: none | | units: /home/dennis/miniconda3/bin/python3: No module named pytest
+DEV    recall=0.9965 precision=1.0000 uid=1.0000 (fn=2 fp=0)
+== 4. harbor oracle (expect 1.0) and nop (expect 0.0) in Docker
+  1/1 Mean: 1.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:37 0:00:00
+  1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:30 0:00:00
+| job | trial | agent | model | reward | tests passed | agent minutes | tokens | exception |
+|---|---|---|---|---|---|---|---|---|
+| 2026-09-16__11-12-06 | NWwNMG2 | ? |  | 1.0 | 10/10 | 0 |  |  |
+| 2026-09-16__11-12-48 | NyzLSEA | nop |  | 0.0 | 0/10 | 0 |  |  |
+== done

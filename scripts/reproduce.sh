@@ -21,7 +21,8 @@ for f in scripts/checks/*.sh; do bash "$f" "$task" >/dev/null 2>&1 || { fails=$(
 echo "   failures: $fails"; [ "$fails" -eq 0 ]
 
 echo "== 3. reference solution on hidden batch and dev sample; policy unit tests"
-PYTHONDONTWRITEBYTECODE=1 PYTEST="${PYTEST:-python3 -m pytest}" scripts/score.sh reproduce
+if [ -z "${PYTEST:-}" ]; then python3 -c "import pytest" 2>/dev/null && PYTEST="python3 -m pytest" || PYTEST="uvx pytest"; fi
+PYTHONDONTWRITEBYTECODE=1 PYTEST="$PYTEST" scripts/score.sh reproduce
 
 if [ "${1:-}" = "--docker" ]; then
   echo "== 4. harbor oracle (expect 1.0) and nop (expect 0.0) in Docker"

@@ -1,0 +1,13 @@
+{
+    "jobs_dir": "/tmp/tmp.iA9okL5p05",
+    "agents": [
+        {
+            "name": "nop"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "tasks/sanctions-name-screening"
+        }
+    ]
+}

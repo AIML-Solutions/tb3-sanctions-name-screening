@@ -9,7 +9,8 @@ frontier coding agents that TB3 CI runs by default (Codex `gpt-5.6-sol` at `xhig
 Version 1 was solved by Codex in 12 minutes through leakage in the data; version 2 removed the leakage and
 Codex still passed it in 37 minutes by calibrating on the sample and mining the visible batch; version 3
 grades the agent's *engine* on a second batch it never sees (details in
-[Why the agents fail](#why-the-agents-fail)) and is the version under test.
+[Why the agents fail](#why-the-agents-fail)) and is the submitted version: Codex fails all three full-length
+trials on it, and both agents' cheat runs score 0.
 
 The task itself lives in [`tasks/sanctions-name-screening/`](tasks/sanctions-name-screening/) in the
 exact layout TB3 expects, so it can be dropped into a TB3 pull request as-is.
@@ -53,7 +54,7 @@ docs/task-template.toml           TB3 task template used as the schema reference
 Prerequisites: Docker, and [`uv`](https://docs.astral.sh/uv/) (Harbor runs through `uvx`).
 
 ```bash
-# 1. static checks (24 scripts, same ones TB3 CI runs)
+# 1. static checks (22 scripts, the same ones TB3 CI runs; vendored byte-identical)
 for f in scripts/checks/*.sh; do bash "$f" tasks/sanctions-name-screening || echo "FAIL $f"; done
 
 # 2. validate: reference solution must score 1.0, no-op agent must score 0.0
@@ -86,17 +87,17 @@ image and never into the agent's environment.
 
 All runs are recorded under [`results/`](results/) (harbor `result.json`, verifier stdout, agent transcripts) and
 summarised in [`results/README.md`](results/README.md); nothing is edited by hand. Version = git commit the
-run evaluated. Status as of the evening of 2026-09-14; trials continue and results are pushed as they land.
+run evaluated. Final status as of 2026-09-16; the trial matrix below is complete except where a platform limitation is noted.
 
 ### Gates on the submitted version (v3.1: batch A and the dev sample reduced to 3,058 and 1,324 rows so a full-effort trial fits a subscription usage window; batch B, classes, floors and verifier unchanged)
 
 | gate | result | evidence |
 |---|---|---|
-| TB3 static checks (24) | pass | `scripts/reproduce.sh` |
+| TB3 static checks (22, byte-identical to upstream CI) | pass, 0 failures on the submitted tree | `results/v3.1-e8c3aa4/reproduce-final.log` |
 | rubric review (35 criteria, TB3 rubric, independent reviewer per version) | v1 26/6/3, v2 28/4/3, v3 28/3/2; every fail fixed and re-checked | `results/*/rubric-verdicts.json` |
-| Docker build | clean | harbor runs below |
-| oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B) | `results/v3-2ebb652/oracle` |
-| nop | reward 0.0 | `results/v3-2ebb652/nop` |
+| Docker build | clean | `results/v3.1-e8c3aa4/oracle` |
+| oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B); A 0.996 / 1.000, B 0.999 / 0.998 | `results/v3.1-e8c3aa4/oracle` (final validation 2026-09-16), earlier `results/v3-2ebb652/oracle`, `results/v3.1-33430e6/oracle` |
+| nop | reward 0.0 | `results/v3.1-e8c3aa4/nop` |
 | verifier cheat probes (author-written engines that hunt for labels or try to run the generator inside the verifier) | reward 0 | `results/v3-2ebb652/cheat-probe-*` |
 
 ### Standard trials
@@ -130,8 +131,8 @@ vocabulary was small enough to enumerate from the labelled sample. On version 2 
 matcher on the sample and then mined the unlabeled batch for unmatched near-hits with consistent dates,
 learning the held-out conventions from the batch itself. Version 3 grades the agent's engine on a batch it
 never sees, with four romanization conventions named in the instruction but absent from every file the agent
-can read. Every engine Codex has produced on version 3 so far clears the visible batch and misses the unseen
-one in the transliteration-bearing classes while keeping precision above 0.997: the engines are not loose,
+can read. Every engine Codex produced on version 3, including the three full-length trials, clears the visible
+batch and misses the unseen one in the transliteration-bearing classes while keeping precision above 0.997: the engines are not loose,
 they are incomplete, and the batch they cannot see is what exposes it.
 
 ## Design notes

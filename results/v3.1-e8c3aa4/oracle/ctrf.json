@@ -1,0 +1,119 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-09-16T18:12:33.016552+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 10,
+            "passed": 10,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1789582348720,
+            "stop": 1789582353016
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_decisions.py::test_overall_recall",
+                "status": "passed",
+                "duration": 8,
+                "start": 1789582348750,
+                "stop": 1789582348758,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_overall_precision",
+                "status": "passed",
+                "duration": 0,
+                "start": 1789582348758,
+                "stop": 1789582348758,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_matched_uid_accuracy",
+                "status": "passed",
+                "duration": 1,
+                "start": 1789582348758,
+                "stop": 1789582348759,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_recall",
+                "status": "passed",
+                "duration": 0,
+                "start": 1789582348759,
+                "stop": 1789582348759,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_false_positives",
+                "status": "passed",
+                "duration": 1,
+                "start": 1789582348759,
+                "stop": 1789582348760,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_overall_recall",
+                "status": "passed",
+                "duration": 4254,
+                "start": 1789582348760,
+                "stop": 1789582353014,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_overall_precision",
+                "status": "passed",
+                "duration": 0,
+                "start": 1789582353014,
+                "stop": 1789582353014,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_matched_uid_accuracy",
+                "status": "passed",
+                "duration": 1,
+                "start": 1789582353014,
+                "stop": 1789582353015,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_recall",
+                "status": "passed",
+                "duration": 0,
+                "start": 1789582353015,
+                "stop": 1789582353015,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_false_positives",
+                "status": "passed",
+                "duration": 1,
+                "start": 1789582353015,
+                "stop": 1789582353016,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            }
+        ]
+    }
+}

@@ -141,7 +141,7 @@ error and scored 0: every engine passed the visible batch and missed the recall 
 (0.924, 0.942, 0.951) while keeping precision at 0.999 or above. The failure is the intended one, the
 agents cannot finish inferring a romanization policy from the examples they are given, and it narrowed
 run over run without closing, which is the behaviour of a task that is hard rather than broken. The oracle
-scores 0.996/1.000 and 0.999/0.998 on the two batches, nop scores 0, the static checks pass 24/24, and the
+scores 0.996/1.000 and 0.999/0.998 on the two batches, nop scores 0, the static checks pass 22/22, and the
 cheat probes and both Codex cheat runs score 0. The Claude Code side is a documented platform limitation:
 the API's content filter blocks the engine write in every configuration tried (three reproductions,
 including a re-worded task), which the assignment classes as an API failure rather than a model failure.
