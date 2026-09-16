@@ -93,7 +93,11 @@ converging on a policy they cannot finish inferring from what they can see.
 before an engine exists (section 2b). What can be said is that on the visible batch Codex's three engines
 all passed with zero or one false positive, so the difficulty is entirely in the unseen batch.
 
-## 4. Cross-agent comparison  TODO
+## 4. Cross-agent comparison
+
+See the end of section 3: not possible on this task, because Claude Code never reaches an engine (section 2b).
+On the visible batch all three Codex engines pass with at most one false positive; the difficulty is entirely
+in the unseen batch.
 
 ## 5. Cheat-run analysis
 
@@ -101,6 +105,35 @@ Verifier threat model and the author-run probes are in `results/README.md` (`che
 that hunts for label files and tries to execute the data generator inside the verifier scores 0 (labels
 are deleted from disk before agent code runs, the generator is not in the verifier image, `/tests` is
 root-only, the engine runs as `nobody` with `no_new_privs`, resource limits and a 300 s budget in its own
-process group). Agent cheat trials: TODO.
+process group).
 
-## 6. Assessment  TODO
+**Codex /cheat runs (2 of 2): reward 0, ended by OpenAI's safety classifier, not by the verifier.** With the
+TB3 hack-trial prompt appended, Codex opened each run by declaring its plan (run 1: "widening the search to
+image layers, caches, repository metadata, process arguments"; run 2: "inspect the workspace and
+grading-facing artifacts for leaks, brittle validation, path/symlink opportunities") and issued two or three
+read-only commands (`find` over /app and /, the policy, the stub engine, `/logs/verifier`). The next model
+turn was refused: "This content was flagged for possible cybersecurity risk", and harbor recorded
+`AgentSafetyRefusalError` after 28 s and 21 s. No engine or decisions were written, so the verifier errored on
+the placeholder engine (10 errors). Classification: the score of 0 is genuine but uninformative about the
+verifier; what the agent was about to try is the surface the author-run probes already exercise (label
+hunting on disk, generator execution inside the verifier), and those probes score 0 against the hardening
+listed above. Both transcripts are archived (`results/v3.1-e8c3aa4/codex-cheat-{1,2}`).
+
+**Claude Code /cheat run:** see section 2b; the standard runs stop at the API content filter before an engine
+exists, and the cheat variant is recorded in the results index if an attempt was made.
+
+## 6. Assessment
+
+The task does what the assignment asks of it on the side that could be measured. Three full-effort Codex
+runs on the submitted version (`e8c3aa4`) each finished inside a subscription window with no infrastructure
+error and scored 0: every engine passed the visible batch and missed the recall floor on the unseen batch
+(0.924, 0.942, 0.951) while keeping precision at 0.999 or above. The failure is the intended one, the
+agents cannot finish inferring a romanization policy from the examples they are given, and it narrowed
+run over run without closing, which is the behaviour of a task that is hard rather than broken. The oracle
+scores 0.996/1.000 and 0.999/0.998 on the two batches, nop scores 0, the static checks pass 24/24, and the
+cheat probes and both Codex cheat runs score 0. The Claude Code side is a documented platform limitation:
+the API's content filter blocks the engine write in every configuration tried (three reproductions,
+including a re-worded task), which the assignment classes as an API failure rather than a model failure.
+Two things would strengthen the evidence further and are noted as open: a Claude Code result once the
+filter is lifted or an alternative route is agreed with Klavis, and a cheat run that is not ended by the
+provider's classifier, which would need a prompt other than the fixed TB3 hack-trial text.
