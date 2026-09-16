@@ -1,0 +1,27 @@
+Installed 89 packages in 94ms
+  1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:12:45 0:00:00
+adhoc • claude-code • claude-opus-5
+┏━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━┓
+┃ Trials ┃ Exceptions ┃  Mean ┃
+┡━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━┩
+│      1 │          0 │ 0.000 │
+└────────┴────────────┴───────┘
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ Reward ┃ Count ┃
+┡━━━━━━━━╇━━━━━━━┩
+│ 0.0    │     1 │
+└────────┴───────┘
+
+Job Info
+Total runtime: 12m 45s
+Results written to 
+/tmp/claude-1000/-home-dennis/df25b411-c284-408b-9aa9-ba0b160c27d1/scratchpad/ha
+rbor-v31-cheat-claude/2026-09-15__18-04-23/result.json
+Inspect results by running `harbor view 
+/tmp/claude-1000/-home-dennis/df25b411-c284-408b-9aa9-ba0b160c27d1/scratchpad/ha
+rbor-v31-cheat-claude`
+Share results by running `harbor upload 
+/tmp/claude-1000/-home-dennis/df25b411-c284-408b-9aa9-ba0b160c27d1/scratchpad/ha
+rbor-v31-cheat-claude/2026-09-15__18-04-23`
+
