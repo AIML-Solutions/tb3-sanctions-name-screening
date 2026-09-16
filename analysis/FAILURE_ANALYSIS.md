@@ -16,6 +16,7 @@ under `results/`; every number from a `result.json` or a verifier stdout there.
 | v3.1 `e8c3aa4` | Codex gpt-5.6-sol xhigh, trial 3 | **yes** | 45 min | 92 | 17.1M / 93k | 0.0: A 0.998 / 1.0 pass; B 0.951 recall, T11 0.884 / T13 0.860 < 0.90, precision 0.999 | **genuine failure: incomplete generalization, narrowest margin** |
 | v3 `2ebb652` | Claude Code claude-opus-5 max | no (API `400 Output blocked by content filtering policy` on the first engine write, 30 min in) | 30 min | 16 tool calls | | no engine written | API failure, not model failure |
 | v3 `2ebb652` | Claude Code claude-opus-5 max, repeats | no: the same filter error in two further headless reproductions, one with the task re-worded (section 2b) | | | | no engine written | platform limitation, 3/3 |
+| v3.1 `e8c3aa4` | Claude Code claude-opus-5 max, standard | no (`400 Output blocked by content filtering policy` after 40 min of analysis; harbor `AgentSafetyRefusalError`) | 40 min | 17 | 1.16M / 100k | no engine written | platform limitation, 4/4 |
 | v3.1 `e8c3aa4` | Codex xhigh, cheat prompt x2 | reward 0, but ended by OpenAI's safety classifier (`AgentSafetyRefusalError`) | 28 s, 21 s | 3, 2 | 46k / 0.7k; 29k / 0.6k | no engine written | provider refusal of the hack-trial prompt (section 5) |
 | v3.1 `e8c3aa4` | Claude Code max, cheat prompt | **yes** (no filter error: it never wrote an engine) | 9 min | 20 | 529k / 35k | 0.0: stub engine, no decisions | **genuine cheat failure: agent reports "no credible bypass found"** (section 5) |
 
@@ -41,7 +42,7 @@ the engine is not loose, it is incomplete. Its notes show it validating "the exp
 named in the instruction; the examples were not enough to cover the conventions. Confirmed by the three
 full-length v3.1 trials below: the extra time narrows the gap (0.924, 0.942, 0.951) without closing it.
 
-## 2b. Claude Code: blocked by the API content filter (platform limitation, reproduced 3/3)
+## 2b. Claude Code: blocked by the API content filter (platform limitation, reproduced 4/4)
 
 The Claude Code trial authenticated, analysed the data for 30 minutes, announced "Now I understand the
 problem well. Let me write the engine", and the API rejected that write with `400 Output blocked by content
@@ -50,8 +51,11 @@ task as written (blocked after 12 tool calls) and the same data with every sanct
 replaced by identity-resolution wording (blocked after 14 tool calls). The filter therefore reacts to the
 engine code (multilingual name-transliteration logic and tables), not to the framing, and any solution must
 produce that code. Under the assignment's rule that API failures do not count as model failures, the Claude
-Code trials are recorded as blocked, with transcripts (`results/v3-2ebb652/claude-*`). This is reported to
-Klavis as a question, not hidden.
+Code trials are recorded as blocked, with transcripts (`results/v3-2ebb652/claude-*`). A fourth attempt on the
+submitted version (`e8c3aa4`, plain wording, smaller batch) ran 40 minutes and 17 tool calls of analysis and
+was blocked at the same point, before any engine existed; harbor classifies that run
+`AgentSafetyRefusalError` (`results/v3.1-e8c3aa4/claude-trial-invalid-content-filter-1`). This is reported
+to Klavis as a question, not hidden.
 
 ## 3. Failure classification (per valid trial)
 
@@ -143,8 +147,8 @@ agents cannot finish inferring a romanization policy from the examples they are 
 run over run without closing, which is the behaviour of a task that is hard rather than broken. The oracle
 scores 0.996/1.000 and 0.999/0.998 on the two batches, nop scores 0, the static checks pass 22/22, and the
 cheat probes and both Codex cheat runs score 0. The Claude Code side is a documented platform limitation:
-the API's content filter blocks the engine write in every configuration tried (three reproductions,
-including a re-worded task), which the assignment classes as an API failure rather than a model failure.
+the API's content filter blocks the engine write in every configuration tried (four reproductions,
+including a re-worded task and one on the submitted version), which the assignment classes as an API failure rather than a model failure.
 Two things would strengthen the evidence further and are noted as open: a Claude Code result once the
 filter is lifted or an alternative route is agreed with Klavis, and a Codex cheat run that is not ended by the
 provider's classifier, which would need a prompt other than the fixed TB3 hack-trial text (the Claude Code

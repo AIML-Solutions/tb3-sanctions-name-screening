@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/home/dennis/.cache/uv/archive-v0/-YeoZZ2lnkj0OgY-JjRMO/lib/python3.13/site-packages/harbor/trial/single_step.py", line 77, in _run_agent
+    await self._run_agent_phase(
+    ...<5 lines>...
+    )
+  File "/home/dennis/.cache/uv/archive-v0/-YeoZZ2lnkj0OgY-JjRMO/lib/python3.13/site-packages/harbor/trial/trial.py", line 554, in _run_agent_phase
+    await asyncio.wait_for(
+    ...<6 lines>...
+    )
+  File "/home/dennis/miniconda3/lib/python3.13/asyncio/tasks.py", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/dennis/.cache/uv/archive-v0/-YeoZZ2lnkj0OgY-JjRMO/lib/python3.13/site-packages/harbor/agents/installed/base.py", line 186, in wrapper
+    return await fn(self, instruction, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dennis/.cache/uv/archive-v0/-YeoZZ2lnkj0OgY-JjRMO/lib/python3.13/site-packages/harbor/agents/installed/claude_code.py", line 1889, in run
+    await self.exec_as_agent(
+    ...<14 lines>...
+    )
+  File "/home/dennis/.cache/uv/archive-v0/-YeoZZ2lnkj0OgY-JjRMO/lib/python3.13/site-packages/harbor/agents/installed/base.py", line 995, in exec_as_agent
+    return await self._exec(
+           ^^^^^^^^^^^^^^^^^
+        environment, command, env=env, cwd=cwd, timeout_sec=timeout_sec
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/dennis/.cache/uv/archive-v0/-YeoZZ2lnkj0OgY-JjRMO/lib/python3.13/site-packages/harbor/agents/installed/base.py", line 962, in _exec
+    raise self._classify_exec_error(command, result)
+harbor.agents.installed.base.AgentSafetyRefusalError: Command failed (exit 1): export PATH="$HOME/.local/bin:$PATH"; harbor_claude_code_instruction_db7502acb80f41868a1d60b2bdf636e7="$HARBOR_CLAUDE_CODE_INSTRUCTION_DB7502ACB80F41868A1D60B2BDF636E7"; unset HARBOR_CLAUDE_CODE_INSTRUCTION_DB7502ACB80F41868A1D60B2BDF636E7; printf "%s" "$harbor_claude_code_instruction_db7502acb80f41868a1d60b2bdf636e7" | claude --verbose --output-format=stream-json --effort max --permission-mode=bypassPermissions --print 2>&1 | tee /logs/agent/claude-code.txt
+stdout: {"type":"system","subtype":"init","cwd":"/app","session_id":"0e6eb91e-8800-41a6-953d-159c2756c986","tools":["Task","Bash","CronCreate","CronDelete","CronList","Edit","EnterWorktree","ExitWorktree","ListAgents","NotebookEdit","Read","RemoteTrigger","R ... [729117 chars truncated] ... l":"claude-opus-5","provider":"firstParty","costBasis":"list"}},"permission_denials":[],"terminal_reason":"api_error","fast_mode_state":"off","fast_mode_disabled_reason":"sdk_opt_in_required","subagent_stats":{"spawned":0,"requested":{"background":0,"foreground":0,"unset":0},"started_in_background":0,"max_depth":0,"spawned_by_subagents":0,"completed":0,"failed":0,"killed":{"parent":0,"user":0,"system":0},"refused":{"depth_limit":0,"concurrency_limit":0,"budget":0},"by_type":{}},"is_error":true,"num_turns":18,"subtype":"success","api_error_status":400,"result":"API Error: 400 Output blocked by content filtering policy","type":"result","duration_ms":2375000,"uuid":"a02890bc-6579-43ee-bd5d-e9ce41ab4948","queued_turn_count":0,"result_index":0}
+
+stderr: None
