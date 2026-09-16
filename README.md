@@ -94,7 +94,7 @@ run evaluated. Final status as of 2026-09-16; the trial matrix below is complete
 | gate | result | evidence |
 |---|---|---|
 | TB3 static checks (22, byte-identical to upstream CI) | pass, 0 failures on the submitted tree | `results/v3.1-e8c3aa4/reproduce-final.log` |
-| rubric review (35 criteria, TB3 rubric, independent reviewer per version) | v1 26/6/3, v2 28/4/3, v3 28/3/2; every fail fixed and re-checked | `results/*/rubric-verdicts.json` |
+| rubric review (35 criteria, TB3 rubric, independent reviewer per version) | v1 26/6/3, v2 28/4/3, v3 28/3/2, **submitted tree 34/0/1** (the reviewer re-ran the checks, the verifier and the generator itself); every fail fixed and re-checked | `results/*/rubric-verdicts.json` |
 | Docker build | clean | `results/v3.1-e8c3aa4/oracle` |
 | oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B); A 0.996 / 1.000, B 0.999 / 0.998 | `results/v3.1-e8c3aa4/oracle` (final validation 2026-09-16), earlier `results/v3-2ebb652/oracle`, `results/v3.1-33430e6/oracle` |
 | nop | reward 0.0 | `results/v3.1-e8c3aa4/nop` |
@@ -134,6 +134,32 @@ never sees, with four romanization conventions named in the instruction but abse
 can read. Every engine Codex produced on version 3, including the three full-length trials, clears the visible
 batch and misses the unseen one in the transliteration-bearing classes while keeping precision above 0.997: the engines are not loose,
 they are incomplete, and the batch they cannot see is what exposes it.
+
+## Reviewer notes and known limitations
+
+Points a careful reviewer will raise, answered rather than hidden:
+
+- **Every trial ran while this repository was private.** The `tests/` directory (labels, batch B, the
+  generator with its seeds) is public now, as it is for every merged TB3 task; an open-internet agent that
+  fetched it could reconstruct the labels. That is the benchmark-wide exposure of any `tests/` directory,
+  guarded by the "do not cheat" trailer, and it does not affect the recorded results.
+- **Batch B's conventions are named on purpose.** The instruction and the policy tell the agent which four
+  conventions the unseen batch adds, with example spellings. The task is to implement transliteration
+  rules, not to guess which languages exist; the three Codex trials show that knowing the list is not the
+  same as clearing it (0.924 to 0.951 recall on B with the list in hand).
+- **Verifier resource limits.** The batch-B engine runs under `prlimit` with a 2 GiB address space, 50 MB
+  file size and 64 processes, matching the verifier container's 2048 MB memory in `task.toml`; the
+  instruction states one core and 300 s. The reference solution uses about 3 s and well under 200 MB.
+- **Oracle and generator share vocabulary.** Both are built from the same canonical name pools and the
+  same published romanization rules, so overlap in their tables is expected; the oracle is not an inverse
+  of the generator (its slot model and reading sets are general and it scores below 100% on both batches,
+  with the misses logged in `docs/oracle-iterations.md`).
+- **The policy file says "verifier" twice.** It is an in-world bank document that also serves as the
+  grading specification; the wording was left as the agents saw it.
+- **`harbor analyze` was not run.** TB3 CI runs an LLM trial analysis after `/run` and `/cheat` with an
+  API key; on a no-spend budget the analysis was written by hand from the transcripts instead
+  (`analysis/FAILURE_ANALYSIS.md`), using the same taxonomy as TB3's `trial-analysis` prompt.
+- **`scripts/` is repository tooling**, not part of the task package; the task directory stands alone.
 
 ## Design notes
 

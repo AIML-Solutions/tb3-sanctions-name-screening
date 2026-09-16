@@ -74,6 +74,8 @@ Decoys (false-positive ceiling 0.05 each) and unrelated customers (0.01):
 | `D6_same_given` | the same given name on a different family name |
 | `D7_id_unlisted` | an unrelated person carrying an identifier the list does not know |
 | `R0_random` | an unrelated identity rendered through the same romanization engine |
+| `R1_random_entity` | an unrelated company, rendered with the same suffix and casing variation |
+| `R2_random_vessel` | an unrelated vessel, with the same prefix variation |
 
 The generator (`tests/generate_data.py`) is the single source of truth for these classes; it is
 deterministic and rebuilds every data file byte for byte.
