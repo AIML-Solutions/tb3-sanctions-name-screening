@@ -3,12 +3,12 @@
 import csv, subprocess, sys
 from collections import defaultdict
 from pathlib import Path
-task = Path(__file__).resolve().parents[1] / "tasks" / "sanctions-name-screening"
+task = Path(__file__).resolve().parents[1] / "tasks" / __import__("os").environ.get("TASK", "archive-record-linkage")
 out = "/tmp/score-b.csv"
-subprocess.run([sys.executable, str(task / "solution" / "screen.py"), "--watchlist", str(task / "environment/data/watchlist.json"),
-                "--customers", str(task / "tests/data/customers_b.csv"), "--out", out], check=True, capture_output=True)
-lab = {r["customer_id"]: r for r in csv.DictReader(open(task / "tests/data/labels_b.csv"))}
-dec = {r["customer_id"]: r for r in csv.DictReader(open(out))}
+subprocess.run([sys.executable, str(task / "solution" / "link.py"), "--register", str(task / "environment/data/register.json"),
+                "--records", str(task / "tests/data/records_b.csv"), "--out", out], check=True, capture_output=True)
+lab = {r["record_id"]: r for r in csv.DictReader(open(task / "tests/data/labels_b.csv"))}
+dec = {r["record_id"]: r for r in csv.DictReader(open(out))}
 tp = fp = fn = ok = 0; per = defaultdict(lambda: [0, 0, 0])
 for cid, l in lab.items():
     d = dec[cid]; k = l["class"]; per[k][0] += 1
