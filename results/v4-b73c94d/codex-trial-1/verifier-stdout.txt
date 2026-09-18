@@ -1,0 +1,124 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 10 items
+
+test_decisions.py .....F..F.                                             [100%]
+
+=================================== FAILURES ===================================
+____________________________ test_overall_recall[B] ____________________________
+
+graded = ('B', ({'tp': 1095, 'fp': 0, 'fn': 147, 'tp_uid_ok': 1095}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f0a19...0}, 'T5_alias_weak_corroborated': {'n': 14, 'hit': 14, 'fp': 0}, 'T12_script_record': {'n': 43, 'hit': 43, 'fp': 0}})))
+
+    def test_overall_recall(graded):
+        batch, (stats, _) = graded
+        total = stats["tp"] + stats["fn"]
+        recall = stats["tp"] / total if total else 0.0
+        print(f"[{batch}] recall={recall:.4f} (tp={stats['tp']}, fn={stats['fn']})")
+>       assert recall >= MIN_RECALL, f"batch {batch}: recall {recall:.4f} < {MIN_RECALL}"
+E       AssertionError: batch B: recall 0.8816 < 0.97
+E       assert 0.8816425120772947 >= 0.97
+
+test_decisions.py:139: AssertionError
+----------------------------- Captured stdout call -----------------------------
+[B] recall=0.8816 (tp=1095, fn=147)
+___________________________ test_per_class_recall[B] ___________________________
+
+graded = ('B', ({'tp': 1095, 'fp': 0, 'fn': 147, 'tp_uid_ok': 1095}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f0a19...0}, 'T5_alias_weak_corroborated': {'n': 14, 'hit': 14, 'fp': 0}, 'T12_script_record': {'n': 43, 'hit': 43, 'fp': 0}})))
+
+    def test_per_class_recall(graded):
+        batch, (_, per_class) = graded
+        failures = []
+        for klass, s in sorted(per_class.items()):
+            if klass.startswith("T"):
+                recall = s["hit"] / s["n"] if s["n"] else 1.0
+                print(f"[{batch}] {klass}: recall={recall:.4f} ({s['hit']}/{s['n']})")
+                if recall < MIN_CLASS_RECALL and s["n"] >= MIN_CLASS_SIZE:
+                    failures.append(f"{klass}={recall:.3f}")
+>       assert not failures, f"batch {batch}: per-class recall below {MIN_CLASS_RECALL}: {', '.join(failures)}"
+E       AssertionError: batch B: per-class recall below 0.9: T10_stacked=0.776, T11_twin=0.791, T13_id_unregistered_name_match=0.848, T1_translit=0.775, T2_script=0.783, T3_structure=0.845, T9_dob_partial=0.870
+E       assert not ['T10_stacked=0.776', 'T11_twin=0.791', 'T13_id_unregistered_name_match=0.848', 'T1_translit=0.775', 'T2_script=0.783', 'T3_structure=0.845', ...]
+
+test_decisions.py:166: AssertionError
+----------------------------- Captured stdout call -----------------------------
+[B] T10_stacked: recall=0.7761 (52/67)
+[B] T11_twin: recall=0.7907 (34/43)
+[B] T12_script_record: recall=1.0000 (43/43)
+[B] T13_id_unregistered_name_match: recall=0.8485 (84/99)
+[B] T1_translit: recall=0.7746 (268/346)
+[B] T2_script: recall=0.7826 (54/69)
+[B] T3_structure: recall=0.8448 (49/58)
+[B] T4_alias_strong: recall=1.0000 (20/20)
+[B] T5_alias_weak_corroborated: recall=1.0000 (14/14)
+[B] T6_id_exact: recall=1.0000 (91/91)
+[B] T7_entity_suffix: recall=1.0000 (262/262)
+[B] T8_vessel_prefix: recall=1.0000 (84/84)
+[B] T9_dob_partial: recall=0.8696 (40/46)
+==================================== PASSES ====================================
+____________________________ test_overall_recall[A] ____________________________
+----------------------------- Captured stdout call -----------------------------
+[A] recall=0.9856 (tp=955, fn=14)
+__________________________ test_overall_precision[A] ___________________________
+----------------------------- Captured stdout call -----------------------------
+[A] precision=1.0000 (tp=955, fp=0)
+_________________________ test_matched_uid_accuracy[A] _________________________
+----------------------------- Captured stdout call -----------------------------
+[A] uid_accuracy=1.0000
+___________________________ test_per_class_recall[A] ___________________________
+----------------------------- Captured stdout call -----------------------------
+[A] T10_stacked: recall=1.0000 (64/64)
+[A] T11_twin: recall=0.9706 (33/34)
+[A] T12_script_record: recall=1.0000 (22/22)
+[A] T13_id_unregistered_name_match: recall=0.9823 (111/113)
+[A] T1_translit: recall=0.9801 (296/302)
+[A] T2_script: recall=0.9818 (54/55)
+[A] T3_structure: recall=0.9400 (47/50)
+[A] T4_alias_strong: recall=1.0000 (25/25)
+[A] T5_alias_weak_corroborated: recall=1.0000 (8/8)
+[A] T6_id_exact: recall=1.0000 (66/66)
+[A] T7_entity_suffix: recall=1.0000 (161/161)
+[A] T8_vessel_prefix: recall=1.0000 (37/37)
+[A] T9_dob_partial: recall=0.9688 (31/32)
+______________________ test_per_class_false_positives[A] _______________________
+----------------------------- Captured stdout call -----------------------------
+[A] D1_name_dob_conflict: fpr=0.0000 (0/130) limit=0.05
+[A] D2_near_name: fpr=0.0000 (0/155) limit=0.05
+[A] D3_weak_alias_alone: fpr=0.0000 (0/13) limit=0.05
+[A] D4_entity_near_name: fpr=0.0000 (0/125) limit=0.05
+[A] D5_partial_dob_conflict: fpr=0.0000 (0/50) limit=0.05
+[A] D6_same_given: fpr=0.0000 (0/48) limit=0.05
+[A] D7_id_unregistered: fpr=0.0000 (0/85) limit=0.05
+[A] R0_random: fpr=0.0000 (0/1400) limit=0.01
+[A] R1_random_entity: fpr=0.0000 (0/60) limit=0.01
+[A] R2_random_vessel: fpr=0.0000 (0/30) limit=0.01
+__________________________ test_overall_precision[B] ___________________________
+----------------------------- Captured stdout call -----------------------------
+[B] precision=1.0000 (tp=1095, fp=0)
+_________________________ test_matched_uid_accuracy[B] _________________________
+----------------------------- Captured stdout call -----------------------------
+[B] uid_accuracy=1.0000
+______________________ test_per_class_false_positives[B] _______________________
+----------------------------- Captured stdout call -----------------------------
+[B] D1_name_dob_conflict: fpr=0.0000 (0/179) limit=0.05
+[B] D2_near_name: fpr=0.0000 (0/275) limit=0.05
+[B] D3_weak_alias_alone: fpr=0.0000 (0/25) limit=0.05
+[B] D4_entity_near_name: fpr=0.0000 (0/195) limit=0.05
+[B] D5_partial_dob_conflict: fpr=0.0000 (0/67) limit=0.05
+[B] D6_same_given: fpr=0.0000 (0/74) limit=0.05
+[B] D7_id_unregistered: fpr=0.0000 (0/162) limit=0.05
+[B] R0_random: fpr=0.0000 (0/3000) limit=0.01
+[B] R1_random_entity: fpr=0.0000 (0/100) limit=0.01
+[B] R2_random_vessel: fpr=0.0000 (0/42) limit=0.01
+=========================== short test summary info ============================
+PASSED test_decisions.py::test_overall_recall[A]
+PASSED test_decisions.py::test_overall_precision[A]
+PASSED test_decisions.py::test_matched_uid_accuracy[A]
+PASSED test_decisions.py::test_per_class_recall[A]
+PASSED test_decisions.py::test_per_class_false_positives[A]
+PASSED test_decisions.py::test_overall_precision[B]
+PASSED test_decisions.py::test_matched_uid_accuracy[B]
+PASSED test_decisions.py::test_per_class_false_positives[B]
+FAILED test_decisions.py::test_overall_recall[B] - AssertionError: batch B: r...
+FAILED test_decisions.py::test_per_class_recall[B] - AssertionError: batch B:...
+========================= 2 failed, 8 passed in 0.33s ==========================
