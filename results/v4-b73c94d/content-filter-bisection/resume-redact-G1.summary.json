@@ -1,0 +1,120 @@
+[
+ {
+  "type": "rate_limit_event",
+  "rate_limit_info": {
+   "status": "allowed",
+   "resetsAt": 1789759800,
+   "rateLimitType": "five_hour",
+   "overageStatus": "rejected",
+   "overageDisabledReason": "org_level_disabled",
+   "isUsingOverage": false,
+   "unifiedWindows": {
+    "five_hour": {
+     "utilization": 0.29,
+     "resetsAt": 1789759800
+    },
+    "seven_day": {
+     "utilization": 0.48,
+     "resetsAt": 1789754400
+    }
+   }
+  },
+  "uuid": "c0f1b643-d50c-4c59-be02-659498eb7524",
+  "session_id": "12b7495d-93ef-4a36-9f95-72f96bf2fa43"
+ },
+ {
+  "duration_api_ms": 7016,
+  "stop_reason": "tool_use",
+  "session_id": "12b7495d-93ef-4a36-9f95-72f96bf2fa43",
+  "total_cost_usd": 1.7237195,
+  "usage": {
+   "input_tokens": 2,
+   "cache_creation_input_tokens": 170799,
+   "cache_read_input_tokens": 11839,
+   "output_tokens": 392,
+   "output_tokens_details": {
+    "thinking_tokens": 201
+   },
+   "server_tool_use": {
+    "web_search_requests": 0,
+    "web_fetch_requests": 0
+   },
+   "service_tier": "standard",
+   "cache_creation": {
+    "ephemeral_1h_input_tokens": 170799,
+    "ephemeral_5m_input_tokens": 0
+   },
+   "inference_geo": "not_available",
+   "iterations": [
+    {
+     "input_tokens": 2,
+     "output_tokens": 392,
+     "cache_read_input_tokens": 11839,
+     "cache_creation_input_tokens": 170799,
+     "cache_creation": {
+      "ephemeral_5m_input_tokens": 0,
+      "ephemeral_1h_input_tokens": 170799
+     },
+     "type": "message",
+     "model": null
+    }
+   ],
+   "speed": "standard"
+  },
+  "modelUsage": {
+   "claude-opus-5": {
+    "inputTokens": 2,
+    "outputTokens": 392,
+    "cacheReadInputTokens": 11839,
+    "cacheCreationInputTokens": 170799,
+    "webSearchRequests": 0,
+    "costUSD": 1.7237195,
+    "contextWindow": 1000000,
+    "maxOutputTokens": 64000,
+    "thinkingTokens": 201,
+    "canonicalModel": "claude-opus-5",
+    "provider": "firstParty",
+    "costBasis": "list"
+   }
+  },
+  "permission_denials": [],
+  "terminal_reason": "max_turns",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+   "spawned": 0,
+   "requested": {
+    "background": 0,
+    "foreground": 0,
+    "unset": 0
+   },
+   "started_in_background": 0,
+   "max_depth": 0,
+   "spawned_by_subagents": 0,
+   "completed": 0,
+   "failed": 0,
+   "killed": {
+    "parent": 0,
+    "user": 0,
+    "system": 0
+   },
+   "refused": {
+    "depth_limit": 0,
+    "concurrency_limit": 0,
+    "budget": 0
+   },
+   "by_type": {}
+  },
+  "is_error": true,
+  "num_turns": 2,
+  "subtype": "error_max_turns",
+  "errors": [
+   "Reached maximum number of turns (1)"
+  ],
+  "type": "result",
+  "duration_ms": 8200,
+  "uuid": "1fdbc1f4-74cc-4470-b17f-0fda2e6db0a5",
+  "queued_turn_count": 0,
+  "result_index": 0
+ }
+]

@@ -1,0 +1,516 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 10 items
+
+test_decisions.py EEEEEEEEEE                                             [100%]
+
+==================================== ERRORS ====================================
+___________________ ERROR at setup of test_overall_recall[A] ___________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[A]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:120: in graded_a
+    return _grade(LABELS["labels.csv"], _decisions(DECISIONS_A, "batch A"), "batch A")
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/decisions.csv'), what = 'batch A'
+
+    def _decisions(path: Path, what: str):
+>       assert path.exists(), f"{what}: {path} was not produced"
+E       AssertionError: batch A: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:47: AssertionError
+_________________ ERROR at setup of test_overall_precision[A] __________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[A]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:120: in graded_a
+    return _grade(LABELS["labels.csv"], _decisions(DECISIONS_A, "batch A"), "batch A")
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/decisions.csv'), what = 'batch A'
+
+    def _decisions(path: Path, what: str):
+>       assert path.exists(), f"{what}: {path} was not produced"
+E       AssertionError: batch A: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:47: AssertionError
+________________ ERROR at setup of test_matched_uid_accuracy[A] ________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[A]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:120: in graded_a
+    return _grade(LABELS["labels.csv"], _decisions(DECISIONS_A, "batch A"), "batch A")
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/decisions.csv'), what = 'batch A'
+
+    def _decisions(path: Path, what: str):
+>       assert path.exists(), f"{what}: {path} was not produced"
+E       AssertionError: batch A: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:47: AssertionError
+__________________ ERROR at setup of test_per_class_recall[A] __________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[A]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:120: in graded_a
+    return _grade(LABELS["labels.csv"], _decisions(DECISIONS_A, "batch A"), "batch A")
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/decisions.csv'), what = 'batch A'
+
+    def _decisions(path: Path, what: str):
+>       assert path.exists(), f"{what}: {path} was not produced"
+E       AssertionError: batch A: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:47: AssertionError
+_____________ ERROR at setup of test_per_class_false_positives[A] ______________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[A]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:120: in graded_a
+    return _grade(LABELS["labels.csv"], _decisions(DECISIONS_A, "batch A"), "batch A")
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/app/decisions.csv'), what = 'batch A'
+
+    def _decisions(path: Path, what: str):
+>       assert path.exists(), f"{what}: {path} was not produced"
+E       AssertionError: batch A: /app/decisions.csv was not produced
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/app/decisions.csv').exists
+
+test_decisions.py:47: AssertionError
+___________________ ERROR at setup of test_overall_recall[B] ___________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[B]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:125: in graded_b
+    return _grade(LABELS["labels_b.csv"], _decisions(_run_engine(), "batch B"), "batch B")
+                                                     ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _run_engine() -> Path:
+        """Run /app/link.py on batch B as an unprivileged user, offline, with time and resource budgets."""
+>       assert ENGINE.exists() and b"no engine was delivered" not in ENGINE.read_bytes(), "/app/link.py was not produced"
+E       AssertionError: /app/link.py was not produced
+E       assert (True and b'no engine was delivered' not in b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n')
+E        +  where True = exists()
+E        +    where exists = PosixPath('/app/link.py').exists
+E        +  and   b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n' = read_bytes()
+E        +    where read_bytes = PosixPath('/app/link.py').read_bytes
+
+test_decisions.py:63: AssertionError
+_________________ ERROR at setup of test_overall_precision[B] __________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[B]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:125: in graded_b
+    return _grade(LABELS["labels_b.csv"], _decisions(_run_engine(), "batch B"), "batch B")
+                                                     ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _run_engine() -> Path:
+        """Run /app/link.py on batch B as an unprivileged user, offline, with time and resource budgets."""
+>       assert ENGINE.exists() and b"no engine was delivered" not in ENGINE.read_bytes(), "/app/link.py was not produced"
+E       AssertionError: /app/link.py was not produced
+E       assert (True and b'no engine was delivered' not in b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n')
+E        +  where True = exists()
+E        +    where exists = PosixPath('/app/link.py').exists
+E        +  and   b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n' = read_bytes()
+E        +    where read_bytes = PosixPath('/app/link.py').read_bytes
+
+test_decisions.py:63: AssertionError
+________________ ERROR at setup of test_matched_uid_accuracy[B] ________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[B]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:125: in graded_b
+    return _grade(LABELS["labels_b.csv"], _decisions(_run_engine(), "batch B"), "batch B")
+                                                     ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _run_engine() -> Path:
+        """Run /app/link.py on batch B as an unprivileged user, offline, with time and resource budgets."""
+>       assert ENGINE.exists() and b"no engine was delivered" not in ENGINE.read_bytes(), "/app/link.py was not produced"
+E       AssertionError: /app/link.py was not produced
+E       assert (True and b'no engine was delivered' not in b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n')
+E        +  where True = exists()
+E        +    where exists = PosixPath('/app/link.py').exists
+E        +  and   b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n' = read_bytes()
+E        +    where read_bytes = PosixPath('/app/link.py').read_bytes
+
+test_decisions.py:63: AssertionError
+__________________ ERROR at setup of test_per_class_recall[B] __________________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[B]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:125: in graded_b
+    return _grade(LABELS["labels_b.csv"], _decisions(_run_engine(), "batch B"), "batch B")
+                                                     ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _run_engine() -> Path:
+        """Run /app/link.py on batch B as an unprivileged user, offline, with time and resource budgets."""
+>       assert ENGINE.exists() and b"no engine was delivered" not in ENGINE.read_bytes(), "/app/link.py was not produced"
+E       AssertionError: /app/link.py was not produced
+E       assert (True and b'no engine was delivered' not in b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n')
+E        +  where True = exists()
+E        +    where exists = PosixPath('/app/link.py').exists
+E        +  and   b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n' = read_bytes()
+E        +    where read_bytes = PosixPath('/app/link.py').read_bytes
+
+test_decisions.py:63: AssertionError
+_____________ ERROR at setup of test_per_class_false_positives[B] ______________
+
+request = <SubRequest 'graded' for <Function test_overall_recall[B]>>
+
+    @pytest.fixture(params=["A", "B"], scope="module")
+    def graded(request):
+        # each batch is graded independently: a failure on one does not hide the other's numbers
+>       return request.param, request.getfixturevalue("graded_a" if request.param == "A" else "graded_b")
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_decisions.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py:512: in __call__
+    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/pluggy/_manager.py:120: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py:1005: in call_fixture_func
+    fixture_result = fixturefunc(**kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^
+test_decisions.py:125: in graded_b
+    return _grade(LABELS["labels_b.csv"], _decisions(_run_engine(), "batch B"), "batch B")
+                                                     ^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _run_engine() -> Path:
+        """Run /app/link.py on batch B as an unprivileged user, offline, with time and resource budgets."""
+>       assert ENGINE.exists() and b"no engine was delivered" not in ENGINE.read_bytes(), "/app/link.py was not produced"
+E       AssertionError: /app/link.py was not produced
+E       assert (True and b'no engine was delivered' not in b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n')
+E        +  where True = exists()
+E        +    where exists = PosixPath('/app/link.py').exists
+E        +  and   b'#!/usr/bin/env python3\nimport sys\nsys.exit("no engine was delivered at /app/link.py")\n' = read_bytes()
+E        +    where read_bytes = PosixPath('/app/link.py').read_bytes
+
+test_decisions.py:63: AssertionError
+=========================== short test summary info ============================
+ERROR test_decisions.py::test_overall_recall[A] - AssertionError: batch A: /a...
+ERROR test_decisions.py::test_overall_precision[A] - AssertionError: batch A:...
+ERROR test_decisions.py::test_matched_uid_accuracy[A] - AssertionError: batch...
+ERROR test_decisions.py::test_per_class_recall[A] - AssertionError: batch A: ...
+ERROR test_decisions.py::test_per_class_false_positives[A] - AssertionError: ...
+ERROR test_decisions.py::test_overall_recall[B] - AssertionError: /app/link.p...
+ERROR test_decisions.py::test_overall_precision[B] - AssertionError: /app/lin...
+ERROR test_decisions.py::test_matched_uid_accuracy[B] - AssertionError: /app/...
+ERROR test_decisions.py::test_per_class_recall[B] - AssertionError: /app/link...
+ERROR test_decisions.py::test_per_class_false_positives[B] - AssertionError: ...
+============================== 10 errors in 0.80s ==============================
