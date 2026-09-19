@@ -1,0 +1,93 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 10 items
+
+test_decisions.py ..........                                             [100%]
+
+==================================== PASSES ====================================
+____________________________ test_overall_recall[A] ____________________________
+----------------------------- Captured stdout call -----------------------------
+[A] recall=0.9960 (tp=997, fn=4)
+__________________________ test_overall_precision[A] ___________________________
+----------------------------- Captured stdout call -----------------------------
+[A] precision=0.9930 (tp=997, fp=7)
+_________________________ test_matched_uid_accuracy[A] _________________________
+----------------------------- Captured stdout call -----------------------------
+[A] uid_accuracy=1.0000
+___________________________ test_per_class_recall[A] ___________________________
+----------------------------- Captured stdout call -----------------------------
+[A] T10_stacked: recall=0.9839 (61/62)
+[A] T11_twin: recall=1.0000 (52/52)
+[A] T12_script_customer: recall=1.0000 (25/25)
+[A] T13_id_unlisted_name_match: recall=0.9912 (112/113)
+[A] T1_translit: recall=0.9927 (273/275)
+[A] T2_script: recall=1.0000 (67/67)
+[A] T3_structure: recall=1.0000 (59/59)
+[A] T4_alias_strong: recall=1.0000 (18/18)
+[A] T5_alias_weak_corroborated: recall=1.0000 (9/9)
+[A] T6_id_exact: recall=1.0000 (67/67)
+[A] T7_entity_suffix: recall=1.0000 (165/165)
+[A] T8_vessel_prefix: recall=1.0000 (51/51)
+[A] T9_dob_partial: recall=1.0000 (38/38)
+______________________ test_per_class_false_positives[A] _______________________
+----------------------------- Captured stdout call -----------------------------
+[A] D1_name_dob_conflict: fpr=0.0000 (0/114) limit=0.05
+[A] D2_near_name: fpr=0.0234 (4/171) limit=0.05
+[A] D3_weak_alias_alone: fpr=0.0000 (0/17) limit=0.05
+[A] D4_entity_near_name: fpr=0.0000 (0/95) limit=0.05
+[A] D5_partial_dob_conflict: fpr=0.0000 (0/36) limit=0.05
+[A] D6_same_given: fpr=0.0000 (0/45) limit=0.05
+[A] D7_id_unlisted: fpr=0.0000 (0/85) limit=0.05
+[A] R0_random: fpr=0.0021 (3/1400) limit=0.01
+[A] R1_random_entity: fpr=0.0000 (0/60) limit=0.01
+[A] R2_random_vessel: fpr=0.0000 (0/30) limit=0.01
+____________________________ test_overall_recall[B] ____________________________
+----------------------------- Captured stdout call -----------------------------
+[B] recall=0.9950 (tp=1199, fn=6)
+__________________________ test_overall_precision[B] ___________________________
+----------------------------- Captured stdout call -----------------------------
+[B] precision=0.9967 (tp=1199, fp=4)
+_________________________ test_matched_uid_accuracy[B] _________________________
+----------------------------- Captured stdout call -----------------------------
+[B] uid_accuracy=1.0000
+___________________________ test_per_class_recall[B] ___________________________
+----------------------------- Captured stdout call -----------------------------
+[B] T10_stacked: recall=0.9855 (68/69)
+[B] T11_twin: recall=1.0000 (46/46)
+[B] T12_script_customer: recall=1.0000 (37/37)
+[B] T13_id_unlisted_name_match: recall=1.0000 (105/105)
+[B] T1_translit: recall=0.9938 (322/324)
+[B] T2_script: recall=1.0000 (64/64)
+[B] T3_structure: recall=0.9688 (62/64)
+[B] T4_alias_strong: recall=1.0000 (18/18)
+[B] T5_alias_weak_corroborated: recall=1.0000 (8/8)
+[B] T6_id_exact: recall=1.0000 (89/89)
+[B] T7_entity_suffix: recall=1.0000 (267/267)
+[B] T8_vessel_prefix: recall=1.0000 (83/83)
+[B] T9_dob_partial: recall=0.9677 (30/31)
+______________________ test_per_class_false_positives[B] _______________________
+----------------------------- Captured stdout call -----------------------------
+[B] D1_name_dob_conflict: fpr=0.0000 (0/188) limit=0.05
+[B] D2_near_name: fpr=0.0000 (0/235) limit=0.05
+[B] D3_weak_alias_alone: fpr=0.0000 (0/40) limit=0.05
+[B] D4_entity_near_name: fpr=0.0000 (0/188) limit=0.05
+[B] D5_partial_dob_conflict: fpr=0.0000 (0/66) limit=0.05
+[B] D6_same_given: fpr=0.0000 (0/68) limit=0.05
+[B] D7_id_unlisted: fpr=0.0000 (0/162) limit=0.05
+[B] R0_random: fpr=0.0013 (4/3000) limit=0.01
+[B] R1_random_entity: fpr=0.0000 (0/100) limit=0.01
+[B] R2_random_vessel: fpr=0.0000 (0/42) limit=0.01
+=========================== short test summary info ============================
+PASSED test_decisions.py::test_overall_recall[A]
+PASSED test_decisions.py::test_overall_precision[A]
+PASSED test_decisions.py::test_matched_uid_accuracy[A]
+PASSED test_decisions.py::test_per_class_recall[A]
+PASSED test_decisions.py::test_per_class_false_positives[A]
+PASSED test_decisions.py::test_overall_recall[B]
+PASSED test_decisions.py::test_overall_precision[B]
+PASSED test_decisions.py::test_matched_uid_accuracy[B]
+PASSED test_decisions.py::test_per_class_recall[B]
+PASSED test_decisions.py::test_per_class_false_positives[B]
+============================= 10 passed in 20.88s ==============================
