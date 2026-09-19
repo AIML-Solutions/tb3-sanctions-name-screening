@@ -191,8 +191,8 @@ VESSEL_NAMES = ["Sea Lion", "Aurora", "Nordic Star", "Golden Wave", "Blue Whale"
                 "Ocean Titan", "Silver Lining", "Golden Anchor", "Sea Breeze", "Night Hawk", "Morning Glory", "Andromeda",
                 "Arctic Dawn", "Bengal Tiger", "Coral Reef", "Delta Queen", "Eastern Promise", "Falcon Bay"]
 VESSEL_PREFIX = ["", "M/V ", "MV ", "MT ", "M/T "]
-NATIONALITIES = {"arabic": ["SY", "IQ", "EG", "LB", "JO", "YE", "SA", "AE"], "persian": ["IR", "AF"],
-                 "russian": ["RU", "UA", "BY", "KZ"], "chinese": ["CN", "HK", "TW", "SG"],
+NATIONALITIES = {"arabic": ["AE", "SA", "EG", "JO", "LB", "MA", "TN", "KW"], "persian": ["TJ", "GE"],
+                 "russian": ["GR", "UA", "BY", "KZ"], "chinese": ["CN", "HK", "TW", "SG"],
                  "western": ["US", "GB", "DE", "FR", "MX", "BR", "CA", "AU"]}
 WEAK_NICKNAMES = ["Abu Sami", "The Tailor", "Abu Karim", "Doctor", "Abu Nour", "The Baker", "Sasha", "Zhenya",
                   "Dima", "Kolya", "Abu Fadi", "Abu Rami", "Big Mo", "The Grocer", "Abu Nabil", "The Teacher",
@@ -681,7 +681,7 @@ def build_register(rng, n_ind=1400, n_ent=520, n_ves=180):
         seen_vessels.add(vname)
         entry = {
             "uid": None, "type": "vessel", "primary_name": vname, "script_name": None, "aliases": [],
-            "dob": "", "nationalities": [pick(rng, ["PA", "LR", "MH", "IR", "RU", "KM", "CM"])],
+            "dob": "", "nationalities": [pick(rng, ["PA", "LR", "MH", "SG", "GR", "CY", "MT"])],
             "ids": [{"type": "imo", "number": imo(rng)}], "collections": [pick(rng, ["ship-registry", "port-ledgers", "harbour-dues"])],
         }
         entries.append(entry)
@@ -925,7 +925,7 @@ def build_records(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55, 
                 core = core[len(pre):]
         if core in registered_vessel_names:
             continue
-        add(name, "", pick(rng, ["PA", "LR", "MH", "IR", "RU", "KM", "CM"]), "imo", fresh_number("imo"),
+        add(name, "", pick(rng, ["PA", "LR", "MH", "SG", "GR", "CY", "MT"]), "imo", fresh_number("imo"),
             "vessel", "NO_MATCH", "", "D7_id_unregistered")
         made += 1
 
@@ -962,7 +962,7 @@ def build_records(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55, 
         vname = pick(rng, VESSEL_NAMES) + pick(rng, ["", " II", " III", " Star", " One", " IV", " V", " Queen"])
         if vname in registered_vessels:
             continue
-        add(pick(rng, VESSEL_PREFIX) + vname, "", pick(rng, ["PA", "LR", "MH", "IR", "RU", "KM", "CM"]), "", "",
+        add(pick(rng, VESSEL_PREFIX) + vname, "", pick(rng, ["PA", "LR", "MH", "SG", "GR", "CY", "MT"]), "", "",
             "vessel", "NO_MATCH", "", "R2_random_vessel")
         made += 1
 
