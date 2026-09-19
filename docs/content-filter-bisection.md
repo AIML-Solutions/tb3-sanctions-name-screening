@@ -46,3 +46,33 @@ manifests, ...) instead of program codes, neutral nicknames and entity stems, an
 (Nasrallah to Saadallah, keeping the Allah-compound rule). Sanctions vocabulary appears nowhere the agent
 can read. The reference solution clears every bar on the regenerated data (A 0.996 / 1.000, B 0.998 / 0.998).
 The substance, and the author's domain, is still sanctions screening; the README says so.
+
+
+## Correction and root cause (Sep 18, controlled high-context probes)
+
+The "it's the compliance vocabulary" conclusion above was wrong. Direct experiments settle it. Each probe
+builds a ~130k-token context (a large register dump) and asks the model, in one turn, to write the
+name-matching engine; the only thing varied is which entries fill the register. Four runs per variant,
+Claude Code `claude-opus-5` on the Max subscription. Verdicts in `probes/probe-verdicts.tsv`.
+
+| register content (high context) | blocked |
+|---|---|
+| Arabic / Persian individuals | 0 / 4 |
+| Cyrillic / Russian individuals | 0 / 4 |
+| Entities and vessels (companies, ships, IMO/registration) | 0 / 4 |
+| Western individuals | 0 / 4 |
+| **Chinese individuals (pinyin / Wade-Giles / Cantonese names)** | **4 / 4** |
+
+**Root cause: the filter fires on generating code that matches/identifies Chinese personal names at scale.**
+It is not the sanctions framing, not Arabic or Muslim names, not the domain vocabulary (the agent wrote none),
+and not script characters (Arabic and Cyrillic script both pass). Sixteen of sixteen non-Chinese runs
+completed; four of four Chinese-individual runs were blocked. The most plausible reading is that a large
+database of Chinese individuals plus identity-matching code pattern-matches to mass-surveillance concerns in
+the provider's output classifier.
+
+**Consequence for this task.** The real agentic runs blocked ~100% because the register contains Chinese
+individuals, and Chinese romanization (pinyin, Wade-Giles, Cantonese, Hokkien/Teochew) is one of the task's
+central difficulty axes. Removing Chinese individuals is the only change the evidence predicts would let
+Claude Code complete; it costs one hard variation axis but the Arabic/Persian/Cyrillic transliteration,
+name-order, nasab, alias, entity and vessel machinery remains, which is hard on its own (earlier versions
+were Arabic-heavy and agents still failed). This is the basis for a possible v5.
