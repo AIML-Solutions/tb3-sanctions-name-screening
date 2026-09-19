@@ -11,9 +11,9 @@ environment. Run from anywhere: `python3 tests/generate_data.py`. Produces:
   tests/data/labels.csv          (hidden truth; baked into the verifier image only)
 
 Everything is synthetic. Names are drawn from canonical pools (Arabic,
-Persian, Russian, Chinese, Western) and then re-spelled by a rule-based
+Persian, Russian, Western) and then re-spelled by a rule-based
 romanization engine that models real transliteration conventions (BGN/PCGN,
-French, German, Polish, Egyptian, Gulf; pinyin, Wade-Giles, Cantonese).
+French, German, Polish, Egyptian, Gulf; sun-letter assimilation).
 Rules stack, so the spelling space is combinatorial rather than a lookup
 table. The development sample is generated with a subset of the rules; the
 hidden batch uses all of them.
@@ -192,7 +192,7 @@ VESSEL_NAMES = ["Sea Lion", "Aurora", "Nordic Star", "Golden Wave", "Blue Whale"
                 "Arctic Dawn", "Bengal Tiger", "Coral Reef", "Delta Queen", "Eastern Promise", "Falcon Bay"]
 VESSEL_PREFIX = ["", "M/V ", "MV ", "MT ", "M/T "]
 NATIONALITIES = {"arabic": ["SY", "IQ", "EG", "LB", "JO", "YE", "SA", "AE"], "persian": ["IR", "AF"],
-                 "russian": ["RU", "UA", "BY", "KZ"], "chinese": ["CN", "HK", "TW", "SG"],
+                 "russian": ["RU", "UA", "BY", "KZ"],
                  "western": ["US", "GB", "DE", "FR", "MX", "BR", "CA", "AU"]}
 WEAK_NICKNAMES = ["Abu Salem", "The Engineer", "Al-Hakim", "Doctor", "Abu Layth", "The Accountant", "Sasha", "Zhenya",
                   "Dima", "Kolya", "Abu Omar", "Al-Ustadh", "Big Mo", "The Broker", "Abu Zubair", "The Colonel",
@@ -605,17 +605,17 @@ def render(rng, p, conventions, k=2, order_variation=True):
     return name
 
 
-DEV_CONVENTIONS = {"english", "egyptian", "pinyin", "wadegiles"}
-ALL_CONVENTIONS = DEV_CONVENTIONS | {"french", "german", "polish", "gulf", "sun", "cantonese"}
+DEV_CONVENTIONS = {"english", "egyptian", "french", "german"}
+ALL_CONVENTIONS = DEV_CONVENTIONS | {"gulf", "sun"}
 # batch B is seen only by the verifier: everything above plus four conventions absent from the sample and batch A
-B_CONVENTIONS = ALL_CONVENTIONS | {"turkish", "indonesian", "scientific", "hokkien"}
+B_CONVENTIONS = ALL_CONVENTIONS | {"turkish", "indonesian", "scientific", "polish"}
 SEED_B = 20260912
 
 
 # --------------------------------------------------------------------------- watchlist
 def build_watchlist(rng, n_ind=1400, n_ent=520, n_ves=180):
     entries, people = [], []
-    cultures = ["arabic"] * 30 + ["persian"] * 16 + ["russian"] * 26 + ["chinese"] * 14 + ["western"] * 14
+    cultures = ["arabic"] * 34 + ["persian"] * 18 + ["russian"] * 30 + ["western"] * 18
     seen_people = set()
     twins = []
     while len(people) < n_ind:
@@ -629,7 +629,7 @@ def build_watchlist(rng, n_ind=1400, n_ent=520, n_ves=180):
         dob = random_dob(rng) if r < 0.70 else (str(rng.randint(1950, 2000)) if r < 0.85 else "")
         aliases = []
         if rng.random() < 0.45:  # strong alias: an alternative spelling (always an "english"-convention one)
-            aliases.append({"name": render(rng, p, {"english", "pinyin"}, k=2, order_variation=False), "strength": "strong"})
+            aliases.append({"name": render(rng, p, {"english", "french"}, k=2, order_variation=False), "strength": "strong"})
         if rng.random() < 0.3:
             aliases.append({"name": pick(rng, WEAK_NICKNAMES), "strength": "weak"})
         script_name = p.script()
@@ -821,7 +821,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
                 month = (int(dob[5:7]) + rng.choice([1, 2, 3, 6])) % 12 + 1
                 wrong = f"{dob[:4]}-{month:02d}"  # right year, wrong month
             add(render(rng, p, conventions), wrong, nat, "", "", "individual", "NO_MATCH", "", "D5_partial_dob_conflict")
-        elif r < 0.60 and p.culture in ("arabic", "persian", "chinese"):
+        elif r < 0.60 and p.culture in ("arabic", "persian"):
             # D6: same given name, different family name from the same culture
             for _attempt in range(30):
                 q = make_person(rng, p.culture)
@@ -880,7 +880,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
             "individual", "MATCH", entry["uid"], "T13_id_unlisted_name_match")
     made = 0
     while made < max(40, n_random // 40):
-        culture = pick(rng, ["arabic", "persian", "russian", "chinese", "western"])
+        culture = pick(rng, ["arabic", "persian", "russian", "western"])
         p = make_person(rng, culture)
         if p.core() in listed_people:
             continue
@@ -933,7 +933,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
     listed_aliases = {a["name"].lower() for e in entries for a in e["aliases"]}
     made = 0
     while made < n_random:
-        culture = pick(rng, ["arabic", "persian", "russian", "chinese", "western"])
+        culture = pick(rng, ["arabic", "persian", "russian", "western"])
         p = make_person(rng, culture)
         if p.core() in listed_people:
             continue

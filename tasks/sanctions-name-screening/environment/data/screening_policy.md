@@ -31,15 +31,15 @@ and date of birth like any other.
 Two names refer to the same person when, after normalization, the given name
 and the family name correspond. Names correspond across all of the following
 variations. The development sample illustrates them; it does not exhaust them.
-The batch uses romanization conventions (for example French, German, Polish
-and Gulf spellings of Arabic and Russian names, Cantonese surnames, sun-letter
-assimilation of the Arabic article) that do not appear in the development
-sample, and it stacks several conventions on one name. The engine is also run
-on a second batch, not provided, that further uses Turkish spellings of Arabic
-names (Cemal, Hüseyin, Ahmet, Kasım), Indonesian and Malay spellings (Achmad,
-Joesoef, Sjarif), scientific transliteration of Russian names with the
-diacritics stripped (Cajkovskij, Zukov, Sevcenko), and Hokkien and Teochew
-Chinese surnames (Tan, Lim, Ong, Goh, Teo).
+The batch uses romanization conventions (for example Gulf spellings of Arabic
+names and sun-letter assimilation of the Arabic article) that do not appear in
+the development sample, and it stacks several conventions on one name. The
+engine is also run on a second batch, not provided, that further uses Turkish
+spellings of Arabic names (Cemal, Hüseyin, Ahmet, Kasım), Indonesian and Malay
+spellings (Achmad, Joesoef, Sjarif), scientific transliteration of Russian
+names with the diacritics stripped (Cajkovskij, Zukov, Sevcenko), and
+Polish-convention spellings of Russian names (Czernow for Chernov, Szewczenko
+for Shevchenko).
 
 - Transliteration into Latin script from Arabic, Persian and Cyrillic under any
   common romanization (for example Muhammad/Mohammed/Mohamed/Mohamad,
@@ -47,9 +47,6 @@ Chinese surnames (Tan, Lim, Ong, Goh, Teo).
   Sergei/Sergey/Serguei/Sergej, Fedorov/Fyodorov/Fedoroff, Yevgeny/Evgeny/Eugene),
   including matching a Latin customer name against an entry that only has an
   original-script name.
-- Chinese names under pinyin and Wade-Giles/Cantonese romanizations
-  (Zhang/Chang, Wang/Wong, Li/Lee, Zhou/Chou/Chow, Xiao Ming/Xiaoming/Hsiao-Ming),
-  in either family-name-first or given-name-first order.
 - Western nicknames and diacritic variants (William/Bill, Katherine/Kate,
   Jose/José, Mueller/Müller/Muller, Nguyen/Nguyễn), middle initials, and
   hyphenated versus spaced compound surnames.
