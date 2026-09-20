@@ -37,7 +37,7 @@ and by nicknames associated with real militants. Script characters, code, and co
 The filter is stochastic (about 80% per turn on the original context), which is why a 50-turn trial never
 survived and why the fix has to remove the vocabulary rather than reduce it.
 
-## The fix (version 4, `tasks/archive-record-linkage`)
+## The fix (version 4, `experiments/archive-record-linkage`)
 
 The same task with the same names, rules, generator logic, verifier and floors, framed as linking newly
 digitised records to an archive register: `register.json` / `records.csv` / `link.py`, `record_id`,
