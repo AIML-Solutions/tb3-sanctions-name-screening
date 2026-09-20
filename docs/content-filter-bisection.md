@@ -76,3 +76,26 @@ central difficulty axes. Removing Chinese individuals is the only change the evi
 Claude Code complete; it costs one hard variation axis but the Arabic/Persian/Cyrillic transliteration,
 name-order, nasab, alias, entity and vessel machinery remains, which is hard on its own (earlier versions
 were Arabic-heavy and agents still failed). This is the basis for a possible v5.
+
+## Resolution (v6): keep the difficulty, lose the trigger
+
+The root cause and the difficulty were the same thing seen from two sides. The filter blocks generating code
+that matches Chinese **individuals** at scale; the difficulty that defeated the agents on the held-out batch
+was Chinese romanization's **arbitrary, lookup-based** surname mappings (Zhang / Cheung / Chang / Teo), which
+cannot be derived by rule the way Arabic or Cyrillic transliteration can. Removing Chinese individuals lifted
+the filter but also made the task solvable: a control run of Claude Code on the Chinese-free task completed
+in 151 minutes and scored reward 1.0 (`results/v5-9a05110/`).
+
+The fix separates the two. A further probe showed Chinese **entities and vessels** do not trip the filter
+(4/4 completed at high context), because the sensitive signal is identifying *people*, not companies. So v6:
+
+- removes Chinese individuals (the trigger), and
+- reintroduces the arbitrary-lookup difficulty through Chinese-named **companies**: the watchlist lists them
+  in pinyin, the sample and batch A show them in pinyin, and batch B holds out their Wade-Giles, Cantonese and
+  Hokkien stem spellings (so a listed "Zhu Freight" must be matched to a batch-B customer's "Chu Freight" that
+  the agent never saw). The reference solution canonicalizes entity stems by pinyin reading-set intersection.
+
+This keeps the task in the author's sanctions-screening domain, hard for the same reason it was always hard,
+and lets Claude Code run to completion. The v6 confirmatory Claude trial completed with no filter block and
+scored reward 0 — a genuine model failure (batch B recall 0.916, entity-suffix recall 0.610), archived under
+`results/v6-e668f1a/`. The full v6 trial matrix (three Claude, three Codex, both cheat runs) is recorded there.
