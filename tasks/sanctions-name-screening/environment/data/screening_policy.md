@@ -37,9 +37,10 @@ the development sample, and it stacks several conventions on one name. The
 engine is also run on a second batch, not provided, that further uses Turkish
 spellings of Arabic names (Cemal, Hüseyin, Ahmet, Kasım), Indonesian and Malay
 spellings (Achmad, Joesoef, Sjarif), scientific transliteration of Russian
-names with the diacritics stripped (Cajkovskij, Zukov, Sevcenko), and
-Polish-convention spellings of Russian names (Czernow for Chernov, Szewczenko
-for Shevchenko).
+names with the diacritics stripped (Cajkovskij, Zukov, Sevcenko), Polish-convention
+spellings of Russian names (Czernow for Chernov, Szewczenko for Shevchenko), and Chinese-named companies
+under a non-pinyin Chinese romanization (Wade-Giles, Cantonese or Hokkien spellings of the surname stem)
+when the list carries the pinyin form.
 
 - Transliteration into Latin script from Arabic, Persian and Cyrillic under any
   common romanization (for example Muhammad/Mohammed/Mohamed/Mohamad,
@@ -84,7 +85,10 @@ form designators (LLC, L.L.C., Limited Liability Company, Ltd, Limited, S.A.,
 GmbH, JSC, Joint Stock Company, AO, OAO, PJSC, Co., Company, FZE, FZ-LLC and
 similar), leading `The`, punctuation, and the words `and`/`&`; case is
 ignored. Vessel names correspond after removing prefixes such as `M/V`, `MV`,
-`M/T`, `MT`, `Vessel`. Identifiers (`registration`, `imo`) match under Rule 1.
+`M/T`, `MT`, `Vessel`. A company whose name is a Chinese surname stem corresponds across Chinese
+romanization systems: pinyin and the Wade-Giles, Cantonese and Hokkien spellings of the same surname are
+the same stem (for example Zhang / Chang / Cheung / Teo, Xu / Hsu / Tsui, Liu / Lau / Low). Identifiers
+(`registration`, `imo`) match under Rule 1.
 
 ## Rule 6: nationality
 

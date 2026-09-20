@@ -464,16 +464,18 @@ HOKKIEN_OF = dict(HOKKIEN_SURNAME)
 def chinese_entity_stem(rng, pinyin, conventions):
     """Romanize a Chinese company stem: pinyin when only pinyin is allowed (sample and batch A),
     an unseen Wade-Giles/Cantonese/Hokkien form when those conventions are present (batch B)."""
-    alts = []
-    if "wadegiles" in conventions:
-        alts.append(wade_giles(pinyin.lower()).capitalize())
+    # Cantonese/Hokkien surname romanizations are lookup-based (not rule-derivable), so weight them
+    # over Wade-Giles (which a strong solver can implement from rules) to keep the held-out batch hard.
+    weighted = []
     if "cantonese" in conventions and pinyin in CANTONESE_OF:
-        alts.append(CANTONESE_OF[pinyin].capitalize())
+        weighted += [CANTONESE_OF[pinyin].capitalize()] * 3
     if "hokkien" in conventions and pinyin in HOKKIEN_OF:
-        alts.append(HOKKIEN_OF[pinyin].capitalize())
-    alts = [a for a in alts if a and a.lower() != pinyin.lower()]
-    if alts and rng.random() < 0.8:
-        return rng.choice(alts)
+        weighted += [HOKKIEN_OF[pinyin].capitalize()] * 3
+    if "wadegiles" in conventions:
+        weighted += [wade_giles(pinyin.lower()).capitalize()]
+    weighted = [a for a in weighted if a and a.lower() != pinyin.lower()]
+    if weighted and rng.random() < 0.85:
+        return rng.choice(weighted)
     return pinyin.capitalize()
 
 
