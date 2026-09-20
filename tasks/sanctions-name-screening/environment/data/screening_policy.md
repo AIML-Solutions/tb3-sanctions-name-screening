@@ -86,8 +86,8 @@ GmbH, JSC, Joint Stock Company, AO, OAO, PJSC, Co., Company, FZE, FZ-LLC and
 similar), leading `The`, punctuation, and the words `and`/`&`; case is
 ignored. Vessel names correspond after removing prefixes such as `M/V`, `MV`,
 `M/T`, `MT`, `Vessel`. A company whose name is a Chinese surname stem corresponds across Chinese
-romanization systems: pinyin and the Wade-Giles, Cantonese and Hokkien spellings of the same surname are
-the same stem (for example Zhang / Chang / Cheung / Teo, Xu / Hsu / Tsui, Liu / Lau / Low). Identifiers
+romanization systems: pinyin and the Wade-Giles, Cantonese and Hokkien
+spellings of the same surname are the same stem. Identifiers
 (`registration`, `imo`) match under Rule 1.
 
 ## Rule 6: nationality

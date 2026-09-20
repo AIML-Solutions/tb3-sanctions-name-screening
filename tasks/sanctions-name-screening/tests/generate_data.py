@@ -456,7 +456,7 @@ def romanize_russian(rng, given, surname, patronymic, conventions, k, female):
     return " ".join(parts)
 
 
-CN_PINYIN_STEMS = [pinyin for pinyin, _cant in CHINESE_SURNAME]
+CN_PINYIN_STEMS = [pinyin for pinyin, _cant in CHINESE_SURNAME if pinyin in HOKKIEN_SURNAME]
 CANTONESE_OF = {pinyin: cant for pinyin, cant in CHINESE_SURNAME}
 HOKKIEN_OF = dict(HOKKIEN_SURNAME)
 
@@ -466,15 +466,15 @@ def chinese_entity_stem(rng, pinyin, conventions):
     an unseen Wade-Giles/Cantonese/Hokkien form when those conventions are present (batch B)."""
     # Cantonese/Hokkien surname romanizations are lookup-based (not rule-derivable), so weight them
     # over Wade-Giles (which a strong solver can implement from rules) to keep the held-out batch hard.
+    # Hokkien surname romanizations (Teo, Ong, Goh, Sng, Beh, Phua, ...) are the least rule-derivable and
+    # the least likely to be recalled from memory, so batch B leans on them; Cantonese is the fallback.
     weighted = []
-    if "cantonese" in conventions and pinyin in CANTONESE_OF:
-        weighted += [CANTONESE_OF[pinyin].capitalize()] * 3
     if "hokkien" in conventions and pinyin in HOKKIEN_OF:
-        weighted += [HOKKIEN_OF[pinyin].capitalize()] * 3
-    if "wadegiles" in conventions:
-        weighted += [wade_giles(pinyin.lower()).capitalize()]
+        weighted += [HOKKIEN_OF[pinyin].capitalize()] * 5
+    if "cantonese" in conventions and pinyin in CANTONESE_OF:
+        weighted += [CANTONESE_OF[pinyin].capitalize()] * 1
     weighted = [a for a in weighted if a and a.lower() != pinyin.lower()]
-    if weighted and rng.random() < 0.85:
+    if weighted and rng.random() < 0.9:
         return rng.choice(weighted)
     return pinyin.capitalize()
 
