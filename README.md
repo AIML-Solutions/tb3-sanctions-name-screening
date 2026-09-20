@@ -99,18 +99,33 @@ All runs are recorded under [`results/`](results/) (harbor `result.json`, verifi
 summarised in [`results/README.md`](results/README.md); nothing is edited by hand. Version = git commit the
 run evaluated. Final status as of 2026-09-16; the trial matrix below is complete except where a platform limitation is noted.
 
-### Gates on the submitted version (v3.1: batch A and the dev sample reduced to 3,058 and 1,324 rows so a full-effort trial fits a subscription usage window; batch B, classes, floors and verifier unchanged)
+### Gates on the submitted version (v6, `results/v6-e668f1a/`: Chinese individuals removed and the arbitrary-lookup romanization difficulty carried by Chinese-named companies whose Wade-Giles/Cantonese stems are held out to batch B)
 
 | gate | result | evidence |
 |---|---|---|
-| TB3 static checks (22, byte-identical to upstream CI) | pass, 0 failures on the submitted tree | `results/v3.1-e8c3aa4/reproduce-final.log` |
+| TB3 static checks (22, byte-identical to upstream CI) | pass, 0 failures | run `scripts/reproduce.sh` |
 | rubric review (35 criteria, TB3 rubric, independent reviewer per version) | v1 26/6/3, v2 28/4/3, v3 28/3/2, **submitted tree 34/0/1** (the reviewer re-ran the checks, the verifier and the generator itself); every fail fixed and re-checked | `results/*/rubric-verdicts.json` |
-| Docker build | clean | `results/v3.1-e8c3aa4/oracle` |
-| oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B); A 0.996 / 1.000, B 0.999 / 0.998 | `results/v3.1-e8c3aa4/oracle` (final validation 2026-09-16), earlier `results/v3-2ebb652/oracle`, `results/v3.1-33430e6/oracle` |
-| nop | reward 0.0 | `results/v3.1-e8c3aa4/nop` |
-| verifier cheat probes (author-written engines that hunt for labels or try to run the generator inside the verifier) | reward 0 | `results/v3-2ebb652/cheat-probe-*` |
+| Docker build | clean | `results/v6-e668f1a/` |
+| oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B); A 0.990 / 0.998, B 0.991 / 0.990, dev 0.990 / 1.0 | `results/v6-e668f1a/` |
+| nop | reward 0.0 | `results/v6-e668f1a/` |
+| unit tests (policy regressions) | 7/7 | `scripts/tests/` |
+| verifier cheat probes (author-written engines that hunt for labels or run the generator inside the verifier) | reward 0 | `results/v3-2ebb652/cheat-probe-*` |
 
 ### Standard trials
+
+**v6 (submitted). Both agents fail all three standard trials; Claude Code runs to completion with no content-filter block.**
+
+| version | agent | outcome | note |
+|---|---|---|---|
+| v6 | Claude Code claude-opus-5 max, trial 1 | **reward 0.0**, 111 min, no filter block | batch B recall 0.916; entity-suffix recall 0.610 (held-out Chinese company spellings) |
+| v6 | Claude Code claude-opus-5 max, trial 2 | **reward 0.0**, no filter block | batch B recall 0.929; entity-suffix 0.681 |
+| v6 | Claude Code claude-opus-5 max, trial 3 | **reward 0.0**, 70 min, no filter block | batch B recall 0.915; entity-suffix 0.610 (a first attempt hit an API rate limit and was re-run; the invalid one is archived, not counted) |
+| v6 | Codex gpt-5.6-sol xhigh, trial 1 | **reward 0.0**, 33 min | batch B recall 0.836; entity-suffix 0.610, transliteration 0.838 |
+| v6 | Codex gpt-5.6-sol xhigh, trial 2 | **reward 0.0** | batch B recall 0.893; entity-suffix 0.610 |
+| v6 | Codex gpt-5.6-sol xhigh, trial 3 | **reward 0.0** | batch B recall 0.899; entity-suffix 0.610 |
+
+The rows below are the earlier versions, kept as the iteration record.
+
 
 | version | agent | outcome | note |
 |---|---|---|---|
@@ -128,11 +143,13 @@ run evaluated. Final status as of 2026-09-16; the trial matrix below is complete
 
 ### Adversarial (/cheat) trials
 
-Codex: two runs, both reward 0, both ended by OpenAI's safety classifier after the agent announced a search for
-leaked labels and issued two or three read-only commands. Claude Code: one completed run, reward 0, ending with the agent's own verdict "no credible bypass found" after it
-built and rejected a co-located-labels trick (the filter never fired because no engine was written). The
-verifier's threat model and the author-run probes (which exercise exactly the label-hunting and generator-execution
-routes the agent was about to try) are in `results/README.md` and `analysis/FAILURE_ANALYSIS.md`.
+Both agents' cheat runs score 0 on the submitted version (v6). Claude Code completed the adversarial run and
+left a co-located answer-key harvester as the engine; the verifier deletes its label files before running the
+engine, so it found nothing and failed every floor (reward 0) — the verifier is not exploitable. Codex was
+ended by OpenAI's own safety classifier refusing the hack-trial prompt (reward 0, no engine written), as on
+the earlier versions. The verifier's threat model and author-run probes (label-hunting and
+generator-execution engines, all reward 0) are in `results/v6-e668f1a/`, `results/README.md` and
+`analysis/FAILURE_ANALYSIS.md`.
 
 ## Why the agents fail
 
