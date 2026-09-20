@@ -6,11 +6,21 @@ frontier coding agents that TB3 CI runs by default (Codex `gpt-5.6-sol` at `xhig
 `claude-opus-5` at `max`), including trials where the agents are told to cheat.
 
 **Status:** see [Results](#results) for what has actually been run against which version of the task.
-Version 1 was solved by Codex in 12 minutes through leakage in the data; version 2 removed the leakage and
-Codex still passed it in 37 minutes by calibrating on the sample and mining the visible batch; version 3
-grades the agent's *engine* on a second batch it never sees (details in
-[Why the agents fail](#why-the-agents-fail)) and is the submitted version: Codex fails all three full-length
-trials on it, and both agents' cheat runs score 0.
+The task grades the agent's *engine* on a second batch it never sees, using romanization conventions absent
+from everything the agent can read. It went through several versions as the frontier agents beat earlier
+ones (v1 leaked class order through sequential ids; v2 was solvable by calibrating on the sample and mining
+the visible batch). The submitted version is **v6** (`results/v6-e668f1a/`): **Claude Code fails all three
+standard trials (reward 0, batch B recall 0.916 / 0.929 / 0.915) and its cheat run scores 0; Codex fails as
+well (batch B recall 0.836).**
+
+**A note on the Claude Code content filter, and why v6 exists.** On the earlier versions, every Claude Code
+trial was blocked by the provider's output content filter before an engine was written. A controlled
+investigation ([`docs/content-filter-bisection.md`](docs/content-filter-bisection.md)) isolated the trigger
+to generating code that matches **Chinese personal names at scale** (16/16 non-Chinese high-context probes
+completed; 4/4 Chinese-individual probes were blocked) — not the sanctions framing, not Arabic or Cyrillic
+names. v6 removes Chinese *individuals* and instead carries the same arbitrary-lookup romanization difficulty
+through Chinese-named *companies*, which the filter permits. Claude Code then runs to completion and fails the
+task honestly.
 
 The task itself lives in [`tasks/sanctions-name-screening/`](tasks/sanctions-name-screening/) in the
 exact layout TB3 expects, so it can be dropped into a TB3 pull request as-is.
