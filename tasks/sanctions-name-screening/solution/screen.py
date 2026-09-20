@@ -203,6 +203,26 @@ def readings(tok: str) -> frozenset[str]:
     return frozenset(r)
 
 
+def _cn_surname_readings(tok: str) -> frozenset[str]:
+    """Pinyin surname readings of a romanized token, or empty if it is not a Chinese surname form."""
+    return readings(tok) & CHINESE_SURNAMES
+
+
+def _entity_seq_match(a: tuple[str, ...], b: tuple[str, ...]) -> bool:
+    """Entity/vessel names match token-for-token; a Chinese surname stem matches across
+    romanizations (Zhang/Cheung/Chang/Teo) when the pinyin reading sets intersect."""
+    if len(a) != len(b):
+        return False
+    for x, y in zip(a, b):
+        if x == y:
+            continue
+        rx, ry = _cn_surname_readings(x), _cn_surname_readings(y)
+        if rx and ry and (rx & ry):
+            continue
+        return False
+    return True
+
+
 PARTICLES = {"al", "el", "bin", "ibn", "ben", "bint", "bnt", "bn", "the", "of", "de", "da", "di", "von", "van", "y",
              "and", "du", "le", "la", "der", "den", "del", "mac", "mc"}
 NASAB = {"bin", "ibn", "ben", "bint", "bnt", "bn", "b"}
@@ -696,7 +716,7 @@ class NameForm:
     def matches(self, cust: "Customer") -> float | None:
         if self.kind != "individual":
             # entities and vessels: exact token sequence after suffix/prefix normalization
-            return 1.0 if cust.plain == self.plain else None
+            return 1.0 if _entity_seq_match(cust.plain, self.plain) else None
         result = None
         for la, lf in zip(self.alts, self.falts):
             if len(la) < 2:
@@ -719,7 +739,7 @@ class NameForm:
 
     def exact(self, cust: "Customer") -> bool:
         if self.kind != "individual":
-            return cust.plain == self.plain
+            return _entity_seq_match(cust.plain, self.plain)
         return any(_set_equal(la, ca) for la in self.alts for ca in cust.alts)
 
 

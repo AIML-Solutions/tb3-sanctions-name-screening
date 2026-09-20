@@ -456,6 +456,27 @@ def romanize_russian(rng, given, surname, patronymic, conventions, k, female):
     return " ".join(parts)
 
 
+CN_PINYIN_STEMS = [pinyin for pinyin, _cant in CHINESE_SURNAME]
+CANTONESE_OF = {pinyin: cant for pinyin, cant in CHINESE_SURNAME}
+HOKKIEN_OF = dict(HOKKIEN_SURNAME)
+
+
+def chinese_entity_stem(rng, pinyin, conventions):
+    """Romanize a Chinese company stem: pinyin when only pinyin is allowed (sample and batch A),
+    an unseen Wade-Giles/Cantonese/Hokkien form when those conventions are present (batch B)."""
+    alts = []
+    if "wadegiles" in conventions:
+        alts.append(wade_giles(pinyin.lower()).capitalize())
+    if "cantonese" in conventions and pinyin in CANTONESE_OF:
+        alts.append(CANTONESE_OF[pinyin].capitalize())
+    if "hokkien" in conventions and pinyin in HOKKIEN_OF:
+        alts.append(HOKKIEN_OF[pinyin].capitalize())
+    alts = [a for a in alts if a and a.lower() != pinyin.lower()]
+    if alts and rng.random() < 0.8:
+        return rng.choice(alts)
+    return pinyin.capitalize()
+
+
 def romanize_chinese(rng, given_syls, surname_pinyin, surname_alt, conventions, k):
     """given_syls: list of pinyin syllables; returns a customer-side spelling."""
     conv = pick(rng, sorted(conventions & {"pinyin", "wadegiles", "cantonese", "hokkien"}) or ["pinyin"])
@@ -608,7 +629,7 @@ def render(rng, p, conventions, k=2, order_variation=True):
 DEV_CONVENTIONS = {"english", "egyptian", "french", "german"}
 ALL_CONVENTIONS = DEV_CONVENTIONS | {"gulf", "sun"}
 # batch B is seen only by the verifier: everything above plus four conventions absent from the sample and batch A
-B_CONVENTIONS = ALL_CONVENTIONS | {"turkish", "indonesian", "scientific", "polish"}
+B_CONVENTIONS = ALL_CONVENTIONS | {"turkish", "indonesian", "scientific", "polish", "cantonese", "wadegiles", "hokkien"}
 SEED_B = 20260912
 
 
@@ -657,8 +678,18 @@ def build_watchlist(rng, n_ind=1400, n_ent=520, n_ves=180):
             people.append((twin, p, other, nat))
             twins.append((entry, twin))
     entity_names, seen_entities = [], set()
+    cn_used_by_line = {}  # line -> set of Cantonese/pinyin forms already listed, so no two collide
     while len(entity_names) < n_ent:
-        stem, line = pick(rng, ENTITY_STEMS), pick(rng, ENTITY_LINES)
+        line = pick(rng, ENTITY_LINES)
+        if rng.random() < 0.5:
+            stem = pick(rng, CN_PINYIN_STEMS)
+            clash = {stem.lower(), CANTONESE_OF.get(stem, "").lower(), HOKKIEN_OF.get(stem, "").lower(),
+                     wade_giles(stem.lower())}
+            if cn_used_by_line.setdefault(line, set()) & clash:
+                continue
+            cn_used_by_line[line] |= clash
+        else:
+            stem = pick(rng, ENTITY_STEMS)
         if (stem, line) in seen_entities:
             continue
         seen_entities.add((stem, line))
@@ -838,7 +869,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
     for entry, name, family in entity_names:
         r = rng.random() / scale
         if r < 0.5:
-            add(entity_variant(rng, name, family), "", entry["nationalities"][0], "", "", "entity", "MATCH",
+            add(entity_variant(rng, name, family, conventions), "", entry["nationalities"][0], "", "", "entity", "MATCH",
                 entry["uid"], "T7_entity_suffix")
         elif r < 0.62 and entry["ids"]:
             add(entity_id_name(rng, name[0], name[1]), "", entry["nationalities"][0], "registration",
@@ -953,7 +984,7 @@ def build_customers(rng, wl, prefix, conventions, n_random=4200, match_rate=0.55
         if (stem, line) in listed_entities:
             continue
         family = pick(rng, SUFFIX_FAMILIES)
-        add(entity_variant(rng, (stem, line, pick(rng, family)), family), "", pick(rng, sum(NATIONALITIES.values(), [])),
+        add(entity_variant(rng, (stem, line, pick(rng, family)), family, conventions), "", pick(rng, sum(NATIONALITIES.values(), [])),
             "", "", "entity", "NO_MATCH", "", "R1_random_entity")
         made += 1
     listed_vessels = {vn for _e, vn in vessels}
@@ -989,8 +1020,10 @@ def vessel_id_name(rng, vname):
                       f"Vessel {vname}", f"{vname} II"])
 
 
-def entity_variant(rng, name, family):
+def entity_variant(rng, name, family, conventions=frozenset()):
     stem, line, suffix = name
+    if stem in CANTONESE_OF or stem in {p for p, _ in CHINESE_SURNAME}:
+        stem = chinese_entity_stem(rng, stem, conventions)
     new_suffix = pick(rng, [s for s in family if s != suffix] or family)
     forms = [
         f"{stem} {line} {new_suffix}",
