@@ -456,7 +456,12 @@ def romanize_russian(rng, given, surname, patronymic, conventions, k, female):
     return " ".join(parts)
 
 
-CN_PINYIN_STEMS = [pinyin for pinyin, _cant in CHINESE_SURNAME if pinyin in HOKKIEN_SURNAME]
+COMMON_HOKKIEN = {"Tan", "Lim", "Ong", "Goh", "Teo", "Lee", "Yeo", "Koh", "Ho", "Chua", "Toh", "Tay",
+                  "Sim", "Chia", "Yap", "Low", "Song", "Han"}  # romanizations a model is likely to know
+# Chinese company stems used on the list are drawn from surnames whose Hokkien spelling is obscure
+# (Ooi, Sng, Beh, Quek, Kor, Loh, Teng, Tng, Chor, Phee, Kang, Wan, Phua, Phang, Neo, Chee, Chwee, ...):
+# real, documented romanizations, but past what a model reliably recalls from memory.
+CN_PINYIN_STEMS = [pinyin for pinyin in HOKKIEN_SURNAME if HOKKIEN_SURNAME[pinyin] not in COMMON_HOKKIEN]
 CANTONESE_OF = {pinyin: cant for pinyin, cant in CHINESE_SURNAME}
 HOKKIEN_OF = dict(HOKKIEN_SURNAME)
 
@@ -468,14 +473,10 @@ def chinese_entity_stem(rng, pinyin, conventions):
     # over Wade-Giles (which a strong solver can implement from rules) to keep the held-out batch hard.
     # Hokkien surname romanizations (Teo, Ong, Goh, Sng, Beh, Phua, ...) are the least rule-derivable and
     # the least likely to be recalled from memory, so batch B leans on them; Cantonese is the fallback.
-    weighted = []
-    if "hokkien" in conventions and pinyin in HOKKIEN_OF:
-        weighted += [HOKKIEN_OF[pinyin].capitalize()] * 5
-    if "cantonese" in conventions and pinyin in CANTONESE_OF:
-        weighted += [CANTONESE_OF[pinyin].capitalize()] * 1
-    weighted = [a for a in weighted if a and a.lower() != pinyin.lower()]
-    if weighted and rng.random() < 0.9:
-        return rng.choice(weighted)
+    if "hokkien" in conventions and pinyin in HOKKIEN_OF and HOKKIEN_OF[pinyin].lower() != pinyin.lower():
+        return HOKKIEN_OF[pinyin].capitalize()
+    if "cantonese" in conventions and pinyin in CANTONESE_OF and CANTONESE_OF[pinyin].lower() != pinyin.lower():
+        return CANTONESE_OF[pinyin].capitalize()
     return pinyin.capitalize()
 
 
@@ -683,7 +684,7 @@ def build_watchlist(rng, n_ind=1400, n_ent=520, n_ves=180):
     cn_used_by_line = {}  # line -> set of Cantonese/pinyin forms already listed, so no two collide
     while len(entity_names) < n_ent:
         line = pick(rng, ENTITY_LINES)
-        if rng.random() < 0.5:
+        if rng.random() < 0.6:
             stem = pick(rng, CN_PINYIN_STEMS)
             clash = {stem.lower(), CANTONESE_OF.get(stem, "").lower(), HOKKIEN_OF.get(stem, "").lower(),
                      wade_giles(stem.lower())}
