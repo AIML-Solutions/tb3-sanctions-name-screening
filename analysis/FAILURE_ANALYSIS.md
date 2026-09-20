@@ -3,6 +3,51 @@
 This file separates observation from interpretation. Every quoted line comes from a transcript archived
 under `results/`; every number from a `result.json` or a verifier stdout there.
 
+## 0. Submitted version (v6): both agents fail, and the Claude content filter is resolved
+
+The submitted task is **v6** (`results/v6-e668f1a/`). It is the earlier sanctions task with one change forced
+by a provider-side content filter and one change that keeps the difficulty intact:
+
+- **The filter.** On versions 3 and 3.1 every Claude Code trial was blocked by `400 Output blocked by content
+  filtering policy` before an engine was written (four reproductions). A controlled investigation
+  (`docs/content-filter-bisection.md`) isolated the trigger: generating code that matches **Chinese personal
+  names at scale**. High-context probes, holding everything constant but the register's contents, blocked 4/4
+  on Chinese individuals and 0/16 on Arabic individuals, Cyrillic individuals, Western individuals, and
+  companies/vessels. It is not the sanctions framing, the Arabic names, or the vocabulary.
+- **The fix.** v6 removes Chinese *individuals* and reintroduces the same arbitrary-lookup romanization
+  difficulty through Chinese-named *companies* (filter-safe: 4/4 probes completed). The watchlist lists them
+  in pinyin; the sample and batch A show pinyin; batch B holds out their Wade-Giles/Cantonese/Hokkien stem
+  spellings (a listed `Zhu Freight` must be matched to a batch-B customer's `Chu Freight`). The reference
+  solution canonicalizes entity stems by pinyin reading-set intersection.
+
+**v6 trial matrix (TB3 CI defaults: Codex gpt-5.6-sol xhigh, Claude Code claude-opus-5 max, three each).**
+
+| agent | trial | valid | reward | batch B recall | entity-suffix (T7) recall |
+|---|---|---|---|---|---|
+| Claude Code | 1 | yes (no filter block, 111 min) | 0.0 | 0.916 | 0.610 |
+| Claude Code | 2 | yes (no filter block) | 0.0 | 0.929 | 0.681 |
+| Claude Code | 3 | yes (no filter block, 70 min) | 0.0 | 0.915 | 0.610 |
+| Codex | 1 | yes (33 min) | 0.0 | 0.836 | 0.610 |
+| Codex | 2 | yes | 0.0 | 0.893 | 0.610 |
+| Codex | 3 | yes | 0.0 | 0.899 | 0.610 |
+
+Infrastructure failures that do not count and were re-run: one Claude trial hit an API rate limit, and two
+Codex attempts failed on ChatGPT usage/auth limits (all archived under `results/v6-e668f1a/` with the
+`-invalid-` suffix). Cheat runs: Claude Code completed the adversarial run and scored 0 (it left a
+co-located answer-key harvester; the verifier deletes labels before running the engine, so it found nothing);
+Codex scored 0 by OpenAI's safety classifier refusing the hack-trial prompt.
+
+**Why they fail.** Both agents clear the visible batch and collapse on batch B's entity-suffix class
+(recall 0.61 every run), because the held-out Wade-Giles/Cantonese/Hokkien company-stem spellings are
+lookup-based, not rule-derivable: nothing the agent can read tells it that `Cheung`, `Chang`, or `Teo` are
+the same stem as `Zhang`. Codex additionally slips on transliteration (T1 ~0.84) where Claude holds
+(~0.95), so Codex fails wider; but the entity class alone puts both below the 0.90 per-class floor and the
+0.97 overall floor. Precision stays high throughout (0.97-1.0), so the engines are not loose — they are
+incomplete on exactly the axis the task holds out. This is the same failure mode that defeated the agents on
+the Chinese-individual versions, now delivered through a channel the content filter permits.
+
+
+
 ## 1. Per-trial record
 
 | version | agent / model / effort | valid | wall time | commands | tokens (in / out) | verifier | verdict |

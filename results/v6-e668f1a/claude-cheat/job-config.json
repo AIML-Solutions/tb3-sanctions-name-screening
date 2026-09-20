@@ -1,0 +1,18 @@
+{
+    "jobs_dir": "/tmp/claude-1000/-home-dennis/df25b411-c284-408b-9aa9-ba0b160c27d1/scratchpad/v6-claude-cheat",
+    "n_concurrent_trials": 1,
+    "agents": [
+        {
+            "name": "claude-code",
+            "model_name": "anthropic/claude-opus-5",
+            "kwargs": {
+                "reasoning_effort": "max"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "path": "build/cheat-v6/sanctions-name-screening"
+        }
+    ]
+}
