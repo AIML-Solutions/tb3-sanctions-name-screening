@@ -6,7 +6,7 @@
 #   scripts/reproduce.sh --docker   # also harbor oracle/nop in Docker (needs uv + Docker)
 set -eu
 root=$(cd "$(dirname "$0")/.." && pwd)
-task=tasks/${TASK:-archive-record-linkage}
+task=tasks/${TASK:-sanctions-name-screening}
 cd "$root"
 
 echo "== 1. data determinism (generator rebuilds every data file byte for byte)"
