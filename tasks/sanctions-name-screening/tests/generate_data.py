@@ -457,7 +457,8 @@ def romanize_russian(rng, given, surname, patronymic, conventions, k, female):
 
 
 COMMON_HOKKIEN = {"Tan", "Lim", "Ong", "Goh", "Teo", "Lee", "Yeo", "Koh", "Ho", "Chua", "Toh", "Tay",
-                  "Sim", "Chia", "Yap", "Low", "Song", "Han"}  # romanizations a model is likely to know
+                  "Sim", "Chia", "Yap", "Low", "Song", "Han", "Loo", "Loh", "Choo", "Chew", "Ng",
+                  "Oh"}  # romanizations a model is likely to reconstruct; listed stems avoid these
 # Chinese company stems used on the list are drawn from surnames whose Hokkien spelling is obscure
 # (Ooi, Sng, Beh, Quek, Kor, Loh, Teng, Tng, Chor, Phee, Kang, Wan, Phua, Phang, Neo, Chee, Chwee, ...):
 # real, documented romanizations, but past what a model reliably recalls from memory.
@@ -684,7 +685,7 @@ def build_watchlist(rng, n_ind=1400, n_ent=520, n_ves=180):
     cn_used_by_line = {}  # line -> set of Cantonese/pinyin forms already listed, so no two collide
     while len(entity_names) < n_ent:
         line = pick(rng, ENTITY_LINES)
-        if rng.random() < 0.6:
+        if rng.random() < 0.72:
             stem = pick(rng, CN_PINYIN_STEMS)
             clash = {stem.lower(), CANTONESE_OF.get(stem, "").lower(), HOKKIEN_OF.get(stem, "").lower(),
                      wade_giles(stem.lower())}
