@@ -5,22 +5,31 @@ contribution bar: the TB3 static checks and rubric review, oracle 1.0 / nop 0.0 
 frontier coding agents that TB3 CI runs by default (Codex `gpt-5.6-sol` at `xhigh`, Claude Code
 `claude-opus-5` at `max`), including trials where the agents are told to cheat.
 
-**Status:** see [Results](#results) for what has actually been run against which version of the task.
-The task grades the agent's *engine* on a second batch it never sees, using romanization conventions absent
-from everything the agent can read. It went through several versions as the frontier agents beat earlier
-ones (v1 leaked class order through sequential ids; v2 was solvable by calibrating on the sample and mining
-the visible batch). The submitted version is **v6** (`results/v6-e668f1a/`): **Claude Code fails all three
-standard trials (reward 0, batch B recall 0.916 / 0.929 / 0.915) and its cheat run scores 0; Codex fails as
-well (batch B recall 0.836).**
+**Status (honest summary).** The submitted version is `results/final-c3d44e4/`. On it, **Codex
+(`gpt-5.6-sol`, xhigh) fails all three standard trials** (reward 0; batch B recall 0.911 / 0.917 / 0.890,
+missing the transliteration and Chinese-company-romanization floors), and **both cheat runs score 0**
+(the verifier is not gameable). **Claude Code (`claude-opus-5`, max) solves the task all three times**
+(reward 1.0; batch B 0.988 / 0.992 / 0.993). So this task does **not** meet the assignment's bar of all three
+Claude Code trials failing: a fair, rubric-compliant version of this problem is within Claude Code's
+capability. It is submitted with that stated plainly, alongside two findings that came out of trying to
+reach the bar.
 
-**A note on the Claude Code content filter, and why v6 exists.** On the earlier versions, every Claude Code
-trial was blocked by the provider's output content filter before an engine was written. A controlled
-investigation ([`docs/content-filter-bisection.md`](docs/content-filter-bisection.md)) isolated the trigger
-to generating code that matches **Chinese personal names at scale** (16/16 non-Chinese high-context probes
-completed; 4/4 Chinese-individual probes were blocked) — not the sanctions framing, not Arabic or Cyrillic
-names. v6 removes Chinese *individuals* and instead carries the same arbitrary-lookup romanization difficulty
-through Chinese-named *companies*, which the filter permits. Claude Code then runs to completion and fails the
-task honestly.
+**Finding 1 — a content filter that blocks matching Chinese *individuals*.** Early versions used Chinese
+personal names for difficulty, and every Claude Code trial was blocked by the provider's output content
+filter before an engine was written. A controlled investigation
+([`docs/content-filter-bisection.md`](docs/content-filter-bisection.md)) isolated the trigger to generating
+code that matches Chinese personal names at scale (16/16 non-Chinese high-context probes completed; 4/4
+Chinese-individual probes were blocked) — not the sanctions framing, not Arabic or Cyrillic names. The task
+was redesigned to carry the same romanization difficulty through Chinese *companies*, which the filter
+permits, so Claude Code runs to completion.
+
+**Finding 2 — the fair-difficulty ceiling.** Once the graded convention is disclosed (required for a
+rubric-fair task), Claude Code at max effort reconstructs even obscure Wade-Giles/Cantonese/Hokkien
+company-name romanizations well enough to clear the floors. Every clean, full-budget Claude Code run on a
+fair version passes (0.976–0.993). The only Claude "failures" observed were on an *undisclosed* grading axis
+(which is unfair and fails the implementation rubric) or on runs cut short by API limits. Codex, being
+weaker, fails the fair task. The honest conclusion: a fair version of this task defeats Codex but not Claude
+Code. The full version history and trial data are under [`results/`](results/).
 
 The task itself lives in [`tasks/sanctions-name-screening/`](tasks/sanctions-name-screening/) in the
 exact layout TB3 expects, so it can be dropped into a TB3 pull request as-is.
@@ -99,32 +108,30 @@ All runs are recorded under [`results/`](results/) (harbor `result.json`, verifi
 summarised in [`results/README.md`](results/README.md); nothing is edited by hand. Version = git commit the
 run evaluated. Final status as of 2026-09-16; the trial matrix below is complete except where a platform limitation is noted.
 
-### Gates on the submitted version (v6, `results/v6-e668f1a/`: Chinese individuals removed and the arbitrary-lookup romanization difficulty carried by Chinese-named companies whose Wade-Giles/Cantonese stems are held out to batch B)
+### Gates on the submitted version (`results/final-c3d44e4/`: Chinese individuals removed for filter-safety; the disclosed Chinese-company romanization difficulty is held out to batch B)
 
 | gate | result | evidence |
 |---|---|---|
 | TB3 static checks (22, byte-identical to upstream CI) | pass, 0 failures | run `scripts/reproduce.sh` |
 | rubric review (35 criteria, TB3 rubric, independent reviewer per version) | v1 26/6/3, v2 28/4/3, v3 28/3/2, **submitted tree 34/0/1** (the reviewer re-ran the checks, the verifier and the generator itself); every fail fixed and re-checked | `results/*/rubric-verdicts.json` |
-| Docker build | clean | `results/v6-e668f1a/` |
+| Docker build | clean | `results/final-c3d44e4/` |
 | oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B); A 0.990 / 0.998, B 0.991 / 0.990, dev 0.990 / 1.0 | `results/v6-e668f1a/` |
-| nop | reward 0.0 | `results/v6-e668f1a/` |
+| nop | reward 0.0 | `results/final-c3d44e4/` |
 | unit tests (policy regressions) | 7/7 | `scripts/tests/` |
 | verifier cheat probes (author-written engines that hunt for labels or run the generator inside the verifier) | reward 0 | `results/v3-2ebb652/cheat-probe-*` |
 
 ### Standard trials
 
-**v6 (submitted). Both agents fail all three standard trials; Claude Code runs to completion with no content-filter block.**
+**Submitted version (`results/final-c3d44e4/`). Codex fails all three; Claude Code solves all three.**
 
-| version | agent | outcome | note |
-|---|---|---|---|
-| v6 | Claude Code claude-opus-5 max, trial 1 | **reward 0.0**, 111 min, no filter block | batch B recall 0.916; entity-suffix recall 0.610 (held-out Chinese company spellings) |
-| v6 | Claude Code claude-opus-5 max, trial 2 | **reward 0.0**, no filter block | batch B recall 0.929; entity-suffix 0.681 |
-| v6 | Claude Code claude-opus-5 max, trial 3 | **reward 0.0**, 70 min, no filter block | batch B recall 0.915; entity-suffix 0.610 (a first attempt hit an API rate limit and was re-run; the invalid one is archived, not counted) |
-| v6 | Codex gpt-5.6-sol xhigh, trial 1 | **reward 0.0**, 33 min | batch B recall 0.836; entity-suffix 0.610, transliteration 0.838 |
-| v6 | Codex gpt-5.6-sol xhigh, trial 2 | **reward 0.0** | batch B recall 0.893; entity-suffix 0.610 |
-| v6 | Codex gpt-5.6-sol xhigh, trial 3 | **reward 0.0** | batch B recall 0.899; entity-suffix 0.610 |
+| agent | trial 1 | trial 2 | trial 3 | outcome |
+|---|---|---|---|---|
+| Codex gpt-5.6-sol xhigh | reward 0.0, B 0.911 | reward 0.0, B 0.917 | reward 0.0, B 0.890 | **fails 3/3** (transliteration + Chinese-company floors) |
+| Claude Code claude-opus-5 max | reward 1.0, B 0.988 | reward 1.0, B 0.992 | reward 1.0, B 0.993 | **passes 3/3** |
 
-The rows below are the earlier versions, kept as the iteration record.
+Cheat runs: Codex 0 (safety-classifier refusal), Claude Code 0 (found no bypass; left a genuine engine that
+still failed batch B). This does not meet the "all three Claude trials fail" bar — see the honest status
+above. The rows below are the earlier versions, kept as the iteration record.
 
 
 | version | agent | outcome | note |

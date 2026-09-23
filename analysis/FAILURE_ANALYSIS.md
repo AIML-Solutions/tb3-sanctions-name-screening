@@ -1,5 +1,39 @@
 # Failure analysis
 
+## 0. Final outcome (submitted version `c3d44e4`): honest result
+
+**Codex fails the task 3/3; Claude Code solves it 3/3.** The assignment's bar — all three Claude Code trials
+failing — is **not met**, and this is stated plainly because a fair, rubric-compliant version of this task is
+within Claude Code's capability at max effort.
+
+| agent (TB3 CI defaults) | trial 1 | trial 2 | trial 3 | verdict |
+|---|---|---|---|---|
+| Codex gpt-5.6-sol xhigh | reward 0, B 0.911 | reward 0, B 0.917 | reward 0, B 0.890 | fails 3/3 (transliteration + Chinese-company floors) |
+| Claude Code claude-opus-5 max | reward 1.0, B 0.988 | reward 1.0, B 0.992 | reward 1.0, B 0.993 | solves 3/3 |
+
+Cheat runs: Codex 0 (OpenAI safety-classifier refusal); Claude Code 0 (completed the adversarial run, found
+no bypass, left a genuine engine that failed batch B). The verifier is not gameable.
+
+**How the result was reached, honestly.** The task grades a hidden batch that uses romanization conventions
+named in the policy but absent from the sample. Two things were learned trying to make it defeat Claude:
+
+- *Content filter.* Early versions used Chinese personal names; every Claude Code run was blocked by the
+  provider's output filter before an engine existed. Controlled high-context probes isolated the trigger to
+  matching **Chinese individuals** at scale (16/16 non-Chinese probes completed; 4/4 Chinese-individual
+  probes blocked), independent of the sanctions framing or Arabic/Cyrillic names
+  (`docs/content-filter-bisection.md`). The difficulty was moved to Chinese **companies**, which the filter
+  permits.
+- *Capability ceiling.* With the graded convention **undisclosed**, Claude failed — but that is unfair and
+  fails the implementation rubric (a rubric review flagged exactly this). Once the convention is **disclosed**
+  (fair), every clean full-budget Claude run passes (0.976–0.993), reconstructing even obscure
+  Wade-Giles/Cantonese/Hokkien company-name romanizations. The only Claude "failures" were on the undisclosed
+  (unfair) version or on API-cut-short runs. So a fair version defeats Codex but not Claude Code.
+
+The material below is the earlier, version-by-version record kept for transparency; where it says an earlier
+version made Claude "fail", that was either the undisclosed/unfair configuration or an infrastructure-cut run,
+as this section explains.
+
+
 This file separates observation from interpretation. Every quoted line comes from a transcript archived
 under `results/`; every number from a `result.json` or a verifier stdout there.
 
