@@ -1,0 +1,125 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-09-22T20:55:45.668651+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.1.1"
+        },
+        "summary": {
+            "tests": 10,
+            "passed": 8,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1790110543731,
+            "stop": 1790110545668
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_decisions.py::test_overall_recall",
+                "status": "passed",
+                "duration": 8,
+                "start": 1790110543759,
+                "stop": 1790110543767,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_overall_precision",
+                "status": "passed",
+                "duration": 0,
+                "start": 1790110543767,
+                "stop": 1790110543767,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_matched_uid_accuracy",
+                "status": "passed",
+                "duration": 1,
+                "start": 1790110543767,
+                "stop": 1790110543768,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_recall",
+                "status": "passed",
+                "duration": 0,
+                "start": 1790110543768,
+                "stop": 1790110543768,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_false_positives",
+                "status": "passed",
+                "duration": 0,
+                "start": 1790110543769,
+                "stop": 1790110543769,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_overall_recall",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 1893,
+                "start": 1790110543769,
+                "stop": 1790110545662,
+                "retries": 0,
+                "file_path": "test_decisions.py",
+                "trace": "graded = ('B', ({'tp': 1109, 'fp': 1, 'fn': 108, 'tp_uid_ok': 1108}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f5973..., 'T12_script_customer': {'n': 42, 'hit': 42, 'fp': 0}, 'T5_alias_weak_corroborated': {'n': 13, 'hit': 13, 'fp': 0}})))\n\n    def test_overall_recall(graded):\n        batch, (stats, _) = graded\n        total = stats[\"tp\"] + stats[\"fn\"]\n        recall = stats[\"tp\"] / total if total else 0.0\n        print(f\"[{batch}] recall={recall:.4f} (tp={stats['tp']}, fn={stats['fn']})\")\n>       assert recall >= MIN_RECALL, f\"batch {batch}: recall {recall:.4f} < {MIN_RECALL}\"\nE       AssertionError: batch B: recall 0.9113 < 0.97\nE       assert 0.9112571898110107 >= 0.97\n\ntest_decisions.py:139: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_decisions.py::test_overall_precision",
+                "status": "passed",
+                "duration": 0,
+                "start": 1790110545662,
+                "stop": 1790110545662,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_matched_uid_accuracy",
+                "status": "passed",
+                "duration": 1,
+                "start": 1790110545662,
+                "stop": 1790110545663,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_recall",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 4,
+                "start": 1790110545663,
+                "stop": 1790110545667,
+                "retries": 0,
+                "file_path": "test_decisions.py",
+                "trace": "graded = ('B', ({'tp': 1109, 'fp': 1, 'fn': 108, 'tp_uid_ok': 1108}, defaultdict(<function _grade.<locals>.<lambda> at 0x7f5973..., 'T12_script_customer': {'n': 42, 'hit': 42, 'fp': 0}, 'T5_alias_weak_corroborated': {'n': 13, 'hit': 13, 'fp': 0}})))\n\n    def test_per_class_recall(graded):\n        batch, (_, per_class) = graded\n        failures = []\n        for klass, s in sorted(per_class.items()):\n            if klass.startswith(\"T\"):\n                recall = s[\"hit\"] / s[\"n\"] if s[\"n\"] else 1.0\n                print(f\"[{batch}] {klass}: recall={recall:.4f} ({s['hit']}/{s['n']})\")\n                if recall < MIN_CLASS_RECALL and s[\"n\"] >= MIN_CLASS_SIZE:\n                    failures.append(f\"{klass}={recall:.3f}\")\n>       assert not failures, f\"batch {batch}: per-class recall below {MIN_CLASS_RECALL}: {', '.join(failures)}\"\nE       AssertionError: batch B: per-class recall below 0.9: T10_stacked=0.804, T13_id_unlisted_name_match=0.859, T1_translit=0.899, T2_script=0.892, T3_structure=0.896, T7_entity_suffix=0.891, T9_dob_partial=0.898\nE       assert not ['T10_stacked=0.804', 'T13_id_unlisted_name_match=0.859', 'T1_translit=0.899', 'T2_script=0.892', 'T3_structure=0.896', 'T7_entity_suffix=0.891', ...]\n\ntest_decisions.py:166: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_decisions.py::test_per_class_false_positives",
+                "status": "passed",
+                "duration": 1,
+                "start": 1790110545667,
+                "stop": 1790110545668,
+                "retries": 0,
+                "file_path": "test_decisions.py"
+            }
+        ]
+    }
+}
