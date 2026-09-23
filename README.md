@@ -44,7 +44,7 @@ Russian), name-order and particle variation, patronymics and nasab chains, nickn
 aliases, partial dates of birth and identifiers. The batch is seeded with look-alikes that must not be
 flagged. The verifier grades the decisions against hidden labels with both a recall floor and a
 precision floor, per variation class, and then runs the agent's engine (`/app/screen.py`, standard
-library only) on a second batch that exists only in the verifier image, with four romanization
+library only) on a second batch that exists only in the verifier image, with several romanization
 conventions the agent never saw, to the same bars. That is the model-validation bar a bank applies
 before trusting a vendor screening engine: a held-out batch, and generic fuzzy matching trades one
 floor against the other.
@@ -105,17 +105,16 @@ image and never into the agent's environment.
 ## Results
 
 All runs are recorded under [`results/`](results/) (harbor `result.json`, verifier stdout, agent transcripts) and
-summarised in [`results/README.md`](results/README.md); nothing is edited by hand. Version = git commit the
-run evaluated. Final status as of 2026-09-16; the trial matrix below is complete except where a platform limitation is noted.
+summarised in [`results/README.md`](results/README.md); nothing is edited by hand. Version = git commit the run evaluated. The matrix below is complete on the submitted version; earlier versions are kept as the iteration record.
 
 ### Gates on the submitted version (`results/final-c3d44e4/`: Chinese individuals removed for filter-safety; the disclosed Chinese-company romanization difficulty is held out to batch B)
 
 | gate | result | evidence |
 |---|---|---|
 | TB3 static checks (22, byte-identical to upstream CI) | pass, 0 failures | run `scripts/reproduce.sh` |
-| rubric review (35 criteria, TB3 rubric, independent reviewer per version) | v1 26/6/3, v2 28/4/3, v3 28/3/2, **submitted tree 34/0/1** (the reviewer re-ran the checks, the verifier and the generator itself); every fail fixed and re-checked | `results/*/rubric-verdicts.json` |
+| implementation-rubric review (independent reviewer per version) | run each version; the review of the entity-based redesign flagged one fairness fail (the Chinese-company convention was graded but not disclosed), which the submitted version fixes by disclosing it in the instruction and policy | `results/*/rubric-verdicts.json` |
 | Docker build | clean | `results/final-c3d44e4/` |
-| oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B); A 0.990 / 0.998, B 0.991 / 0.990, dev 0.990 / 1.0 | `results/v6-e668f1a/` |
+| oracle (reference solution) | reward 1.0, 10/10 verifier tests (batch A decisions + engine on batch B); A 0.991 / 0.998, B 0.989 / 0.997, dev 0.990 / 1.0 | `results/final-c3d44e4/` |
 | nop | reward 0.0 | `results/final-c3d44e4/` |
 | unit tests (policy regressions) | 7/7 | `scripts/tests/` |
 | verifier cheat probes (author-written engines that hunt for labels or run the generator inside the verifier) | reward 0 | `results/v3-2ebb652/cheat-probe-*` |
@@ -150,13 +149,11 @@ above. The rows below are the earlier versions, kept as the iteration record.
 
 ### Adversarial (/cheat) trials
 
-Both agents' cheat runs score 0 on the submitted version (v6). Claude Code completed the adversarial run and
-left a co-located answer-key harvester as the engine; the verifier deletes its label files before running the
-engine, so it found nothing and failed every floor (reward 0) — the verifier is not exploitable. Codex was
-ended by OpenAI's own safety classifier refusing the hack-trial prompt (reward 0, no engine written), as on
-the earlier versions. The verifier's threat model and author-run probes (label-hunting and
-generator-execution engines, all reward 0) are in `results/v6-e668f1a/`, `results/README.md` and
-`analysis/FAILURE_ANALYSIS.md`.
+Both cheat runs score 0 on the submitted version (`results/final-c3d44e4/`). Claude Code completed the
+adversarial run, found no bypass, and left a genuine engine that then failed the hidden batch (9/10 verifier
+tests pass, overall-recall on batch B fails) — the verifier is not exploitable. Codex was ended by OpenAI's
+own safety classifier refusing the hack-trial prompt (reward 0, no engine written). Author-run probes
+(label-hunting and generator-execution engines, all reward 0) are in `results/v3-2ebb652/cheat-probe-*`.
 
 ## Why the agents fail
 
@@ -166,9 +163,12 @@ vocabulary was small enough to enumerate from the labelled sample. On version 2 
 matcher on the sample and then mined the unlabeled batch for unmatched near-hits with consistent dates,
 learning the held-out conventions from the batch itself. Version 3 grades the agent's engine on a batch it
 never sees, with four romanization conventions named in the instruction but absent from every file the agent
-can read. Every engine Codex produced on version 3, including the three full-length trials, clears the visible
-batch and misses the unseen one in the transliteration-bearing classes while keeping precision above 0.997: the engines are not loose,
-they are incomplete, and the batch they cannot see is what exposes it.
+can read. On the submitted version Codex fails all three trials: every engine it produces clears the visible batch and
+misses the held-out batch in the transliteration and Chinese-company-romanization classes, while keeping
+precision high — the engines are incomplete, not loose, and the batch they cannot see is what exposes it.
+Claude Code, by contrast, reconstructs even the obscure held-out romanizations and clears the floors, which
+is why it solves the fair task and this submission is honest that the "all three Claude trials fail" bar is
+not met.
 
 ## Reviewer notes and known limitations
 
@@ -178,10 +178,12 @@ Points a careful reviewer will raise, answered rather than hidden:
   generator with its seeds) is public now, as it is for every merged TB3 task; an open-internet agent that
   fetched it could reconstruct the labels. That is the benchmark-wide exposure of any `tests/` directory,
   guarded by the "do not cheat" trailer, and it does not affect the recorded results.
-- **Batch B's conventions are named on purpose.** The instruction and the policy tell the agent which four
-  conventions the unseen batch adds, with example spellings. The task is to implement transliteration
-  rules, not to guess which languages exist; the three Codex trials show that knowing the list is not the
-  same as clearing it (0.924 to 0.951 recall on B with the list in hand).
+- **Batch B's conventions are named on purpose.** The instruction and policy name the conventions the unseen
+  batch adds (Turkish/Indonesian spellings of Arabic names, scientific and Polish spellings of Russian names,
+  and Chinese company names under Wade-Giles/Cantonese/Hokkien) without giving the mappings. The task is to
+  implement the rules, not to guess which languages exist. Codex fails it anyway (batch B recall 0.911 /
+  0.917 / 0.890 with the conventions named); Claude Code reconstructs them and passes — see the honest status
+  at the top.
 - **Verifier resource limits.** The batch-B engine runs under `prlimit` with a 2 GiB address space, 50 MB
   file size and 64 processes, matching the verifier container's 2048 MB memory in `task.toml`; the
   instruction states one core and 300 s. The reference solution uses about 3 s and well under 200 MB.
@@ -203,11 +205,13 @@ Points a careful reviewer will raise, answered rather than hidden:
   in the agent's container reveals a label; the public dev sample is a second draw from the same
   generator with a different seed, so the policy is learnable but the batch is not.
 - **A batch the agent never sees.** Batch B (verifier image only) has new customers against the same
-  list and four further romanization conventions, named in the instruction and policy (Turkish and
-  Indonesian spellings of Arabic names, scientific transliteration of Russian, Hokkien/Teochew Chinese
-  surnames). The verifier deletes its label files from disk before running the engine, runs it as an
-  unprivileged user with a 300 s budget, and applies the same floors. An engine that reproduces the
-  spellings it can see does not clear them; one that implements the policy does.
+  list and further romanization conventions, named in the instruction and policy but absent from the sample:
+  Turkish and Indonesian spellings of Arabic names, scientific and Polish transliteration of Russian, and
+  Chinese *company* names under Wade-Giles/Cantonese/Hokkien romanization (individuals are Arabic, Persian,
+  Russian and Western only, for a content-filter reason documented in `docs/content-filter-bisection.md`).
+  The verifier deletes its label files from disk before running the engine, runs it as an unprivileged user
+  with a 300 s budget, and applies the same floors. An engine that reproduces the spellings it can see does
+  not clear them; one that implements the policy does.
 - **Two floors per class.** Overall recall and precision at least 0.97, recall at least 0.90 in each
   of thirteen true-match classes (transliteration, script-only, structure, strong alias, corroborated
   weak alias, identifier, entity suffix, vessel prefix, partial DOB, stacked conventions, twins,
@@ -219,11 +223,11 @@ Points a careful reviewer will raise, answered rather than hidden:
 - **Stdlib-only reference solution.** `solution/screen.py` (transliteration tables, a phonological
   slot model for vowels, Wade-Giles reading sets, a small name lexicon, role-aware alignment, the policy
   rules) proves the task is solvable inside the environment with no network and no extra packages. It
-  scores 0.996 recall / 1.000 precision on batch A and 0.999 / 0.998 on batch B, deliberately not 100%: the remaining misses
-  are documented rule gaps, and `docs/oracle-iterations.md` records every change and its effect.
-- **A sample, not a census.** The development sample is generated with four romanization conventions;
-  the batch uses ten. The instruction says so. A matcher that reproduces the sample's spellings does not
-  clear the per-class floors on the batch.
+  scores about 0.991 recall / 0.998 precision on batch A and 0.989 / 0.997 on batch B, deliberately not 100%:
+  the remaining misses are documented rule gaps, and `docs/oracle-iterations.md` records every change and its effect.
+- **A sample, not a census.** The development sample is generated with a subset of the romanization
+  conventions; batch A and the hidden batch add several more, named in the instruction. A matcher that
+  reproduces the sample's spellings does not clear the per-class floors on the batch.
 - **Synthetic, realistic data.** Name pools, romanization variants, alias conventions, partial dates
   and identifier formats follow list-publisher practice (OFAC SDN, HMT, EU), but no entry corresponds
   to a real listed party.
